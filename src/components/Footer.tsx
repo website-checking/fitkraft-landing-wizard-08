@@ -1,6 +1,7 @@
 
 import React from "react";
-import { Mail, Phone, MapPin, Instagram, Twitter, Facebook, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,35 +10,34 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="text-2xl font-display font-bold mb-6">
-              FitKraft<span className="text-primary">.</span>
+              FitKraft<span className="text-primary">.</span>studio
             </div>
             <p className="text-fitkraft-300 mb-6 max-w-xs">
-              Transforming fitness journeys through technology, expertise, and community.
+              Transforming fitness journeys in Karve Nagar, Pune through expert training, supportive community, and world-class facilities.
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/fitkraftstudio" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-fitkraft-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
-                className="h-10 w-10 rounded-full bg-fitkraft-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.facebook.com/fitkraftstudio" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-fitkraft-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/fitkraftstudio" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-fitkraft-800 flex items-center justify-center hover:bg-primary transition-colors duration-300"
                 aria-label="YouTube"
               >
@@ -50,37 +50,43 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#features" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Features</a>
+                <Link to="/" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Home</Link>
               </li>
               <li>
-                <a href="#testimonials" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Testimonials</a>
+                <Link to="/about-us" className="text-fitkraft-300 hover:text-white transition-colors duration-300">About Us</Link>
               </li>
               <li>
-                <a href="#pricing" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Pricing</a>
+                <Link to="/services" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Services</Link>
               </li>
               <li>
-                <a href="#" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Blog</a>
+                <a href="/#testimonials" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Testimonials</a>
               </li>
               <li>
-                <a href="#" className="text-fitkraft-300 hover:text-white transition-colors duration-300">FAQ</a>
+                <a href="/#pricing" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Membership</a>
+              </li>
+              <li>
+                <Link to="/contact" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Contact</Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6">Legal</h3>
+            <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Terms of Service</a>
+                <a href="/services#strength" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Strength Training</a>
               </li>
               <li>
-                <a href="#" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Privacy Policy</a>
+                <a href="/services#yoga" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Yoga Classes</a>
               </li>
               <li>
-                <a href="#" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Cookie Policy</a>
+                <a href="/services#aerobics" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Aerobics & Dance</a>
               </li>
               <li>
-                <a href="#" className="text-fitkraft-300 hover:text-white transition-colors duration-300">GDPR Compliance</a>
+                <a href="/services#personal" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Personal Training</a>
+              </li>
+              <li>
+                <a href="/services#nutrition" className="text-fitkraft-300 hover:text-white transition-colors duration-300">Nutrition Guidance</a>
               </li>
             </ul>
           </div>
@@ -90,17 +96,18 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-3 text-fitkraft-400" />
-                <span className="text-fitkraft-300">support@fitkraft.studio</span>
+                <span className="text-fitkraft-300">info@fitkraft.studio</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-fitkraft-400" />
-                <span className="text-fitkraft-300">+1 (555) 123-4567</span>
+                <span className="text-fitkraft-300">+91 98765 43210</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-fitkraft-400" />
                 <span className="text-fitkraft-300">
-                  123 Fitness Avenue<br />
-                  San Francisco, CA 94158
+                  123 Fitness Street<br />
+                  Karve Nagar, Pune 411052<br />
+                  Maharashtra, India
                 </span>
               </li>
             </ul>
@@ -108,7 +115,10 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-fitkraft-800 text-center text-fitkraft-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} FitKraft Studio. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} FitKraft Studio. All rights reserved. | 
+            <span className="mx-2">FitKraft Studio is not affiliated with FitKraft Training & Nutrition.</span>
+          </p>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,27 +24,33 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-display font-bold text-fitkraft-950">
-            FitKraft<span className="text-primary">.</span>
-          </a>
+          <Link to="/" className="text-2xl font-display font-bold text-fitkraft-950">
+            FitKraft<span className="text-primary">.</span>studio
+          </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex items-center space-x-6">
-              <a href="#features" className="nav-link">
-                Features
-              </a>
-              <a href="#testimonials" className="nav-link">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+              <Link to="/about-us" className="nav-link">
+                About Us
+              </Link>
+              <Link to="/services" className="nav-link">
+                Services
+              </Link>
+              <a href="/#testimonials" className="nav-link">
                 Testimonials
               </a>
-              <a href="#pricing" className="nav-link">
-                Pricing
+              <a href="/#pricing" className="nav-link">
+                Membership
               </a>
-              <a href="#contact" className="nav-link">
+              <Link to="/contact" className="nav-link">
                 Contact
-              </a>
+              </Link>
             </nav>
-            <a href="#cta" className="btn-primary">
-              Get Started
+            <a href="/#cta" className="btn-primary">
+              Book a Free Class
             </a>
           </div>
 
@@ -65,40 +72,54 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md animate-fade-in">
           <nav className="flex flex-col space-y-4 px-6 py-8">
-            <a 
-              href="#features" 
+            <Link 
+              to="/" 
               className="text-fitkraft-900 hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Features
-            </a>
+              Home
+            </Link>
+            <Link 
+              to="/about-us" 
+              className="text-fitkraft-900 hover:text-primary py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            <Link 
+              to="/services" 
+              className="text-fitkraft-900 hover:text-primary py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
             <a 
-              href="#testimonials" 
+              href="/#testimonials" 
               className="text-fitkraft-900 hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
             </a>
             <a 
-              href="#pricing" 
+              href="/#pricing" 
               className="text-fitkraft-900 hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Pricing
+              Membership
             </a>
-            <a 
-              href="#contact" 
+            <Link 
+              to="/contact" 
               className="text-fitkraft-900 hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
-            </a>
+            </Link>
             <a 
-              href="#cta" 
+              href="/#cta" 
               className="btn-primary w-full text-center mt-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Get Started
+              Book a Free Class
             </a>
           </nav>
         </div>

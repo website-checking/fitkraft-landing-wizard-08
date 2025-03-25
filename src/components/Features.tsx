@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Dumbbell, Activity, Heart, LineChart, Clock, Zap } from "lucide-react";
+import { Dumbbell, Yoga, Music, Users, Clock, Heart } from "lucide-react";
 
 const FeatureCard = ({ 
   icon, 
@@ -31,33 +31,33 @@ const Features = () => {
   const features = [
     {
       icon: <Dumbbell className="h-6 w-6" />,
-      title: "Personalized Workouts",
-      description: "Custom workout plans tailored to your goals, fitness level, and available equipment."
+      title: "Strength Training",
+      description: "Expert-guided strength programs designed to build muscle, increase strength, and improve overall fitness."
     },
     {
-      icon: <Activity className="h-6 w-6" />,
-      title: "Progress Tracking",
-      description: "Monitor your performance, track achievements, and visualize your fitness journey."
+      icon: <Yoga className="h-6 w-6" />,
+      title: "Yoga Classes",
+      description: "Find balance and flexibility with our diverse yoga classes suitable for beginners and advanced practitioners."
     },
     {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Health Integration",
-      description: "Seamlessly connects with health apps to provide a comprehensive wellness overview."
+      icon: <Music className="h-6 w-6" />,
+      title: "Aerobics & Dance",
+      description: "High-energy cardio workouts that make burning calories enjoyable while improving cardiovascular health."
     },
     {
-      icon: <LineChart className="h-6 w-6" />,
-      title: "Advanced Analytics",
-      description: "Data-driven insights to optimize your training and maximize results."
+      icon: <Users className="h-6 w-6" />,
+      title: "Personal Training",
+      description: "One-on-one sessions with certified trainers focused on your specific fitness goals and needs."
     },
     {
       icon: <Clock className="h-6 w-6" />,
-      title: "Efficient Scheduling",
-      description: "Smart scheduling that fits workouts into your busy life, not the other way around."
+      title: "Flexible Scheduling",
+      description: "Multiple class times throughout the day to accommodate your busy lifestyle and routine."
     },
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Energy Optimization",
-      description: "Recommendations for nutrition and recovery to keep your energy levels at peak performance."
+      icon: <Heart className="h-6 w-6" />,
+      title: "Supportive Community",
+      description: "Join a family of fitness enthusiasts who motivate and support each other on their fitness journeys."
     }
   ];
 
@@ -66,10 +66,10 @@ const Features = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-display mb-4 text-3xl font-bold text-fitkraft-950 md:text-4xl opacity-0 animate-fade-in">
-            Cutting-Edge Features
+            Our Services
           </h2>
           <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
-            Our platform combines innovative technology with fitness expertise to deliver an unparalleled experience.
+            Comprehensive fitness programs designed for all levels at Pune's premier fitness studio
           </p>
         </div>
 

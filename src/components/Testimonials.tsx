@@ -5,26 +5,34 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    content: "FitKraft transformed my approach to fitness. The personalized workouts and analytics have helped me achieve results I never thought possible.",
-    author: "Sarah Johnson",
-    role: "Marathon Runner",
-    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+    content: "I've been a member of FitKraft Studio for 6 months, and the transformation in my fitness level is incredible. The trainers are knowledgeable and supportive, making each session challenging yet enjoyable.",
+    author: "Priya Sharma",
+    role: "Member since 2022",
+    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
     rating: 5
   },
   {
     id: 2,
-    content: "As a busy executive, I struggled to maintain a consistent fitness routine. FitKraft's smart scheduling and efficient workouts fit perfectly into my life.",
-    author: "Michael Chen",
-    role: "CEO, TechVision",
-    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+    content: "As a busy IT professional, finding time for fitness was always a challenge. FitKraft's flexible schedule and variety of classes helped me incorporate workouts into my hectic routine. Highly recommended!",
+    author: "Rahul Desai",
+    role: "Software Engineer",
+    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
     rating: 5
   },
   {
     id: 3,
-    content: "The data insights from FitKraft helped me break through my training plateau. I've seen more progress in 3 months than in my previous year of training.",
-    author: "Emma Rodriguez",
-    role: "CrossFit Athlete",
-    avatar: "https://randomuser.me/api/portraits/women/3.jpg",
+    content: "The yoga classes at FitKraft have been transformative for both my physical health and mental wellbeing. The studio's atmosphere is welcoming, and the instructors are truly exceptional.",
+    author: "Anjali Patil",
+    role: "Yoga Enthusiast",
+    avatar: "https://randomuser.me/api/portraits/women/4.jpg",
+    rating: 5
+  },
+  {
+    id: 4,
+    content: "After trying several gyms in Pune, I finally found my fitness home at FitKraft. The personal attention from trainers and the sense of community sets this studio apart from others in Karve Nagar.",
+    author: "Vikram Joshi",
+    role: "Regular Member",
+    avatar: "https://randomuser.me/api/portraits/men/5.jpg",
     rating: 5
   }
 ];
@@ -49,10 +57,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-display mb-4 text-3xl font-bold text-fitkraft-950 md:text-4xl opacity-0 animate-fade-in">
-            Success Stories
+            Member Success Stories
           </h2>
           <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
-            Hear from our community members who have transformed their fitness journey with FitKraft.
+            Hear from our community members who have transformed their fitness journey with FitKraft Studio
           </p>
         </div>
 

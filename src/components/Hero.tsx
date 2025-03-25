@@ -32,31 +32,31 @@ const Hero = () => {
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground mb-8 opacity-0 animate-fade-in">
             <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
-            Fitness Evolution Redefined
+            Premier Fitness Studio in Karve Nagar, Pune
           </div>
           <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-fitkraft-950 md:text-5xl lg:text-6xl opacity-0 animate-fade-in animate-delay-100">
-            Transform Your Fitness Journey with{" "}
-            <span className="text-primary">FitKraft</span>
+            Transform Your Body at{" "}
+            <span className="text-primary">FitKraft</span> Studio
           </h1>
           <p className="mb-10 text-lg text-fitkraft-700 md:text-xl opacity-0 animate-fade-in animate-delay-200">
-            Personalized fitness programs, expert coaching, and cutting-edge analytics
-            to help you achieve your best physical performance.
+            Join Pune's leading fitness community offering personalized strength training, 
+            yoga classes, and aerobics programs for all fitness levels.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in animate-delay-300">
             <a href="#cta" className="btn-primary">
-              Start Your Journey
+              Book a Free Class
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
             <a href="#features" className="btn-secondary">
-              Explore Features
+              Explore Our Services
             </a>
           </div>
           
           <div className="mt-16 opacity-0 animate-fade-in animate-delay-400">
             <div className="glass-panel rounded-2xl mx-auto overflow-hidden max-w-4xl">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2240"
-                alt="FitKraft Dashboard"
+                src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2675&q=80"
+                alt="FitKraft Studio in Pune"
                 className="w-full h-auto rounded shadow-lg transform hover:scale-[1.01] transition-transform duration-500"
                 loading="lazy"
               />

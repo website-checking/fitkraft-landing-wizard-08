@@ -29,7 +29,7 @@ const PricingCard = ({
       )}
       <h3 className="text-xl font-bold text-fitkraft-900 mb-2">{title}</h3>
       <div className="mb-4">
-        <span className="text-4xl font-bold text-fitkraft-950">{price}</span>
+        <span className="text-4xl font-bold text-fitkraft-950">₹{price}</span>
         <span className="text-fitkraft-600">/month</span>
       </div>
       <p className="text-fitkraft-700 mb-6">{description}</p>
@@ -58,42 +58,46 @@ const PricingCard = ({
 const CTASection = () => {
   const pricingPlans = [
     {
-      title: "Basic",
-      price: "$9.99",
+      title: "Basic Fitness",
+      price: "1,999",
       description: "Perfect for beginners starting their fitness journey",
       features: [
-        "Personalized workout plans",
-        "Basic progress tracking",
-        "Access to workout library",
-        "Email support"
+        "Access to gym facilities",
+        "2 group classes per week",
+        "Basic fitness assessment",
+        "Access to locker rooms",
+        "Validity: 1 month"
       ],
       isPopular: false,
       delay: 200
     },
     {
-      title: "Pro",
-      price: "$19.99",
-      description: "Advanced features for dedicated fitness enthusiasts",
+      title: "Premium Fitness",
+      price: "2,999",
+      description: "Comprehensive package for dedicated fitness enthusiasts",
       features: [
-        "Everything in Basic",
-        "Advanced analytics",
-        "Nutrition guidance",
-        "Priority support",
-        "Custom exercise library"
+        "Unlimited gym access",
+        "Unlimited group classes",
+        "1 personal training session",
+        "Nutritional consultation",
+        "Body composition analysis",
+        "Validity: 1 month"
       ],
       isPopular: true,
       delay: 300
     },
     {
-      title: "Elite",
-      price: "$29.99",
-      description: "Complete solution for performance-focused athletes",
+      title: "Elite Membership",
+      price: "3,999",
+      description: "Complete solution for performance-focused fitness goals",
       features: [
-        "Everything in Pro",
-        "1-on-1 coaching sessions",
-        "Recovery optimization",
-        "Advanced performance metrics",
-        "Exclusive content access"
+        "24/7 gym access",
+        "Unlimited group classes",
+        "4 personal training sessions",
+        "Customized workout plan",
+        "Comprehensive nutrition plan",
+        "Recovery support",
+        "Validity: 1 month"
       ],
       isPopular: false,
       delay: 400
@@ -105,10 +109,10 @@ const CTASection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-display mb-4 text-3xl font-bold text-fitkraft-950 md:text-4xl opacity-0 animate-fade-in">
-            Choose Your Plan
+            Membership Plans
           </h2>
           <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
-            Select the perfect package to accelerate your fitness journey.
+            Select the perfect package to kickstart your fitness journey at FitKraft Studio
           </p>
         </div>
 
@@ -132,13 +136,13 @@ const CTASection = () => {
               Ready to Transform Your Fitness?
             </h2>
             <p className="text-fitkraft-700 text-lg mb-8">
-              Join thousands of satisfied users who have revolutionized their fitness journey with FitKraft.
+              Join hundreds of satisfied members who have revolutionized their fitness journey with FitKraft Studio in Karve Nagar, Pune.
             </p>
             <a href="#" className="btn-primary text-lg px-8 py-4">
-              Start Your Free Trial <ArrowRight className="ml-2 h-5 w-5" />
+              Book a Free Trial Class <ArrowRight className="ml-2 h-5 w-5" />
             </a>
             <p className="text-fitkraft-600 mt-4 text-sm">
-              No credit card required. 14-day free trial.
+              No commitment required. Experience our studio first-hand.
             </p>
           </div>
         </div>
