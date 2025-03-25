@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Dumbbell, Yoga, Music, Users, Clock, Heart } from "lucide-react";
+import { Dumbbell, FlameIcon, Music, Users, Clock, Heart } from "lucide-react";
 
 const FeatureCard = ({ 
   icon, 
@@ -35,7 +35,7 @@ const Features = () => {
       description: "Expert-guided strength programs designed to build muscle, increase strength, and improve overall fitness."
     },
     {
-      icon: <Yoga className="h-6 w-6" />,
+      icon: <FlameIcon className="h-6 w-6" />,
       title: "Yoga Classes",
       description: "Find balance and flexibility with our diverse yoga classes suitable for beginners and advanced practitioners."
     },

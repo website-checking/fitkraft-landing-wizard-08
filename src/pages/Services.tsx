@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ChevronRight, Dumbbell, Yoga, Music, Heart, Clock, Users } from "lucide-react";
+import { ChevronRight, Dumbbell, FlameIcon, Music, Heart, Clock, Users } from "lucide-react";
 
 const ServiceCard = ({ 
   title, 
@@ -81,7 +81,7 @@ const Services = () => {
     {
       title: "Yoga Classes",
       description: "Find balance, flexibility and inner peace with our diverse yoga classes. Whether you're a beginner or advanced practitioner, our certified yoga instructors guide you through practices that benefit both body and mind.",
-      icon: <Yoga className="h-7 w-7" />,
+      icon: <FlameIcon className="h-7 w-7" />,
       benefits: [
         "Increased flexibility and range of motion",
         "Stress reduction and relaxation",
