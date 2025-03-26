@@ -25,15 +25,15 @@ const ServiceCard = ({
       <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
         {icon}
       </div>
-      <h3 className="text-2xl font-bold text-fitkraft-900 mb-3">{title}</h3>
-      <p className="text-fitkraft-700 mb-6">{description}</p>
+      <h3 className="text-2xl font-bold text-foreground mb-3">{title}</h3>
+      <p className="text-muted-foreground mb-6">{description}</p>
       
-      <h4 className="text-lg font-semibold text-fitkraft-900 mb-3">Benefits:</h4>
+      <h4 className="text-lg font-semibold text-foreground mb-3">Benefits:</h4>
       <ul className="space-y-2">
         {benefits.map((benefit, index) => (
           <li key={index} className="flex items-start">
             <ChevronRight className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
-            <span className="text-fitkraft-700">{benefit}</span>
+            <span className="text-muted-foreground">{benefit}</span>
           </li>
         ))}
       </ul>
@@ -131,10 +131,10 @@ const Services = () => {
         <section className="pt-32 pb-16 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center mb-16">
-              <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-fitkraft-950 md:text-5xl opacity-0 animate-fade-in">
+              <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl opacity-0 animate-fade-in">
                 Our <span className="text-primary">Services</span>
               </h1>
-              <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
+              <p className="text-muted-foreground text-lg opacity-0 animate-fade-in animate-delay-100">
                 Comprehensive fitness programs designed to transform your health and wellbeing
               </p>
             </div>
@@ -154,8 +154,8 @@ const Services = () => {
             
             <div className="bg-secondary/30 rounded-2xl p-8 md:p-12 mb-20 opacity-0 animate-fade-in animate-delay-500">
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-fitkraft-900 mb-4">Why Our Services Stand Out</h2>
-                <p className="text-fitkraft-700 max-w-3xl mx-auto">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Why Our Services Stand Out</h2>
+                <p className="text-muted-foreground max-w-3xl mx-auto">
                   At FitKraft Studio, we believe in delivering more than just workout sessions. Our approach combines scientific training methods, personalized attention, and a supportive community.
                 </p>
               </div>
@@ -166,16 +166,16 @@ const Services = () => {
                     <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-fitkraft-900 mb-2">{feature.title}</h3>
-                    <p className="text-fitkraft-700">{feature.description}</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
                   </div>
                 ))}
               </div>
             </div>
             
             <div className="text-center max-w-3xl mx-auto opacity-0 animate-fade-in animate-delay-600">
-              <h2 className="text-2xl font-bold text-fitkraft-900 mb-6">Ready to Transform Your Fitness?</h2>
-              <p className="text-fitkraft-700 mb-8">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Ready to Transform Your Fitness?</h2>
+              <p className="text-muted-foreground mb-8">
                 Take the first step toward a healthier, stronger you. Join FitKraft Studio today and experience the difference our expert-led services can make.
               </p>
               <a href="#" className="btn-primary text-lg px-8 py-4">

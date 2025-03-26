@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 220 33% 98%;
-    --foreground: 224 71.4% 4.1%;
+    --background: 220 13% 18%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card: 220 13% 23%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
+    --popover: 220 13% 23%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 225 92% 57%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 43 89% 55%;
+    --primary-foreground: 220 13% 18%;
 
-    --secondary: 218 28% 95%;
-    --secondary-foreground: 215 25% 27%;
+    --secondary: 220 13% 23%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 220 13% 23%;
+    --muted-foreground: 220 8.9% 75%;
 
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 43 89% 55%;
+    --accent-foreground: 220 13% 18%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 225 92% 57%;
+    --border: 220 13% 28%;
+    --input: 220 13% 28%;
+    --ring: 43 89% 55%;
 
     --radius: 0.75rem;
   }
@@ -63,11 +63,11 @@
   }
   
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+    @apply bg-card/70 backdrop-blur-md border border-border/20 shadow-sm;
   }
   
   .glass-card {
-    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-sm rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-white/80;
+    @apply bg-card/60 backdrop-blur-md border border-border/20 shadow-sm rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-card/80;
   }
   
   .animate-delay-100 {
@@ -91,11 +91,11 @@
   }
   
   .nav-link {
-    @apply relative px-3 py-2 text-fitkraft-900 hover:text-primary transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+    @apply relative px-3 py-2 text-foreground hover:text-primary transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
   }
   
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
   }
   
   .btn-secondary {

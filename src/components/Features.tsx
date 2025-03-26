@@ -21,8 +21,8 @@ const FeatureCard = ({
       <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
         {icon}
       </div>
-      <h3 className="mb-2 text-xl font-semibold text-fitkraft-900">{title}</h3>
-      <p className="text-fitkraft-700">{description}</p>
+      <h3 className="mb-2 text-xl font-semibold text-foreground">{title}</h3>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 };
@@ -65,10 +65,10 @@ const Features = () => {
     <section id="features" className="py-24 bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="font-display mb-4 text-3xl font-bold text-fitkraft-950 md:text-4xl opacity-0 animate-fade-in">
-            Our Services
+          <h2 className="font-display mb-4 text-3xl font-bold text-foreground md:text-4xl opacity-0 animate-fade-in">
+            Our <span className="text-primary">Services</span>
           </h2>
-          <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
+          <p className="text-muted-foreground text-lg opacity-0 animate-fade-in animate-delay-100">
             Comprehensive fitness programs designed for all levels at Pune's premier fitness studio
           </p>
         </div>
