@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Dumbbell, FlameIcon, Music, Users, Clock, Heart } from "lucide-react";
+import { Dumbbell, FlameIcon, Music, Users, Clock, Heart, Target, Shield } from "lucide-react";
 
 const FeatureCard = ({ 
   icon, 
@@ -31,33 +31,33 @@ const Features = () => {
   const features = [
     {
       icon: <Dumbbell className="h-6 w-6" />,
-      title: "Strength Training",
-      description: "Expert-guided strength programs designed to build muscle, increase strength, and improve overall fitness."
-    },
-    {
-      icon: <FlameIcon className="h-6 w-6" />,
-      title: "Yoga Classes",
-      description: "Find balance and flexibility with our diverse yoga classes suitable for beginners and advanced practitioners."
-    },
-    {
-      icon: <Music className="h-6 w-6" />,
-      title: "Aerobics & Dance",
-      description: "High-energy cardio workouts that make burning calories enjoyable while improving cardiovascular health."
+      title: "Goal-Oriented Training",
+      description: "Personalized weight training programs designed to help you achieve specific fitness goals combined with nutrition guidance."
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Personal Training",
-      description: "One-on-one sessions with certified trainers focused on your specific fitness goals and needs."
+      title: "Buddy Training",
+      description: "Train with 2-3 friends or family members, motivating each other while receiving expert guidance from our trainers."
+    },
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "Personalized Training",
+      description: "One-on-one sessions with certified trainers focusing on your specific needs with 45-60 minute duration."
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Health-Focused Training",
+      description: "Specialized programs for individuals with specific health concerns or rehabilitation needs."
+    },
+    {
+      icon: <FlameIcon className="h-6 w-6" />,
+      title: "Diverse Workout Styles",
+      description: "Enjoy a variety of workouts including strength training, cardio, core, yoga, functional training, HIIT, and aerobics."
     },
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Flexible Scheduling",
-      description: "Multiple class times throughout the day to accommodate your busy lifestyle and routine."
-    },
-    {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Supportive Community",
-      description: "Join a family of fitness enthusiasts who motivate and support each other on their fitness journeys."
+      description: "Choose from morning batches (6am, 7am, 8am) or evening sessions (6pm, 7pm), with online options available."
     }
   ];
 

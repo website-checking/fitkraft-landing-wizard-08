@@ -32,7 +32,7 @@ const Hero = () => {
         <div className="mx-auto max-w-4xl text-center">
           <div className="flex justify-center mb-8 opacity-0 animate-fade-in">
             <img 
-              src="/logo.png" 
+              src="/lovable-uploads/d2b4f7f0-95f2-46c7-b725-7cf9df54b0ac.png" 
               alt="FitKraft Studio" 
               className="h-16 md:h-20 mb-4" 
             />
@@ -45,10 +45,20 @@ const Hero = () => {
             Transform Your Body at{" "}
             <span className="text-primary">FitKraft</span> Studio
           </h1>
-          <p className="mb-10 text-lg text-primary-foreground md:text-xl opacity-0 animate-fade-in animate-delay-200">
+          <p className="mb-8 text-lg text-primary md:text-xl opacity-0 animate-fade-in animate-delay-200 font-medium">
             Join Pune's leading fitness community offering personalized strength training, 
-            yoga classes, and aerobics programs for all fitness levels.
+            yoga classes, and goal-oriented fitness programs for all levels.
           </p>
+          
+          <div className="glass-card p-6 mb-10 max-w-3xl mx-auto opacity-0 animate-fade-in animate-delay-200">
+            <h3 className="text-xl font-semibold text-primary mb-3">Our Philosophy</h3>
+            <p className="text-muted-foreground">
+              "We aim at achieving holistic fitness. We advocate <span className="text-primary font-medium">strong over skinny</span>, 
+              sustainable diets over crash diets, consistency and commitment. We're building a safe environment 
+              where no one is judged based on their physicality — being fit inside out is what we strive for."
+            </p>
+          </div>
+          
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in animate-delay-300">
             <a href="#cta" className="btn-primary">
               Book a Free Class

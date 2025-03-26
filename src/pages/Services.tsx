@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ChevronRight, Dumbbell, FlameIcon, Music, Heart, Clock, Users } from "lucide-react";
+import { ChevronRight, Dumbbell, FlameIcon, Heart, Clock, Users, Target, Shield, MapPin } from "lucide-react";
 
 const ServiceCard = ({ 
   title, 
@@ -66,43 +66,56 @@ const Services = () => {
 
   const services = [
     {
-      title: "Strength Training",
-      description: "Our comprehensive strength training programs are designed to build muscle, increase strength, and improve overall fitness. With personalized training plans, you'll see results faster than ever.",
-      icon: <Dumbbell className="h-7 w-7" />,
+      title: "Goal-Oriented Training",
+      description: "Comprehensive training programs designed to help you achieve specific fitness goals, combining weight training with personalized nutrition plans.",
+      icon: <Target className="h-7 w-7" />,
       benefits: [
-        "Increased muscle mass and strength",
-        "Improved metabolism and weight management",
-        "Enhanced bone density",
-        "Better posture and balance",
-        "Reduced risk of injury"
+        "Personalized workout programming",
+        "Nutritional guidance tailored to your goals",
+        "Regular progress tracking and adjustments",
+        "Expert coaching and form correction",
+        "Sustainable results that last"
       ],
       delay: 200
     },
     {
-      title: "Yoga Classes",
-      description: "Find balance, flexibility and inner peace with our diverse yoga classes. Whether you're a beginner or advanced practitioner, our certified yoga instructors guide you through practices that benefit both body and mind.",
-      icon: <FlameIcon className="h-7 w-7" />,
+      title: "Buddy Training",
+      description: "Train with 2-3 friends or family members in a motivating group setting, supporting each other while receiving expert guidance from our trainers.",
+      icon: <Users className="h-7 w-7" />,
       benefits: [
-        "Increased flexibility and range of motion",
-        "Stress reduction and relaxation",
-        "Improved balance and coordination",
-        "Enhanced mental clarity",
-        "Better breathing techniques"
+        "Increased motivation through group dynamics",
+        "Cost-effective personal training alternative",
+        "Scheduled accountability",
+        "Fun, engaging workout environment",
+        "Customized workouts for small groups"
       ],
       delay: 300
     },
     {
-      title: "Aerobics & Dance Fitness",
-      description: "Get your heart pumping with our high-energy aerobics and dance fitness classes. These fun, music-driven workouts make burning calories enjoyable while improving cardiovascular health.",
-      icon: <Music className="h-7 w-7" />,
+      title: "Personalized Training",
+      description: "One-on-one focused sessions lasting 45-60 minutes, completely tailored to your specific needs, goals, and schedule.",
+      icon: <Dumbbell className="h-7 w-7" />,
       benefits: [
-        "Improved cardiovascular health",
-        "Effective calorie burning",
-        "Enhanced coordination and rhythm",
-        "Reduced stress levels",
-        "Increased stamina and endurance"
+        "100% focused attention from your trainer",
+        "Fully customized workout programs",
+        "Form correction and technique improvement",
+        "Flexible scheduling options",
+        "Faster progress toward your goals"
       ],
       delay: 400
+    },
+    {
+      title: "Health-Focused Training",
+      description: "Specialized programs for individuals with specific health concerns, rehabilitation needs, or medical conditions requiring careful exercise programming.",
+      icon: <Shield className="h-7 w-7" />,
+      benefits: [
+        "Safe exercise programs for various health conditions",
+        "Rehabilitation support",
+        "Coordination with healthcare providers when needed",
+        "Gradual progression appropriate to your condition",
+        "Improved quality of life through fitness"
+      ],
+      delay: 450
     }
   ];
 
@@ -110,17 +123,17 @@ const Services = () => {
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Flexible Scheduling",
-      description: "Multiple class times to fit your busy lifestyle"
+      description: "Morning batches at 6am, 7am, 8am and evening sessions at 6pm and 7pm"
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Personalized Attention",
-      description: "Small class sizes to ensure individual guidance"
+      title: "5-Day Programs",
+      description: "Comprehensive workout schedule with 5 days of varied training styles"
     },
     {
       icon: <Heart className="h-6 w-6" />,
-      title: "Holistic Approach",
-      description: "Focus on both physical fitness and mental wellbeing"
+      title: "Online Options",
+      description: "Train remotely with the same quality guidance and programming"
     }
   ];
 
@@ -139,7 +152,7 @@ const Services = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <div className="grid md:grid-cols-2 gap-8 mb-20">
               {services.map((service, index) => (
                 <ServiceCard
                   key={index}
@@ -170,6 +183,30 @@ const Services = () => {
                     <p className="text-muted-foreground">{feature.description}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+            
+            <div className="glass-card p-8 md:p-12 mb-20 opacity-0 animate-fade-in animate-delay-600">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
+                  <MapPin className="h-6 w-6 inline mr-2 text-primary" /> Our Location
+                </h2>
+                <p className="text-muted-foreground max-w-3xl mx-auto mb-4">
+                  Plot no 41, no 4, gaurav, Alankar Society Rd, opp. shailesh Sabhagruha, Alankar Society, Ganesh Nagar, Karve Nagar, Pune, Maharashtra 411052
+                </p>
+              </div>
+              
+              <div className="w-full h-[400px] rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7583363104007!2d73.81252807532395!3d18.49236408259097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb3a4119b77%3A0x16c006b37b1cca18!2sFITKRAFT!5e0!3m2!1sen!2sin!4v1719066642302!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy"
+                  title="FitKraft Studio Location"
+                  referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
               </div>
             </div>
             
