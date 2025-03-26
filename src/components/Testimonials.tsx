@@ -53,13 +53,13 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-white">
+    <section id="testimonials" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="font-display mb-4 text-3xl font-bold text-fitkraft-950 md:text-4xl opacity-0 animate-fade-in">
-            Member Success Stories
+          <h2 className="font-display mb-4 text-3xl font-bold text-foreground md:text-4xl opacity-0 animate-fade-in">
+            Member <span className="text-primary">Success</span> Stories
           </h2>
-          <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
+          <p className="text-muted-foreground text-lg opacity-0 animate-fade-in animate-delay-100">
             Hear from our community members who have transformed their fitness journey with FitKraft Studio
           </p>
         </div>
@@ -71,21 +71,21 @@ const Testimonials = () => {
                 <img 
                   src={testimonials[currentIndex].avatar} 
                   alt={testimonials[currentIndex].author}
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-white shadow-md mx-auto"
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-border shadow-md mx-auto"
                 />
               </div>
               <div className="md:w-3/4">
                 <div className="flex mb-4">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <blockquote className="mb-4 text-lg italic text-fitkraft-800">
+                <blockquote className="mb-4 text-lg italic text-foreground">
                   "{testimonials[currentIndex].content}"
                 </blockquote>
                 <div>
-                  <p className="font-semibold text-fitkraft-900">{testimonials[currentIndex].author}</p>
-                  <p className="text-fitkraft-600">{testimonials[currentIndex].role}</p>
+                  <p className="font-semibold text-foreground">{testimonials[currentIndex].author}</p>
+                  <p className="text-muted-foreground">{testimonials[currentIndex].role}</p>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`h-2.5 w-2.5 rounded-full transition-colors duration-300 ${
-                  index === currentIndex ? "bg-primary" : "bg-fitkraft-300"
+                  index === currentIndex ? "bg-primary" : "bg-secondary"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -107,7 +107,7 @@ const Testimonials = () => {
           <div className="absolute top-1/2 -translate-y-1/2 left-0 -ml-4 md:-ml-6">
             <button
               onClick={handlePrev}
-              className="h-10 w-10 rounded-full bg-white shadow-md flex items-center justify-center text-fitkraft-900 hover:bg-fitkraft-50 transition-colors duration-300"
+              className="h-10 w-10 rounded-full bg-card shadow-md flex items-center justify-center text-foreground hover:bg-secondary transition-colors duration-300"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -117,7 +117,7 @@ const Testimonials = () => {
           <div className="absolute top-1/2 -translate-y-1/2 right-0 -mr-4 md:-mr-6">
             <button
               onClick={handleNext}
-              className="h-10 w-10 rounded-full bg-white shadow-md flex items-center justify-center text-fitkraft-900 hover:bg-fitkraft-50 transition-colors duration-300"
+              className="h-10 w-10 rounded-full bg-card shadow-md flex items-center justify-center text-foreground hover:bg-secondary transition-colors duration-300"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-5 w-5" />

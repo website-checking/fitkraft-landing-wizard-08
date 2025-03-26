@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MapPin, Mail, Phone, Send, Clock } from "lucide-react";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -57,17 +59,17 @@ const Contact = () => {
         <section className="pt-32 pb-16 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center mb-16">
-              <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-fitkraft-950 md:text-5xl opacity-0 animate-fade-in">
+              <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl opacity-0 animate-fade-in">
                 Contact <span className="text-primary">Us</span>
               </h1>
-              <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
+              <p className="text-muted-foreground text-lg opacity-0 animate-fade-in animate-delay-100">
                 Get in touch with our team to start your fitness journey
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-12 items-start mb-20">
               <div className="opacity-0 animate-fade-in animate-delay-200">
-                <h2 className="text-2xl font-bold text-fitkraft-900 mb-6">Reach Out to Us</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Reach Out to Us</h2>
                 
                 <div className="space-y-6 mb-8">
                   <div className="flex items-start">
@@ -75,8 +77,8 @@ const Contact = () => {
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-fitkraft-900">Visit Us</h3>
-                      <p className="text-fitkraft-700">
+                      <h3 className="text-lg font-semibold text-foreground">Visit Us</h3>
+                      <p className="text-muted-foreground">
                         123 Fitness Street, Karve Nagar<br/>
                         Pune, Maharashtra 411052<br/>
                         India
@@ -89,8 +91,8 @@ const Contact = () => {
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-fitkraft-900">Email Us</h3>
-                      <p className="text-fitkraft-700">
+                      <h3 className="text-lg font-semibold text-foreground">Email Us</h3>
+                      <p className="text-muted-foreground">
                         info@fitkraft.studio<br/>
                         support@fitkraft.studio
                       </p>
@@ -102,8 +104,8 @@ const Contact = () => {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-fitkraft-900">Call Us</h3>
-                      <p className="text-fitkraft-700">
+                      <h3 className="text-lg font-semibold text-foreground">Call Us</h3>
+                      <p className="text-muted-foreground">
                         +91 98765 43210<br/>
                         +91 12345 67890
                       </p>
@@ -115,8 +117,8 @@ const Contact = () => {
                       <Clock className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-fitkraft-900">Opening Hours</h3>
-                      <p className="text-fitkraft-700">
+                      <h3 className="text-lg font-semibold text-foreground">Opening Hours</h3>
+                      <p className="text-muted-foreground">
                         Monday to Friday: 6:00 AM - 10:00 PM<br/>
                         Saturday and Sunday: 7:00 AM - 8:00 PM
                       </p>
@@ -139,73 +141,73 @@ const Contact = () => {
               </div>
               
               <div className="glass-card p-8 opacity-0 animate-fade-in animate-delay-300">
-                <h2 className="text-2xl font-bold text-fitkraft-900 mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Send Us a Message</h2>
                 
                 {submitted ? (
-                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+                  <div className="bg-primary/10 border border-primary/20 text-foreground px-4 py-3 rounded-lg mb-6">
                     <p className="font-medium">Message sent successfully!</p>
-                    <p className="text-sm">We'll get back to you as soon as possible.</p>
+                    <p className="text-sm text-muted-foreground">We'll get back to you as soon as possible.</p>
                   </div>
                 ) : null}
                 
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium text-fitkraft-900 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Your Name
                     </label>
-                    <input
+                    <Input
                       type="text"
                       id="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-2 border border-fitkraft-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full"
                       placeholder="John Doe"
                       required
                     />
                   </div>
                   
                   <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium text-fitkraft-900 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Email Address
                     </label>
-                    <input
+                    <Input
                       type="email"
                       id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2 border border-fitkraft-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full"
                       placeholder="john@example.com"
                       required
                     />
                   </div>
                   
                   <div className="mb-4">
-                    <label htmlFor="phone" className="block text-sm font-medium text-fitkraft-900 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                       Phone Number
                     </label>
-                    <input
+                    <Input
                       type="tel"
                       id="phone"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-2 border border-fitkraft-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full"
                       placeholder="+91 98765 43210"
                     />
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-fitkraft-900 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                       Your Message
                     </label>
-                    <textarea
+                    <Textarea
                       id="message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full px-4 py-2 border border-fitkraft-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                      className="w-full"
                       rows={5}
                       placeholder="I'd like to inquire about..."
                       required
-                    ></textarea>
+                    />
                   </div>
                   
                   <button 
@@ -220,8 +222,8 @@ const Contact = () => {
             </div>
             
             <div className="text-center max-w-3xl mx-auto opacity-0 animate-fade-in animate-delay-400">
-              <h2 className="text-2xl font-bold text-fitkraft-900 mb-6">Visit Us Today</h2>
-              <p className="text-fitkraft-700 mb-8">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Visit Us Today</h2>
+              <p className="text-muted-foreground mb-8">
                 We invite you to come and experience our studio in person. Drop by for a visit, meet our trainers, 
                 and see why FitKraft Studio is the preferred fitness destination in Karve Nagar, Pune.
               </p>

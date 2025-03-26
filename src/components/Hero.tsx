@@ -30,15 +30,22 @@ const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
+          <div className="flex justify-center mb-8 opacity-0 animate-fade-in">
+            <img 
+              src="/logo.png" 
+              alt="FitKraft Studio" 
+              className="h-16 md:h-20 mb-4" 
+            />
+          </div>
           <div className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground mb-8 opacity-0 animate-fade-in">
             <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
             Premier Fitness Studio in Karve Nagar, Pune
           </div>
-          <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-fitkraft-950 md:text-5xl lg:text-6xl opacity-0 animate-fade-in animate-delay-100">
+          <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl opacity-0 animate-fade-in animate-delay-100">
             Transform Your Body at{" "}
             <span className="text-primary">FitKraft</span> Studio
           </h1>
-          <p className="mb-10 text-lg text-fitkraft-700 md:text-xl opacity-0 animate-fade-in animate-delay-200">
+          <p className="mb-10 text-lg text-primary-foreground md:text-xl opacity-0 animate-fade-in animate-delay-200">
             Join Pune's leading fitness community offering personalized strength training, 
             yoga classes, and aerobics programs for all fitness levels.
           </p>
