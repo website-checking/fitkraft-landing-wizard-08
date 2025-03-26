@@ -19,12 +19,15 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "py-4 bg-white/80 backdrop-blur-md shadow-sm" : "py-6 bg-transparent"
+        isScrolled 
+          ? "py-4 bg-gray-900/90 backdrop-blur-md shadow-md border-b border-gray-800" 
+          : "py-6 bg-gray-900/70 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-display font-bold text-fitkraft-950">
+          <Link to="/" className="text-2xl font-display font-bold text-primary flex items-center">
+            <img src="/logo.png" alt="FitKraft Logo" className="h-8 w-auto mr-2" />
             FitKraft<span className="text-primary">.</span>studio
           </Link>
 
@@ -60,9 +63,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-fitkraft-900" />
+              <X className="h-6 w-6 text-primary" />
             ) : (
-              <Menu className="h-6 w-6 text-fitkraft-900" />
+              <Menu className="h-6 w-6 text-primary" />
             )}
           </button>
         </div>
@@ -70,46 +73,46 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md animate-fade-in">
+        <div className="md:hidden bg-gray-900/95 absolute top-full left-0 right-0 shadow-lg border-t border-gray-800 animate-fade-in">
           <nav className="flex flex-col space-y-4 px-6 py-8">
             <Link 
               to="/" 
-              className="text-fitkraft-900 hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/about-us" 
-              className="text-fitkraft-900 hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About Us
             </Link>
             <Link 
               to="/services" 
-              className="text-fitkraft-900 hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
             </Link>
             <a 
               href="/#testimonials" 
-              className="text-fitkraft-900 hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
             </a>
             <a 
               href="/#pricing" 
-              className="text-fitkraft-900 hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Membership
             </a>
             <Link 
               to="/contact" 
-              className="text-fitkraft-900 hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
