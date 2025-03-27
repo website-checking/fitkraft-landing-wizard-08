@@ -13,13 +13,19 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     // Check for theme in localStorage
-    const savedTheme = localStorage.getItem("fitkraft-theme");
-    return (savedTheme as Theme) || "dark";
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem("fitkraft-theme");
+      return (savedTheme as Theme) || "dark";
+    }
+    return "dark";
   });
 
   useEffect(() => {
-    // Update body class when theme changes
-    document.body.className = `theme-${theme}`;
+    // Remove all previous theme classes
+    document.body.classList.remove("theme-dark", "theme-light", "theme-gold");
+    
+    // Add the new theme class
+    document.body.classList.add(`theme-${theme}`);
     
     // Save theme to localStorage
     localStorage.setItem("fitkraft-theme", theme);

@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "../providers/ThemeProvider";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,13 +18,37 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Adapt navbar background based on theme
+  const getNavbarBackground = () => {
+    const scrolledClass = isScrolled ? "py-4 shadow-md border-b" : "py-6";
+    
+    if (theme === 'dark') {
+      return `${scrolledClass} bg-gray-900/95 backdrop-blur-md border-gray-800`;
+    } else if (theme === 'light') {
+      return `${scrolledClass} bg-white/95 backdrop-blur-md border-gray-200`;
+    } else if (theme === 'gold') {
+      return `${scrolledClass} bg-amber-50/95 backdrop-blur-md border-amber-200`;
+    }
+    
+    return `${scrolledClass} bg-gray-900/95 backdrop-blur-md border-gray-800`;
+  };
+
+  // Mobile menu background based on theme
+  const getMobileMenuBackground = () => {
+    if (theme === 'dark') {
+      return "bg-gray-900/95 border-gray-800";
+    } else if (theme === 'light') {
+      return "bg-white/95 border-gray-200";
+    } else if (theme === 'gold') {
+      return "bg-amber-50/95 border-amber-200";
+    }
+    
+    return "bg-gray-900/95 border-gray-800";
+  };
+
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "py-4 bg-gray-900/95 backdrop-blur-md shadow-md border-b border-gray-800" 
-          : "py-6 bg-gray-900/80 backdrop-blur-sm"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavbarBackground()}`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
@@ -83,7 +109,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 absolute top-full left-0 right-0 shadow-lg border-t border-gray-800 animate-fade-in">
+        <div className={`md:hidden absolute top-full left-0 right-0 shadow-lg border-t animate-fade-in ${getMobileMenuBackground()}`}>
           <nav className="flex flex-col space-y-4 px-6 py-8">
             <Link 
               to="/" 
