@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Dumbbell, FlameIcon, Users, Clock, Target, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -22,7 +21,7 @@ const FeatureCard = ({
       style={{ animationDelay: `${index * 100 + 200}ms` }}
     >
       {image && (
-        <div className="w-full h-56 overflow-hidden relative bg-secondary/20">
+        <div className="w-full h-56 overflow-hidden relative">
           {/* Overlay on hover */}
           <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
 
@@ -32,7 +31,7 @@ const FeatureCard = ({
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 shadow-inner"
           />
         </div>
       )}

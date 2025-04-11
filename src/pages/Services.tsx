@@ -4,14 +4,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChevronRight, Dumbbell, Users, Target, Shield, MapPin } from "lucide-react";
 
-const ServiceCard = ({ 
-  title, 
-  description, 
-  icon, 
-  benefits, 
+const ServiceCard = ({
+  title,
+  description,
+  icon,
+  benefits,
   image,
   delay = 0
-}: { 
+}: {
   title: string;
   description: string;
   icon: React.ReactNode;
@@ -20,27 +20,27 @@ const ServiceCard = ({
   delay?: number;
 }) => {
   return (
-    <div 
-      className="glass-card overflow-hidden opacity-0 animate-fade-in flex flex-col h-full" 
+    <div
+      className="glass-card overflow-hidden opacity-0 animate-fade-in flex flex-col h-full"
       style={{ animationDelay: `${delay}ms` }}
     >
       {image && (
         <div className="w-full h-56 overflow-hidden">
-          <img 
-            src={image} 
-            alt={title} 
+          <img
+            src={image}
+            alt={title}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
         </div>
       )}
-      
+
       <div className="p-6 flex flex-col flex-grow">
         <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
           {icon}
         </div>
         <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
         <p className="text-muted-foreground text-sm mb-4">{description}</p>
-        
+
         <div className="mt-auto">
           <h4 className="text-md font-semibold text-foreground mb-2">Key Benefits:</h4>
           <ul className="grid grid-cols-1 gap-y-2 text-sm">
@@ -128,7 +128,7 @@ const Services = () => {
                 Transform your fitness with expert guidance
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6 mb-16">
               {services.map((service, index) => (
                 <ServiceCard
@@ -142,7 +142,7 @@ const Services = () => {
                 />
               ))}
             </div>
-            
+
             <div className="glass-card p-6 md:p-8 mb-16 overflow-hidden opacity-0 animate-fade-in animate-delay-600">
               <div className="text-center mb-4">
                 <h2 className="text-xl font-bold text-foreground mb-2">
@@ -152,27 +152,27 @@ const Services = () => {
                   Plot no 41, no 4, gaurav, Alankar Society Rd, Karve Nagar, Pune, Maharashtra 411052
                 </p>
               </div>
-              
+
               <div className="w-full h-[300px] rounded-lg overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7583363104007!2d73.81252807532395!3d18.49236408259097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb3a4119b77%3A0x16c006b37b1cca18!2sFITKRAFT!5e0!3m2!1sen!2sin!4v1719066642302!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7583363104007!2d73.81252807532395!3d18.49236408259097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb3a4119b77%3A0x16c006b37b1cca18!2sFITKRAFT!5e0!3m2!1sen!2sin!4v1719066642302!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
                   loading="lazy"
                   title="FitKraft Studio Location"
                   referrerPolicy="no-referrer-when-downgrade">
                 </iframe>
               </div>
             </div>
-            
+
             <div className="text-center max-w-2xl mx-auto opacity-0 animate-fade-in animate-delay-600">
               <h2 className="text-xl font-bold text-foreground mb-4">Ready to Transform Your Fitness?</h2>
               <p className="text-muted-foreground text-sm mb-6">
                 Take the first step toward a healthier, stronger you.
               </p>
-              <a href="#" className="btn-primary">
+              <a href="/contact" className="btn-primary">
                 Book a Free Trial Class
               </a>
             </div>
