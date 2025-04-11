@@ -31,28 +31,28 @@ const AboutUs = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section className="pt-32 pb-16 md:py-32">
+        <section className="pt-28 pb-16 md:pt-32 md:pb-20">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center mb-12">
-              <h1 className="font-display mb-6 text-4xl font-bold tracking-tight text-fitkraft-950 md:text-5xl opacity-0 animate-fade-in">
+              <h1 className="font-display mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl opacity-0 animate-fade-in">
                 About <span className="text-primary">FitKraft</span> Studio
               </h1>
-              <p className="text-fitkraft-700 text-lg opacity-0 animate-fade-in animate-delay-100">
+              <p className="text-muted-foreground opacity-0 animate-fade-in animate-delay-100">
                 Your premier fitness destination in Karve Nagar, Pune
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-16">
               <div className="opacity-0 animate-fade-in animate-delay-200">
-                <h2 className="text-2xl font-bold text-fitkraft-900 mb-4">Our Story</h2>
-                <p className="text-fitkraft-700 mb-4">
-                  Founded in 2018, FitKraft Studio was born from a passion to create a fitness space that truly understands the needs of the Pune community. What started as a small personal training service has grown into one of Karve Nagar's most beloved fitness studios.
+                <h2 className="text-2xl font-bold text-foreground mb-4">Our Story</h2>
+                <p className="text-muted-foreground mb-3">
+                  Founded in 2018, FitKraft Studio grew from a small personal training service into one of Karve Nagar's most beloved fitness studios.
                 </p>
-                <p className="text-fitkraft-700 mb-4">
-                  Our founder, with over 15 years of experience in fitness training, envisioned a studio that combines scientific training methods with a supportive community atmosphere. This vision continues to guide everything we do at FitKraft.
+                <p className="text-muted-foreground mb-3">
+                  Our founder's 15+ years of experience in fitness training created a studio that combines scientific methods with a supportive community atmosphere.
                 </p>
-                <p className="text-fitkraft-700">
-                  Today, we're proud to offer a comprehensive range of services including strength training, yoga, and aerobics, all designed to help our members achieve their fitness goals while enjoying the journey.
+                <p className="text-muted-foreground">
+                  Today, we offer comprehensive services including strength training, yoga, and aerobics, all designed to help our members achieve their fitness goals.
                 </p>
               </div>
               <div className="glass-card overflow-hidden opacity-0 animate-fade-in animate-delay-300">
@@ -64,61 +64,61 @@ const AboutUs = () => {
               </div>
             </div>
             
-            <div className="bg-secondary/30 rounded-2xl p-8 md:p-12 mb-20 opacity-0 animate-fade-in animate-delay-400">
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+            <div className="bg-secondary/30 rounded-xl p-6 md:p-8 mb-16 opacity-0 animate-fade-in animate-delay-400">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-12">
                 <div>
-                  <h2 className="text-2xl font-bold text-fitkraft-900 mb-4">Our Mission</h2>
-                  <p className="text-fitkraft-700">
-                    To empower individuals in Pune to lead healthier, more active lives through accessible, effective, and enjoyable fitness programs. We strive to create a community where everyone feels welcome and supported on their fitness journey.
+                  <h2 className="text-xl font-bold text-foreground mb-3">Our Mission</h2>
+                  <p className="text-muted-foreground text-sm">
+                    To empower individuals in Pune to lead healthier lives through accessible, effective fitness programs, creating a supportive community where everyone feels welcome.
                   </p>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-fitkraft-900 mb-4">Our Values</h2>
-                  <ul className="space-y-3">
+                  <h2 className="text-xl font-bold text-foreground mb-3">Our Values</h2>
+                  <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                     <li className="flex items-start">
-                      <Heart className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-fitkraft-700">Passion for health and wellbeing</span>
+                      <Heart className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Passion for health</span>
                     </li>
                     <li className="flex items-start">
-                      <Users className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-fitkraft-700">Community support and inclusivity</span>
+                      <Users className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Community support</span>
                     </li>
                     <li className="flex items-start">
-                      <Award className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-fitkraft-700">Excellence in fitness training</span>
+                      <Award className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Training excellence</span>
                     </li>
                     <li className="flex items-start">
-                      <Clock className="h-5 w-5 text-primary mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-fitkraft-700">Commitment to member results</span>
+                      <Clock className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Results commitment</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
             
-            <div className="text-center max-w-3xl mx-auto opacity-0 animate-fade-in animate-delay-500">
-              <h2 className="text-2xl font-bold text-fitkraft-900 mb-6">Why Choose FitKraft Studio?</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="glass-card p-6">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Users className="h-6 w-6" />
+            <div className="text-center mb-12 opacity-0 animate-fade-in animate-delay-500">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Why Choose FitKraft Studio?</h2>
+              <div className="grid md:grid-cols-3 gap-5">
+                <div className="glass-card p-5">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Users className="h-5 w-5" />
                   </div>
-                  <h3 className="text-xl font-semibold text-fitkraft-900 mb-2">Expert Trainers</h3>
-                  <p className="text-fitkraft-700">Certified professionals dedicated to your fitness success</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Expert Trainers</h3>
+                  <p className="text-muted-foreground text-sm">Certified professionals dedicated to your fitness success</p>
                 </div>
-                <div className="glass-card p-6">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Award className="h-6 w-6" />
+                <div className="glass-card p-5">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Award className="h-5 w-5" />
                   </div>
-                  <h3 className="text-xl font-semibold text-fitkraft-900 mb-2">Modern Facility</h3>
-                  <p className="text-fitkraft-700">State-of-the-art equipment in a clean, welcoming environment</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Modern Facility</h3>
+                  <p className="text-muted-foreground text-sm">State-of-the-art equipment in a clean, welcoming environment</p>
                 </div>
-                <div className="glass-card p-6">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Heart className="h-6 w-6" />
+                <div className="glass-card p-5">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Heart className="h-5 w-5" />
                   </div>
-                  <h3 className="text-xl font-semibold text-fitkraft-900 mb-2">Supportive Community</h3>
-                  <p className="text-fitkraft-700">Join a family of fitness enthusiasts who motivate each other</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Supportive Community</h3>
+                  <p className="text-muted-foreground text-sm">Join a family of fitness enthusiasts who motivate each other</p>
                 </div>
               </div>
             </div>

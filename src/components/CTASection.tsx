@@ -21,7 +21,7 @@ const PricingCard = ({
 }) => {
   return (
     <div 
-      className={`glass-card p-8 relative opacity-0 animate-fade-in`}
+      className={`glass-card p-6 relative opacity-0 animate-fade-in`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {isPopular && (
@@ -32,26 +32,26 @@ const PricingCard = ({
       <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
       {showPrice && price ? (
         <div className="mb-4">
-          <span className="text-4xl font-bold text-foreground">₹{price}</span>
+          <span className="text-3xl font-bold text-foreground">₹{price}</span>
           <span className="text-muted-foreground">/month</span>
         </div>
       ) : (
-        <div className="mb-4 h-10 flex items-center">
-          <span className="text-muted-foreground">Contact for pricing</span>
+        <div className="mb-4 h-8 flex items-center">
+          <span className="text-muted-foreground text-sm">Contact for pricing</span>
         </div>
       )}
-      <p className="text-muted-foreground mb-6">{description}</p>
-      <ul className="mb-8 space-y-3">
+      <p className="text-muted-foreground text-sm mb-4">{description}</p>
+      <ul className="mb-6 space-y-2 text-sm">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
-            <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+            <Check className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
             <span className="text-muted-foreground">{feature}</span>
           </li>
         ))}
       </ul>
       <a
         href="#"
-        className={`w-full text-center py-3 px-6 rounded-full font-medium transition-colors duration-300 ${
+        className={`w-full text-center py-2 px-4 rounded-full text-sm font-medium transition-colors duration-300 ${
           isPopular
             ? "bg-primary text-primary-foreground hover:bg-primary/90"
             : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
@@ -68,14 +68,14 @@ const CTASection = () => {
     {
       title: "Batch Training",
       price: "2,500",
-      description: "Join our group training sessions 5 days a week",
+      description: "Group training sessions 5 days weekly",
       features: [
-        "5 days of workouts per week",
-        "Varied training styles (strength, cardio, core, etc.)",
-        "Morning & evening batch options",
+        "5 days of varied workouts per week",
+        "Strength, cardio, core training",
+        "Morning & evening batches",
         "Online options available",
         "Community motivation",
-        "Experienced trainers"
+        "Expert trainers"
       ],
       isPopular: true,
       delay: 200,
@@ -83,14 +83,14 @@ const CTASection = () => {
     },
     {
       title: "Buddy Training",
-      description: "Train with 2-3 friends or family members",
+      description: "Train with 2-3 friends or family",
       features: [
-        "Group of 2-3 people training together",
-        "Customized workout plans",
-        "Mutual motivation and accountability",
-        "Flexible scheduling options",
-        "Cost-effective personal training alternative",
-        "Fun and engaging environment"
+        "Small group training (2-3 people)",
+        "Custom workout plans",
+        "Flexible scheduling",
+        "Cost-effective personal training",
+        "Mutual accountability",
+        "Fun, engaging environment"
       ],
       isPopular: false,
       delay: 300,
@@ -98,14 +98,14 @@ const CTASection = () => {
     },
     {
       title: "Personal Training",
-      description: "One-on-one focused training sessions",
+      description: "One-on-one focused sessions",
       features: [
         "45-60 minute dedicated sessions",
-        "Fully personalized attention",
-        "Custom workout programming",
-        "Nutrition guidance included",
+        "Personalized attention",
+        "Custom programming",
+        "Nutrition guidance",
         "Progress tracking",
-        "Health-specific training available"
+        "Health-specific training"
       ],
       isPopular: false,
       delay: 400,
@@ -114,18 +114,18 @@ const CTASection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-secondary/50">
+    <section id="pricing" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center mb-16">
+        <div className="mx-auto max-w-3xl text-center mb-12">
           <h2 className="font-display mb-4 text-3xl font-bold text-foreground md:text-4xl opacity-0 animate-fade-in">
             Training Programs
           </h2>
           <p className="text-muted-foreground text-lg opacity-0 animate-fade-in animate-delay-100">
-            Select the perfect program to kickstart your fitness journey at FitKraft Studio
+            Select the perfect program to kickstart your fitness journey
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <PricingCard
               key={index}
@@ -140,19 +140,19 @@ const CTASection = () => {
           ))}
         </div>
 
-        <div id="cta" className="mt-32 max-w-3xl mx-auto text-center">
-          <div className="glass-card p-10 md:p-12 opacity-0 animate-fade-in animate-delay-500">
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl mb-6">
+        <div id="cta" className="mt-24 max-w-3xl mx-auto text-center">
+          <div className="glass-card p-8 md:p-10 opacity-0 animate-fade-in animate-delay-500">
+            <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl mb-4">
               Ready to Transform Your Fitness?
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Join our community of fitness enthusiasts who have revolutionized their health with FitKraft Studio in Karve Nagar, Pune.
+            <p className="text-muted-foreground mb-6">
+              Join our community of fitness enthusiasts in Karve Nagar, Pune.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#" className="btn-primary text-lg px-8 py-4">
-                Book a Free Trial Class <ArrowRight className="ml-2 h-5 w-5" />
+              <a href="#" className="btn-primary">
+                Book a Free Trial <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <a href="/contact" className="btn-secondary text-lg px-8 py-4">
+              <a href="/contact" className="btn-secondary">
                 Contact Us <MessageCircle className="ml-2 h-5 w-5" />
               </a>
             </div>
