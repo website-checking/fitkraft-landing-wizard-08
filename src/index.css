@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,23 +8,23 @@
 @layer base {
   :root,
   .theme-light {
-    --background: 39 70% 97%; /* Cream background */
+    --background: 40 30% 97%; /* Cream background (#FAF9F6) */
     --foreground: 220 13% 18%;
 
-    --card: 39 60% 95%;
+    --card: 40 20% 95%;
     --card-foreground: 220 13% 18%;
 
-    --popover: 39 60% 95%;
+    --popover: 40 20% 95%;
     --popover-foreground: 220 13% 18%;
 
     /* Yellow accent (unchanged) */
     --primary: 43 89% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 30% 90%;
+    --secondary: 40 15% 90%;
     --secondary-foreground: 220 13% 18%;
 
-    --muted: 39 30% 90%;
+    --muted: 40 15% 90%;
     --muted-foreground: 220 13% 40%;
 
     --accent: 43 89% 55%;
@@ -33,8 +33,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 39 30% 80%;
-    --input: 39 30% 80%;
+    --border: 40 20% 80%;
+    --input: 40 20% 80%;
     --ring: 43 89% 55%;
 
     --radius: 0.75rem;
@@ -112,10 +112,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    font-family: 'Inter', 'Poppins', sans-serif;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Poppins', sans-serif;
   }
 
   ::selection {
@@ -129,11 +131,11 @@
   }
   
   .glass-panel {
-    @apply bg-card/70 backdrop-blur-md border border-border/20 shadow-sm;
+    @apply bg-card/60 backdrop-blur-md border border-border/10 shadow-sm;
   }
   
   .glass-card {
-    @apply bg-card/60 backdrop-blur-md border border-border/20 shadow-sm rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-card/80;
+    @apply bg-card/50 backdrop-blur-md border border-border/10 shadow-sm rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-card/70;
   }
   
   .animate-delay-100 {
@@ -169,6 +171,6 @@
   }
   
   .spotlight {
-    @apply pointer-events-none absolute -top-40 left-0 z-10 h-[50rem] w-[50rem] rounded-full bg-primary/20 opacity-0 blur-[100px] will-change-transform;
+    @apply pointer-events-none absolute -top-40 left-0 z-10 h-[50rem] w-[50rem] rounded-full bg-primary/10 opacity-0 blur-[100px] will-change-transform;
   }
 }
