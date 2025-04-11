@@ -5,12 +5,16 @@ import Footer from "../components/Footer";
 import { MapPin, Mail, Phone, Send, Clock } from "lucide-react";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
+import { supabase } from "../integrations/supabase/client";
+import { toast } from "../hooks/use-toast";
+import { Button } from "../components/ui/button";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -35,21 +39,50 @@ const Contact = () => {
     });
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send the form data to a server
-    console.log("Form submitted:", { name, email, phone, message });
-    setSubmitted(true);
-    // Reset form
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
+    setIsSubmitting(true);
     
-    // Reset submission status after 5 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
+    try {
+      // Send form data to Supabase
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          { name, email, phone, message }
+        ]);
+      
+      if (error) {
+        throw error;
+      }
+      
+      // Show success toast
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+      
+      setSubmitted(true);
+      
+      // Reset form
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      
+      // Reset submission status after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -210,13 +243,14 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <button 
+                  <Button 
                     type="submit" 
-                    className="w-full btn-primary flex items-center justify-center"
+                    className="w-full"
+                    disabled={isSubmitting}
                   >
-                    Send Message
-                    <Send className="ml-2 h-4 w-4" />
-                  </button>
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {!isSubmitting && <Send className="ml-2 h-4 w-4" />}
+                  </Button>
                 </form>
               </div>
             </div>
@@ -227,9 +261,9 @@ const Contact = () => {
                 We invite you to come and experience our studio in person. Drop by for a visit, meet our trainers, 
                 and see why FitKraft Studio is the preferred fitness destination in Karve Nagar, Pune.
               </p>
-              <a href="#" className="btn-primary">
+              <Button>
                 Book a Free Trial Class
-              </a>
+              </Button>
             </div>
           </div>
         </section>
