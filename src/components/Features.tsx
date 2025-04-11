@@ -32,32 +32,32 @@ const Features = () => {
     {
       icon: <Dumbbell className="h-6 w-6" />,
       title: "Goal-Oriented Training",
-      description: "Personalized programs with nutrition guidance to achieve specific fitness goals."
+      description: "Personalized programs with nutrition guidance for specific fitness goals."
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: "Buddy Training",
-      description: "Train with 2-3 friends, motivating each other with expert guidance."
+      description: "Train with friends, stay motivated with expert guidance."
     },
     {
       icon: <Target className="h-6 w-6" />,
       title: "Personalized Training",
-      description: "One-on-one 45-60 minute sessions focused on your specific needs."
+      description: "One-on-one 45-60 minute sessions tailored to your needs."
     },
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Health-Focused Training",
-      description: "Specialized programs for specific health concerns or rehabilitation."
+      description: "Specialized programs for health concerns or rehabilitation."
     },
     {
       icon: <FlameIcon className="h-6 w-6" />,
       title: "Diverse Workouts",
-      description: "Strength training, cardio, core, yoga, HIIT, and aerobics."
+      description: "Strength training, cardio, yoga, HIIT, and more."
     },
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Flexible Scheduling",
-      description: "Morning (6-8am) or evening (6-7pm) sessions, online options available."
+      description: "Morning or evening sessions, online options available."
     }
   ];
 
@@ -69,7 +69,7 @@ const Features = () => {
             Our <span className="text-primary">Services</span>
           </h2>
           <p className="text-muted-foreground text-lg opacity-0 animate-fade-in animate-delay-100">
-            Comprehensive fitness programs for all levels at Pune's premier fitness studio
+            Comprehensive fitness solutions at Pune's premier studio
           </p>
         </div>
 

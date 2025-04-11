@@ -15,9 +15,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     // Check for theme in localStorage
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem("fitkraft-theme");
-      return (savedTheme as Theme) || "dark";
+      return (savedTheme as Theme) || "light"; // Default to light theme with cream background
     }
-    return "dark";
+    return "light"; // Default to light theme with cream background
   });
 
   useEffect(() => {

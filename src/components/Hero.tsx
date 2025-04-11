@@ -42,19 +42,17 @@ const Hero = () => {
             Premier Fitness Studio in Karve Nagar, Pune
           </div>
           <h1 className="font-display mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl opacity-0 animate-fade-in animate-delay-100">
-            Transform Your Body at{" "}
-            <span className="text-primary">FitKraft</span> Studio
+            Transform at <span className="text-primary">FitKraft</span> Studio
           </h1>
           <p className="mb-6 text-primary md:text-lg opacity-0 animate-fade-in animate-delay-200 font-medium">
-            Pune's leading fitness community offering personalized training, yoga classes, and goal-oriented programs
+            Pune's leading fitness community offering personalized training and goal-oriented programs
           </p>
           
           <div className="glass-card p-5 mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in animate-delay-200">
             <h3 className="text-lg font-semibold text-primary mb-2">Our Philosophy</h3>
             <p className="text-muted-foreground text-sm">
               "We advocate <span className="text-primary font-medium">strong over skinny</span>, 
-              sustainable diets over crash diets, and consistency over quick fixes. 
-              We're creating a judgment-free environment focused on holistic fitness."
+              sustainable habits over crash diets, and consistency over quick fixes."
             </p>
           </div>
           
