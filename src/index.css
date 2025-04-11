@@ -8,34 +8,34 @@
 @layer base {
   :root,
   .theme-light {
-    --background: 40 30% 97%; /* Cream background (#FAF9F6) */
-    --foreground: 220 13% 18%;
+    --background: 39 70% 97%; /* Cream background (#FDF7ED) */
+    --foreground: 0 0% 0%; /* Black text for stronger contrast */
 
-    --card: 40 20% 95%;
-    --card-foreground: 220 13% 18%;
+    --card: 39 60% 95%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 40 20% 95%;
-    --popover-foreground: 220 13% 18%;
+    --popover: 39 60% 95%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Yellow accent (unchanged) */
-    --primary: 43 89% 55%;
-    --primary-foreground: 0 0% 100%;
+    /* Yellow accent - more vibrant */
+    --primary: 45 100% 50%; /* More vibrant yellow #FFCC00 */
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 40 15% 90%;
-    --secondary-foreground: 220 13% 18%;
+    --secondary: 39 60% 90%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 40 15% 90%;
-    --muted-foreground: 220 13% 40%;
+    --muted: 39 60% 90%;
+    --muted-foreground: 0 0% 30%; /* Darker muted text */
 
-    --accent: 43 89% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 40 20% 80%;
-    --input: 40 20% 80%;
-    --ring: 43 89% 55%;
+    --border: 39 60% 75%; /* Slightly darker border */
+    --input: 39 60% 75%;
+    --ring: 45 100% 50%;
 
     --radius: 0.75rem;
   }
@@ -73,33 +73,33 @@
   }
 
   .theme-gold {
-    --background: 40 30% 97%;
-    --foreground: 40 60% 10%;
+    --background: 39 70% 97%; /* Same as light theme */
+    --foreground: 0 0% 0%;
 
-    --card: 40 20% 93%;
-    --card-foreground: 40 60% 10%;
+    --card: 39 60% 95%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 40 20% 93%;
-    --popover-foreground: 40 60% 10%;
+    --popover: 39 60% 95%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 43 89% 55%;
-    --primary-foreground: 40 60% 10%;
+    --primary: 45 100% 50%; /* More vibrant yellow #FFCC00 */
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 40 15% 85%;
-    --secondary-foreground: 40 60% 10%;
+    --secondary: 39 60% 90%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 40 15% 85%;
-    --muted-foreground: 40 30% 40%;
+    --muted: 39 60% 90%;
+    --muted-foreground: 0 0% 30%;
 
-    --accent: 43 89% 55%;
-    --accent-foreground: 40 60% 10%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 40 20% 80%;
-    --input: 40 20% 80%;
-    --ring: 43 89% 55%;
+    --border: 39 60% 75%;
+    --input: 39 60% 75%;
+    --ring: 45 100% 50%;
 
     --radius: 0.75rem;
   }
@@ -113,11 +113,15 @@
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
     font-family: 'Inter', 'Poppins', sans-serif;
+    font-size: 16px;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', 'Poppins', sans-serif;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-weight: 400;
   }
 
   ::selection {
@@ -129,47 +133,47 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .glass-panel {
     @apply bg-card/60 backdrop-blur-md border border-border/10 shadow-sm;
   }
-  
+
   .glass-card {
-    @apply bg-card/50 backdrop-blur-md border border-border/10 shadow-sm rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-card/70;
+    @apply bg-card/80 backdrop-blur-md border border-border shadow-md rounded-xl transition-all duration-300 hover:shadow-lg hover:bg-card/90;
   }
-  
+
   .animate-delay-100 {
     animation-delay: 100ms;
   }
-  
+
   .animate-delay-200 {
     animation-delay: 200ms;
   }
-  
+
   .animate-delay-300 {
     animation-delay: 300ms;
   }
-  
+
   .animate-delay-400 {
     animation-delay: 400ms;
   }
-  
+
   .animate-delay-500 {
     animation-delay: 500ms;
   }
-  
+
   .nav-link {
     @apply relative px-3 py-2 text-foreground hover:text-primary transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
   }
-  
+
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-md transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 border border-primary/20;
   }
-  
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground shadow-sm transition-all duration-300 hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-bold text-secondary-foreground shadow-md transition-all duration-300 hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 border border-primary/20;
   }
-  
+
   .spotlight {
     @apply pointer-events-none absolute -top-40 left-0 z-10 h-[50rem] w-[50rem] rounded-full bg-primary/10 opacity-0 blur-[100px] will-change-transform;
   }
