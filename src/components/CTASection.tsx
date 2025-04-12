@@ -21,14 +21,14 @@ const PricingCard = ({
 }) => {
   return (
     <div
-      className={`glass-card p-6 relative opacity-0 animate-fade-in h-full flex flex-col group ${isPopular ? 'border-t-4 border-primary' : ''}`}
+      className={`glass-card p-6 relative opacity-0 animate-fade-in h-full flex flex-col group ${isPopular ? 'border-t-4 border-primary pt-7' : ''}`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Decorative corner accent */}
       <div className="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-r-[30px] border-t-primary/10 border-r-transparent z-0"></div>
 
       {isPopular && (
-        <div className="absolute -top-3 right-3 bg-primary text-primary-foreground text-xs font-bold py-1 px-3 rounded-full shadow-md z-10">
+        <div className="absolute -top-2 right-6 bg-primary text-primary-foreground text-xs font-bold py-1 px-3 rounded-full shadow-md z-20">
           Popular
         </div>
       )}
@@ -147,40 +147,7 @@ const CTASection = () => {
           ))}
         </div>
 
-        <div id="cta" className="mt-10 md:mt-16 max-w-3xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 opacity-0 animate-fade-in animate-delay-500 animate-on-scroll">
-            <div className="glass-card p-6 md:p-8 flex flex-col justify-center border-l-4 border-primary relative group">
-              {/* Decorative elements */}
-              <div className="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-primary/20"></div>
-              <div className="absolute -bottom-3 -right-3 w-6 h-6 rounded-full bg-primary/20"></div>
-
-              <h2 className="font-display text-2xl font-extrabold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                Start Your Journey
-              </h2>
-              <p className="text-foreground/80 font-medium text-sm mb-5">
-                Join our fitness community in Karve Nagar, Pune.
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-3">
-                <a href="#contact" className="btn-primary group">
-                  <span className="relative z-10 flex items-center">Book a Free Trial <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" /></span>
-                </a>
-                <a href="#contact" className="btn-secondary group">
-                  <span className="relative z-10 flex items-center">Contact Us <MessageCircle className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" /></span>
-                </a>
-              </div>
-            </div>
-            <div className="glass-card p-0 overflow-hidden shadow-lg border-r-4 border-primary relative">
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 pointer-events-none"></div>
-
-              <img
-                src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="FitKraft Training"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
+        {/* Start Your Journey section removed */}
       </div>
     </section>
   );

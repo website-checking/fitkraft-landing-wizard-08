@@ -21,7 +21,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-12 pb-0 md:pt-28 md:pb-8">
+    <section id="hero" className="relative overflow-hidden pt-16 pb-0 md:pt-28 md:pb-8">
       <div className="spotlight animate-spotlight" />
       <div ref={spotlightRef} className="absolute inset-0 z-0">
         <div className="absolute -top-40 -right-40 h-[40rem] w-[40rem] rounded-full bg-primary/10 blur-[80px]"></div>
@@ -37,7 +37,7 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
           {/* Left Column - Text Content */}
-          <div className="flex flex-col justify-center order-1 mt-0 mb-6 md:mb-0">
+          <div className="flex flex-col justify-center order-1 mt-0 mb-6 md:mb-0 md:ml-24">
             <div className="flex mb-6 opacity-0 animate-fade-in">
               <img
                 src="/lovable-uploads/d2b4f7f0-95f2-46c7-b725-7cf9df54b0ac.png"

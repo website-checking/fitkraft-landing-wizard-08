@@ -81,7 +81,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start mb-8 md:mb-12 animate-on-scroll">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch mb-8 md:mb-12 animate-on-scroll">
           <div className="opacity-0 animate-fade-in animate-delay-200">
             <h3 className="text-xl font-bold text-foreground mb-6">Reach Out to Us</h3>
 
@@ -154,7 +154,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="glass-card p-6 md:p-8 opacity-0 animate-fade-in animate-delay-300 border-r-4 border-primary">
+          <div className="glass-card p-6 md:p-8 opacity-0 animate-fade-in animate-delay-300 border-r-4 border-primary h-full flex flex-col">
             <h3 className="text-xl font-bold text-foreground mb-6">Send Us a Message</h3>
 
             {submitted ? (
@@ -164,7 +164,7 @@ const ContactSection = () => {
               </div>
             ) : null}
 
-            <form id="contact-form" onSubmit={handleSubmit}>
+            <form id="contact-form" onSubmit={handleSubmit} className="flex-grow flex flex-col justify-between">
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Your Name
@@ -224,14 +224,16 @@ const ContactSection = () => {
                 />
               </div>
 
-              <Button
-                type="submit"
-                className="w-full btn-primary"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                {!isSubmitting && <Send className="ml-2 h-4 w-4" />}
-              </Button>
+              <div className="mt-auto pt-4">
+                <Button
+                  type="submit"
+                  className="w-full btn-primary"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {!isSubmitting && <Send className="ml-2 h-4 w-4" />}
+                </Button>
+              </div>
             </form>
           </div>
         </div>

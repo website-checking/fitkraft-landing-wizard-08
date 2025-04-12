@@ -20,7 +20,7 @@ const Navbar = () => {
 
   // Adapt navbar background based on theme
   const getNavbarBackground = () => {
-    const scrolledClass = isScrolled ? "py-4 shadow-md border-b" : "py-6";
+    const scrolledClass = isScrolled ? "py-2 md:py-4 shadow-md border-b" : "py-3 md:py-6";
 
     if (theme === 'dark') {
       return `${scrolledClass} bg-gray-900/95 backdrop-blur-md border-gray-800`;
@@ -50,12 +50,12 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavbarBackground()}`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-3 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-display font-bold text-primary flex items-center">
+          <Link to="/" className="text-xl md:text-2xl font-display font-bold text-primary flex items-center">
             <img
               alt="FitKraft Logo"
-              className="h-8 w-auto mr-2"
+              className="h-6 md:h-8 w-auto mr-2"
               src="/lovable-uploads/d2b4f7f0-95f2-46c7-b725-7cf9df54b0ac.png"
             />
             FitKraft<span className="text-primary">.</span>studio
