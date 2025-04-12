@@ -2,10 +2,14 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import About from "../components/About";
 import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import CTASection from "../components/CTASection";
+import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
+import { initNavigation } from "../lib/navigation-utils";
 
 const observeElements = () => {
   const observer = new IntersectionObserver(
@@ -29,26 +33,17 @@ const Index = () => {
   useEffect(() => {
     // Set page title
     document.title = "FitKraft Studio - Transform Your Fitness Journey";
-    
+
     // Initialize intersection observer for scroll animations
     observeElements();
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        if (!href) return;
-        
-        const targetElement = document.querySelector(href);
-        if (!targetElement) return;
-        
-        window.scrollTo({
-          top: targetElement.offsetTop - 100,
-          behavior: "smooth",
-        });
-      });
-    });
+
+    // Initialize navigation (smooth scrolling and active section highlighting)
+    const cleanupNavigation = initNavigation();
+
+    // Clean up on component unmount
+    return () => {
+      cleanupNavigation();
+    };
   }, []);
 
   return (
@@ -56,11 +51,14 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <About />
         <Features />
         <Testimonials />
         <CTASection />
+        <ContactSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
