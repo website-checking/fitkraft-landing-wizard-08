@@ -85,6 +85,18 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if at least one interest is selected
+    const hasSelectedInterest = Object.values(interests).some(value => value === true);
+    if (!hasSelectedInterest) {
+      toast({
+        title: "Please select at least one interest",
+        description: "Let us know what you're interested in.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -237,7 +249,7 @@ const ContactSection = () => {
             <form id="contact-form" onSubmit={handleSubmit} className="flex-grow flex flex-col justify-between">
               <div className="mb-6">
                 <label className="block text-sm font-medium text-foreground mb-3">
-                  I'm Interested In:
+                  I'm Interested In: <span className="text-red-500">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="flex items-center">
@@ -304,7 +316,7 @@ const ContactSection = () => {
               </div>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Your Name
+                  Your Name <span className="text-red-500">*</span>
                 </label>
                 <Input
                   type="text"
@@ -319,7 +331,7 @@ const ContactSection = () => {
 
               <div className="mb-4">
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email Address
+                  Email Address <span className="text-red-500">*</span>
                 </label>
                 <Input
                   type="email"
@@ -334,7 +346,7 @@ const ContactSection = () => {
 
               <div className="mb-4">
                 <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                  Phone Number
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <Input
                   type="tel"
@@ -358,7 +370,6 @@ const ContactSection = () => {
                   className="w-full"
                   rows={5}
                   placeholder="I'd like to inquire about..."
-                  required
                 />
               </div>
 

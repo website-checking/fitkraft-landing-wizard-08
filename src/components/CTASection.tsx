@@ -8,6 +8,7 @@ const PricingCard = ({
   description,
   features,
   isPopular = false,
+  showPopularBadge = true,
   delay = 0,
   showPrice = true
 }: {
@@ -16,6 +17,7 @@ const PricingCard = ({
   description: string;
   features: string[];
   isPopular?: boolean;
+  showPopularBadge?: boolean;
   delay?: number;
   showPrice?: boolean;
 }) => {
@@ -27,7 +29,7 @@ const PricingCard = ({
       {/* Decorative corner accent */}
       <div className="absolute top-0 right-0 w-0 h-0 border-t-[30px] border-r-[30px] border-t-primary/10 border-r-transparent z-0"></div>
 
-      {isPopular && (
+      {isPopular && showPopularBadge && (
         <div className="absolute -top-2 right-6 bg-primary text-primary-foreground text-xs font-bold py-1 px-3 rounded-full shadow-md z-20">
           Popular
         </div>
@@ -96,6 +98,7 @@ const CTASection = () => {
         "Community motivation"
       ],
       isPopular: true,
+      showPopularBadge: true,
       delay: 200,
       showPrice: true
     },
@@ -108,7 +111,8 @@ const CTASection = () => {
         "Flexible scheduling",
         "Mutual accountability"
       ],
-      isPopular: false,
+      isPopular: true,
+      showPopularBadge: false,
       delay: 300,
       showPrice: false
     },
@@ -121,7 +125,8 @@ const CTASection = () => {
         "Custom programming",
         "Nutrition guidance"
       ],
-      isPopular: false,
+      isPopular: true,
+      showPopularBadge: false,
       delay: 400,
       showPrice: false
     }
@@ -157,6 +162,7 @@ const CTASection = () => {
               description={plan.description}
               features={plan.features}
               isPopular={plan.isPopular}
+              showPopularBadge={plan.showPopularBadge}
               delay={plan.delay}
               showPrice={plan.showPrice}
             />

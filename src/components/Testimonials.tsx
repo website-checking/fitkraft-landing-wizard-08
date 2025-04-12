@@ -5,34 +5,34 @@ import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    content: "Exceptional trainers. My fitness transformed in 6 months.",
+    content: "Fitkraft is your space of positive energy where progress meets support, and every step of your fitness journey feels right.",
     author: "Priya Sharma",
     role: "Member since 2022",
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+    avatar: "https://randomuser.me/api/portraits/women/42.jpg",
     rating: 5
   },
   {
     id: 2,
-    content: "Flexible schedule fits my busy IT career. Classes keep me motivated.",
+    content: "FitKraft keeps workouts fresh, personal, and highly motivating.",
     author: "Rahul Desai",
     role: "Software Engineer",
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/76.jpg",
     rating: 5
   },
   {
     id: 3,
-    content: "Yoga classes transformed my physical and mental wellbeing.",
+    content: "It's been two months; loving the energy here.",
     author: "Anjali Patil",
     role: "Yoga Enthusiast",
-    avatar: "https://randomuser.me/api/portraits/women/4.jpg",
+    avatar: "https://randomuser.me/api/portraits/women/63.jpg",
     rating: 5
   },
   {
     id: 4,
-    content: "Found my fitness home at FitKraft. Personal attention sets them apart.",
+    content: "FitKraft reform program worked - 12 kgs gone!",
     author: "Vikram Joshi",
     role: "Regular Member",
-    avatar: "https://randomuser.me/api/portraits/men/5.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/69.jpg",
     rating: 5
   }
 ];
