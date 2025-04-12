@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import AdminStandalone from "./pages/AdminStandalone";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { initScrollAnimations } from "./lib/scroll-animations";
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/admin" element={<AdminStandalone />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
