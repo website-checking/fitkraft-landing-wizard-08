@@ -13,17 +13,97 @@ const ContactSection = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [interests, setInterests] = useState({
+    buddyTraining: false,
+    personalTraining: false,
+    batchTraining: false,
+    nutritionGuidance: false,
+    yoga: false,
+    aerobics: false
+  });
+
+  // Function to handle program selection
+  const handleProgramSelection = (program: string) => {
+    console.log('Handling program selection:', program);
+    // Convert program name to interest key
+    const programToInterestMap: Record<string, keyof typeof interests> = {
+      'Personal Training': 'personalTraining',
+      'Buddy Training': 'buddyTraining',
+      'Batch Training': 'batchTraining',  // Match the exact title from CTASection
+      'Nutrition Guidance': 'nutritionGuidance',
+      'Yoga Classes': 'yoga',
+      'Aerobics': 'aerobics'
+    };
+
+    const interestKey = programToInterestMap[program];
+    console.log('Interest key:', interestKey);
+    if (interestKey) {
+      console.log('Setting interest:', interestKey, 'to true');
+      setInterests(prev => {
+        const newInterests = {
+          ...prev,
+          [interestKey]: true
+        };
+        console.log('New interests:', newInterests);
+        return newInterests;
+      });
+    }
+  };
+
+  // Check for selected program from localStorage and listen for custom events
+  React.useEffect(() => {
+    // Check localStorage for selected program
+    const selectedProgram = localStorage.getItem('selectedProgram');
+    console.log('Selected program from localStorage:', selectedProgram);
+    if (selectedProgram) {
+      handleProgramSelection(selectedProgram);
+      // Clear localStorage after using it
+      localStorage.removeItem('selectedProgram');
+    }
+
+    // Listen for custom events
+    const handleEvent = (event: CustomEvent<{program: string}>) => {
+      console.log('Received custom event with program:', event.detail.program);
+      handleProgramSelection(event.detail.program);
+    };
+
+    // Add event listener
+    document.addEventListener('programSelected', handleEvent as EventListener);
+
+    // Clean up
+    return () => {
+      document.removeEventListener('programSelected', handleEvent as EventListener);
+    };
+  }, []);
+
+  const handleInterestChange = (interest: string) => {
+    setInterests(prev => ({
+      ...prev,
+      [interest]: !prev[interest as keyof typeof prev]
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      // Get selected interests as a string
+      const selectedInterests = Object.entries(interests)
+        .filter(([_, isSelected]) => isSelected)
+        .map(([interest, _]) => {
+          // Convert camelCase to readable format
+          return interest
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^./, str => str.toUpperCase());
+        })
+        .join(', ');
+
       // Send form data to Supabase
       const { error } = await supabase
         .from('contact_submissions')
         .insert([
-          { name, email, phone, message }
+          { name, email, phone, message, interests: selectedInterests }
         ]);
 
       if (error) {
@@ -155,6 +235,73 @@ const ContactSection = () => {
               ) : null}
 
             <form id="contact-form" onSubmit={handleSubmit} className="flex-grow flex flex-col justify-between">
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-foreground mb-3">
+                  I'm Interested In:
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="buddyTraining"
+                      checked={interests.buddyTraining}
+                      onChange={() => handleInterestChange('buddyTraining')}
+                      className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="buddyTraining" className="text-sm text-foreground">Buddy Training</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="personalTraining"
+                      checked={interests.personalTraining}
+                      onChange={() => handleInterestChange('personalTraining')}
+                      className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="personalTraining" className="text-sm text-foreground">Personal Training</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="batchTraining"
+                      checked={interests.batchTraining}
+                      onChange={() => handleInterestChange('batchTraining')}
+                      className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="batchTraining" className="text-sm text-foreground">Batch Training</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="nutritionGuidance"
+                      checked={interests.nutritionGuidance}
+                      onChange={() => handleInterestChange('nutritionGuidance')}
+                      className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="nutritionGuidance" className="text-sm text-foreground">Nutrition Guidance</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="yoga"
+                      checked={interests.yoga}
+                      onChange={() => handleInterestChange('yoga')}
+                      className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="yoga" className="text-sm text-foreground">Yoga</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="aerobics"
+                      checked={interests.aerobics}
+                      onChange={() => handleInterestChange('aerobics')}
+                      className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                    />
+                    <label htmlFor="aerobics" className="text-sm text-foreground">Aerobics</label>
+                  </div>
+                </div>
+              </div>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Your Name
@@ -196,6 +343,7 @@ const ContactSection = () => {
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full"
                   placeholder="+91 98765 43210"
+                  required
                 />
               </div>
 

@@ -64,9 +64,9 @@ const Testimonials = () => {
         <div className="mx-auto max-w-3xl text-center mb-10">
           <h2 className="font-display mb-3 text-3xl font-extrabold text-foreground md:text-4xl opacity-0 animate-fade-in animate-on-scroll">
             <span className="text-primary drop-shadow-sm relative inline-block">
-              Success
+              Testimonials
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30"></span>
-            </span> Stories
+            </span>
           </h2>
           <p className="text-foreground/80 font-medium opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Hear from our community members

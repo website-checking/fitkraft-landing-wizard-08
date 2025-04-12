@@ -53,12 +53,28 @@ const PricingCard = ({
         ))}
       </ul>
       <a
-        href="#cta"
+        href="#contact"
         className={`w-full text-center py-2 px-4 rounded-full text-sm font-bold transition-all duration-300 relative overflow-hidden ${
           isPopular
             ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg"
             : "bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:shadow-md"
         }`}
+        onClick={() => {
+          // Store the selected program in localStorage
+          localStorage.setItem('selectedProgram', title);
+          console.log('Stored in localStorage:', title);
+
+          // Create a custom event to notify the ContactSection
+          const event = new CustomEvent('programSelected', { detail: { program: title } });
+          document.dispatchEvent(event);
+          console.log('Dispatched event with program:', title);
+
+          // Scroll to contact section
+          const contactSection = document.getElementById('contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
       >
         <span className="relative z-10">Get Started</span>
         <span className="absolute inset-0 h-full w-full bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
