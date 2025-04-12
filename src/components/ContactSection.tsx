@@ -81,88 +81,78 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch mb-8 md:mb-12 animate-on-scroll">
-          <div className="opacity-0 animate-fade-in animate-delay-200">
-            <h3 className="text-xl font-bold text-foreground mb-6">Reach Out to Us</h3>
+        <div className="mb-8 md:mb-12 animate-on-scroll">
+          {/* Contact Info and Form Row (desktop) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
+            {/* Contact Info Card - Left side on desktop */}
+            <div className="glass-card p-6 md:p-8 opacity-0 animate-fade-in animate-delay-200 border-l-4 border-primary h-full">
+              <h3 className="text-xl font-bold text-foreground mb-6">Reach Out to Us</h3>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                    <MapPin className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Visit Us</h4>
+                    <p className="text-foreground/80 font-medium">
+                      123 Fitness Street, Karve Nagar<br/>
+                      Pune, Maharashtra 411052<br/>
+                      India
+                    </p>
+                  </div>
+                </div>
 
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start">
-                <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-primary" />
+                <div className="flex items-start">
+                  <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Email Us</h4>
+                    <p className="text-foreground/80 font-medium">
+                      info@fitkraft.studio<br/>
+                      support@fitkraft.studio
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground">Visit Us</h4>
-                  <p className="text-foreground/80 font-medium">
-                    123 Fitness Street, Karve Nagar<br/>
-                    Pune, Maharashtra 411052<br/>
-                    India
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-start">
-                <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-primary" />
+                <div className="flex items-start">
+                  <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Call Us</h4>
+                    <p className="text-foreground/80 font-medium">
+                      +91 98765 43210<br/>
+                      +91 12345 67890
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground">Email Us</h4>
-                  <p className="text-foreground/80 font-medium">
-                    info@fitkraft.studio<br/>
-                    support@fitkraft.studio
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-start">
-                <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Phone className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground">Call Us</h4>
-                  <p className="text-foreground/80 font-medium">
-                    +91 98765 43210<br/>
-                    +91 12345 67890
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Clock className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground">Opening Hours</h4>
-                  <p className="text-foreground/80 font-medium">
-                    Monday to Friday: 6:00 AM - 10:00 PM<br/>
-                    Saturday and Sunday: 7:00 AM - 8:00 PM
-                  </p>
+                <div className="flex items-start">
+                  <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-foreground">Opening Hours</h4>
+                    <p className="text-foreground/80 font-medium">
+                      Monday to Friday: 6:00 AM - 10:00 PM<br/>
+                      Saturday and Sunday: 7:00 AM - 8:00 PM
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card overflow-hidden rounded-xl h-64 md:h-80 border-l-4 border-primary">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.325732280321!2d73.80646694614!3d18.4911897406789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb0e756d06d%3A0xbea4ce1dba221512!2sKarve%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1649835284523!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="FitKraft Studio Location"
-              ></iframe>
-            </div>
-          </div>
+            {/* Contact Form Card - Right side on desktop */}
+            <div className="glass-card p-6 md:p-8 opacity-0 animate-fade-in animate-delay-300 border-r-4 border-primary h-full">
+              <h3 className="text-xl font-bold text-foreground mb-6">Send Us a Message</h3>
 
-          <div className="glass-card p-6 md:p-8 opacity-0 animate-fade-in animate-delay-300 border-r-4 border-primary h-full flex flex-col">
-            <h3 className="text-xl font-bold text-foreground mb-6">Send Us a Message</h3>
-
-            {submitted ? (
-              <div className="bg-primary/10 border border-primary/20 text-foreground px-4 py-3 rounded-lg mb-6">
-                <p className="font-medium">Message sent successfully!</p>
-                <p className="text-sm text-foreground/80">We'll get back to you as soon as possible.</p>
-              </div>
-            ) : null}
+              {submitted ? (
+                <div className="bg-primary/10 border border-primary/20 text-foreground px-4 py-3 rounded-lg mb-6">
+                  <p className="font-medium">Message sent successfully!</p>
+                  <p className="text-sm text-foreground/80">We'll get back to you as soon as possible.</p>
+                </div>
+              ) : null}
 
             <form id="contact-form" onSubmit={handleSubmit} className="flex-grow flex flex-col justify-between">
               <div className="mb-4">
@@ -235,6 +225,23 @@ const ContactSection = () => {
                 </Button>
               </div>
             </form>
+          </div>
+          </div>
+
+          {/* Map Section - Full width below on desktop */}
+          <div className="glass-card overflow-hidden rounded-xl opacity-0 animate-fade-in animate-delay-400 border-b-4 border-primary">
+            <div className="h-64 md:h-96">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.325732280321!2d73.80646694614!3d18.4911897406789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb0e756d06d%3A0xbea4ce1dba221512!2sKarve%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1649835284523!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="FitKraft Studio Location"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
