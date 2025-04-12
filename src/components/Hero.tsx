@@ -1,27 +1,22 @@
-
 import React, { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-
 const Hero = () => {
   const spotlightRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!spotlightRef.current) return;
-
-      const { clientX, clientY } = e;
+      const {
+        clientX,
+        clientY
+      } = e;
       const x = clientX - window.innerWidth / 2;
       const y = clientY - window.innerHeight / 2;
-
       spotlightRef.current.style.transform = `translate(${x * 0.05}px, ${y * 0.05}px)`;
     };
-
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  return (
-    <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+  return <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
       <div className="spotlight animate-spotlight" />
       <div ref={spotlightRef} className="absolute inset-0 z-0">
         <div className="absolute -top-40 -right-40 h-[40rem] w-[40rem] rounded-full bg-primary/5 blur-[80px]"></div>
@@ -33,11 +28,7 @@ const Hero = () => {
           {/* Left Column - Text Content */}
           <div className="flex flex-col justify-center order-2 md:order-1">
             <div className="flex mb-6 opacity-0 animate-fade-in">
-              <img
-                src="/lovable-uploads/d2b4f7f0-95f2-46c7-b725-7cf9df54b0ac.png"
-                alt="FitKraft Studio"
-                className="h-14"
-              />
+              <img src="/lovable-uploads/d2b4f7f0-95f2-46c7-b725-7cf9df54b0ac.png" alt="FitKraft Studio" className="h-14" />
             </div>
 
             <div className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground mb-6 w-fit opacity-0 animate-fade-in">
@@ -67,12 +58,7 @@ const Hero = () => {
           {/* Right Column - Image */}
           <div className="order-1 md:order-2 opacity-0 animate-fade-in animate-delay-200">
             <div className="glass-panel rounded-xl overflow-hidden shadow-lg border-l-4 border-primary">
-              <img
-                src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2675&q=80"
-                alt="FitKraft Studio in Pune"
-                className="w-full h-auto rounded transform hover:scale-[1.02] transition-transform duration-500"
-                loading="lazy"
-              />
+              <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2675&q=80" alt="FitKraft Studio in Pune" className="w-full h-auto rounded transform hover:scale-[1.02] transition-transform duration-500" loading="lazy" />
             </div>
           </div>
         </div>
@@ -88,7 +74,7 @@ const Hero = () => {
             <div className="text-sm font-medium text-foreground/80">Happy Clients</div>
           </div>
           <div className="glass-card p-4 text-center border-t-4 border-primary">
-            <div className="text-3xl font-extrabold text-primary mb-1 drop-shadow-sm">6</div>
+            <div className="text-3xl font-extrabold text-primary mb-1 drop-shadow-sm">6+</div>
             <div className="text-sm font-medium text-foreground/80">Training Programs</div>
           </div>
           <div className="glass-card p-4 text-center border-t-4 border-primary">
@@ -97,8 +83,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
