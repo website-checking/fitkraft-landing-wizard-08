@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ThemeToggle } from "./ThemeToggle";
+
 import { useTheme } from "../providers/ThemeProvider";
 
 const Navbar = () => {
@@ -70,7 +70,7 @@ const Navbar = () => {
                 About Us
               </a>
               <a href="#features" className="nav-link">
-                Services
+                Key Features
               </a>
               <a href="#testimonials" className="nav-link">
                 Testimonials
@@ -83,7 +83,6 @@ const Navbar = () => {
               </a>
             </nav>
             <div className="flex items-center space-x-4">
-              <ThemeToggle />
               <a href="#contact" className="btn-primary">
                 Book a Free Class
               </a>
@@ -91,7 +90,6 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="focus:outline-none"
@@ -130,7 +128,7 @@ const Navbar = () => {
               className="text-foreground hover:text-primary py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Services
+              Key Features
             </a>
             <a
               href="#testimonials"

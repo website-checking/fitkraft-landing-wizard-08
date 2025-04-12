@@ -68,7 +68,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a href="#features" className="btn-secondary">
-                Our Services
+                Training Programs
               </a>
             </div>
           </div>

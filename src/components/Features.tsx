@@ -103,7 +103,7 @@ const Features = () => {
         <div className="mx-auto max-w-3xl text-center mb-10">
           <h2 className="font-display mb-3 text-3xl font-extrabold text-foreground md:text-4xl opacity-0 animate-fade-in animate-on-scroll">
             Our <span className="text-primary drop-shadow-sm relative inline-block">
-              Services
+              Key Features
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30"></span>
             </span>
           </h2>
