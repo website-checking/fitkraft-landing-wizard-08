@@ -95,9 +95,9 @@ const ContactSection = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-foreground">Visit Us</h4>
                     <p className="text-foreground/80 font-medium">
-                      123 Fitness Street, Karve Nagar<br/>
-                      Pune, Maharashtra 411052<br/>
-                      India
+                      Plot no 41, no 4, gaurav, Alankar Society Rd,<br/>
+                      opp. shailesh Sabhagruha, Alankar Society,<br/>
+                      Ganesh Nagar, Karvenagar, Pune, Maharashtra 411052
                     </p>
                   </div>
                 </div>
@@ -122,8 +122,7 @@ const ContactSection = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-foreground">Call Us</h4>
                     <p className="text-foreground/80 font-medium">
-                      +91 98765 43210<br/>
-                      +91 12345 67890
+                      +91 9699088367
                     </p>
                   </div>
                 </div>
@@ -135,11 +134,12 @@ const ContactSection = () => {
                   <div>
                     <h4 className="text-lg font-semibold text-foreground">Opening Hours</h4>
                     <p className="text-foreground/80 font-medium">
-                      Monday to Friday: 6:00 AM - 10:00 PM<br/>
-                      Saturday and Sunday: 7:00 AM - 8:00 PM
+                      Monday to Friday: 6:00 AM - 10:00 AM, 7:00 PM - 8:00 PM
                     </p>
                   </div>
                 </div>
+
+
               </div>
             </div>
 
@@ -232,7 +232,7 @@ const ContactSection = () => {
           <div className="glass-card overflow-hidden rounded-xl opacity-0 animate-fade-in animate-delay-400 border-b-4 border-primary">
             <div className="h-64 md:h-96">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.325732280321!2d73.80646694614!3d18.4911897406789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb0e756d06d%3A0xbea4ce1dba221512!2sKarve%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1649835284523!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8867780076636!2d73.81324907497906!3d18.48651168259752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8c1c7562f5%3A0x59f9b10f0b2a54e7!2sPlot%20No.%2041%2C%20Alankar%20Society%20Rd%2C%20Alankar%20Society%2C%20Ganesh%20Nagar%2C%20Karvenagar%2C%20Pune%2C%20Maharashtra%20411052!5e0!3m2!1sen!2sin!4v1718102066619!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.instagram.com/fitkraftstudio"
+                href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 shadow-sm"
@@ -59,22 +59,22 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors duration-300">Home</Link>
+                <a href="#hero" className="text-muted-foreground hover:text-primary transition-colors duration-300">Home</a>
               </li>
               <li>
-                <Link to="/about-us" className="text-muted-foreground hover:text-primary transition-colors duration-300">About Us</Link>
+                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors duration-300">About Us</a>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors duration-300">Services</Link>
+                <a href="#features" className="text-muted-foreground hover:text-primary transition-colors duration-300">Key Features</a>
               </li>
               <li>
-                <a href="/#testimonials" className="text-muted-foreground hover:text-primary transition-colors duration-300">Testimonials</a>
+                <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors duration-300">Testimonials</a>
               </li>
               <li>
-                <a href="/#pricing" className="text-muted-foreground hover:text-primary transition-colors duration-300">Membership</a>
+                <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors duration-300">Training Programs</a>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors duration-300">Contact</Link>
+                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-300">Contact</a>
               </li>
             </ul>
           </div>
@@ -86,19 +86,19 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="/services#strength" className="text-muted-foreground hover:text-primary transition-colors duration-300">Strength Training</a>
+                <span className="text-muted-foreground">Strength Training</span>
               </li>
               <li>
-                <a href="/services#yoga" className="text-muted-foreground hover:text-primary transition-colors duration-300">Yoga Classes</a>
+                <span className="text-muted-foreground">Yoga Classes</span>
               </li>
               <li>
-                <a href="/services#aerobics" className="text-muted-foreground hover:text-primary transition-colors duration-300">Aerobics & Dance</a>
+                <span className="text-muted-foreground">Aerobics & Dance</span>
               </li>
               <li>
-                <a href="/services#personal" className="text-muted-foreground hover:text-primary transition-colors duration-300">Personal Training</a>
+                <span className="text-muted-foreground">Personal Training</span>
               </li>
               <li>
-                <a href="/services#nutrition" className="text-muted-foreground hover:text-primary transition-colors duration-300">Nutrition Guidance</a>
+                <span className="text-muted-foreground">Nutrition Guidance</span>
               </li>
             </ul>
           </div>
@@ -115,14 +115,14 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-primary drop-shadow-sm" />
-                <span className="text-muted-foreground">+91 98765 43210</span>
+                <span className="text-muted-foreground">+91 9699088367</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-primary drop-shadow-sm" />
                 <span className="text-muted-foreground">
-                  123 Fitness Street<br />
-                  Karve Nagar, Pune 411052<br />
-                  Maharashtra, India
+                  Plot no 41, no 4, gaurav, Alankar Society Rd,<br />
+                  opp. shailesh Sabhagruha, Alankar Society,<br />
+                  Ganesh Nagar, Karvenagar, Pune, Maharashtra 411052
                 </span>
               </li>
             </ul>

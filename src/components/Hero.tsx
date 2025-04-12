@@ -67,7 +67,7 @@ const Hero = () => {
                 Book a Free Class
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-              <a href="#features" className="btn-secondary">
+              <a href="#pricing" className="btn-secondary">
                 Training Programs
               </a>
             </div>
