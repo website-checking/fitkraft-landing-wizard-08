@@ -37,7 +37,7 @@ const Hero = () => {
           {/* Left Column - Text Content */}
           <div className="flex flex-col justify-center order-1 mt-0 mb-6 md:mb-0 md:ml-24">
             <div className="flex mb-6 opacity-0 animate-fade-in">
-              <img src="/lovable-uploads/d2b4f7f0-95f2-46c7-b725-7cf9df54b0ac.png" alt="FitKraft Studio" className="h-14" />
+              <img src="/images/fitkraft-logo.png" alt="FitKraft Studio" className="h-14" />
             </div>
 
             <div className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground mb-6 w-fit opacity-0 animate-fade-in">
@@ -52,9 +52,12 @@ const Hero = () => {
               </span> Studio
             </h1>
 
-            <p className="mb-6 text-foreground/90 font-medium opacity-0 animate-fade-in animate-delay-200">
-              Strong over skinny. Sustainable habits over crash diets.
-            </p>
+            <div className="mb-6 opacity-0 animate-fade-in animate-delay-200">
+              <h2 className="text-xl font-bold text-primary mb-2">Our Philosophy</h2>
+              <p className="text-foreground/90 font-medium">
+                We aim at achieving holistic fitness. We advocate strong over skinny, sustainable diets over crash diets, consistency and commitment. We're building a safe environment where no one is judged based on their physicality — being fit inside out is what we strive for.
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-start gap-4 opacity-0 animate-fade-in animate-delay-300">
               <a href="#contact" className="btn-primary">

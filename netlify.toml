@@ -1,8 +1,58 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm run build:netlify"
+  ignore = "false" # Always rebuild, never use cache
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = false
+  minify = false
+
+[build.processing.js]
+  bundle = false
+  minify = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = false
+
+# Run a post-processing script
+[build.processing.html.transformers]
+  post_build = "node netlify-postbuild.js"
+
+[[redirects]]
+  from = "/custom"
+  to = "/custom-index.html"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/fallback"
+  to = "/fallback.html"
+  status = 200
+  force = true
+
+[[edge_functions]]
+  path = "/*"
+  function = "fix-title"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"

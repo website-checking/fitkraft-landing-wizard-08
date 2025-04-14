@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Routing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>FitKraft Routing Test</h1>
+    
+    <div>
+        <h2>Test Links</h2>
+        <button onclick="window.location.href='/'">Home Page</button>
+        <button onclick="window.location.href='/admin'">Admin Page</button>
+        <button onclick="window.location.href='/contact'">Contact Page</button>
+    </div>
+
+    <div>
+        <h2>Current URL Information</h2>
+        <pre id="url-info"></pre>
+    </div>
+
+    <div>
+        <h2>Browser Information</h2>
+        <pre id="browser-info"></pre>
+    </div>
+
+    <script>
+        // Display URL information
+        const urlInfo = document.getElementById('url-info');
+        urlInfo.textContent = `
+Full URL: ${window.location.href}
+Protocol: ${window.location.protocol}
+Host: ${window.location.host}
+Pathname: ${window.location.pathname}
+Search: ${window.location.search}
+Hash: ${window.location.hash}
+`;
+
+        // Display browser information
+        const browserInfo = document.getElementById('browser-info');
+        browserInfo.textContent = `
+User Agent: ${navigator.userAgent}
+Platform: ${navigator.platform}
+Cookies Enabled: ${navigator.cookieEnabled}
+Language: ${navigator.language}
+`;
+    </script>
+</body>
+</html>
