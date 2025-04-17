@@ -249,9 +249,6 @@ const ContactSection = () => {
                   id="contact-form"
                   onSubmit={handleSubmit}
                   className="space-y-6"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  name="contact"
                 >
                   {/* Interest selection */}
                   <div>
@@ -352,15 +349,7 @@ const ContactSection = () => {
                     <div ref={recaptchaRef} className="g-recaptcha" data-sitekey="6LfWpRsrAAAAAGqIeDGZl10RELxMdkq0SRGDtncc"></div>
                   </div>
 
-                  {/* Netlify Forms hidden fields */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
 
-                  {/* Honeypot field - hidden from users but bots might fill it */}
-                  <div className="hidden" aria-hidden="true">
-                    <label htmlFor="bot-field">Leave this field empty</label>
-                    <input type="text" id="bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
-                  </div>
 
                   <div>
                     <Button
