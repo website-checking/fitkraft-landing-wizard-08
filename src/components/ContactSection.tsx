@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { MapPin, Mail, Phone, Send, Clock, Calendar, Instagram, Facebook, CheckCircle2 } from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { supabase } from "../integrations/supabase/client";
+// Direct Supabase API is used instead of the client
 import { toast } from "../hooks/use-toast";
 import { Button } from "./ui/button";
 
@@ -144,22 +144,30 @@ const ContactSection = () => {
         })
         .join(', ');
 
-      // Send form data to Supabase with reCAPTCHA token
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name,
-            email,
-            phone,
-            message,
-            interests: selectedInterests,
-            recaptcha_token: recaptchaValue // Store token for verification
-          }
-        ]);
+      // Send form data to Supabase using direct fetch API
+      const SUPABASE_URL = 'https://xqmujsdspymsacjzhoyh.supabase.co';
+      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhxbXVqc2RzcHltc2Fjanpob3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzNTQ5NDUsImV4cCI6MjA1OTkzMDk0NX0.IspVcIDlUu5UDw1AnYhA5rV1erdQYBUa-irAO4wvtMM';
 
-      if (error) {
-        throw error;
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          message,
+          interests: selectedInterests
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Submission failed: ${response.status} - ${JSON.stringify(errorData)}`);
       }
 
       // Show success toast
@@ -187,9 +195,17 @@ const ContactSection = () => {
       }, 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
+
+      // More detailed error message
+      let errorMessage = "Please try again later.";
+      if (error instanceof Error) {
+        errorMessage = `Error: ${error.message}`;
+        console.error("Detailed error:", error.message);
+      }
+
       toast({
         title: "Error sending message",
-        description: "Please try again later.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
