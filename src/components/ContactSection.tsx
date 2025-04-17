@@ -184,6 +184,16 @@ const ContactSection = () => {
       setPhone("");
       setMessage("");
 
+      // Reset interests checkboxes
+      setInterests({
+        buddyTraining: false,
+        personalTraining: false,
+        batchTraining: false,
+        nutritionGuidance: false,
+        yoga: false,
+        aerobics: false
+      });
+
       // Reset reCAPTCHA
       if ((window as any).grecaptcha) {
         (window as any).grecaptcha.reset();
