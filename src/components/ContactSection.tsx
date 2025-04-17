@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MapPin, Mail, Phone, Send, Clock, Calendar, Instagram, Facebook, CheckCircle2 } from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -13,6 +13,8 @@ const ContactSection = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<HTMLDivElement>(null);
   const [interests, setInterests] = useState({
     buddyTraining: false,
     personalTraining: false,
@@ -51,6 +53,24 @@ const ContactSection = () => {
   };
 
   // Check for selected program from localStorage and listen for custom events
+  // Load reCAPTCHA script
+  useEffect(() => {
+    // Add reCAPTCHA script if it doesn't exist
+    if (!document.querySelector('script[src*="recaptcha"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js';
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+
+      return () => {
+        // Clean up script when component unmounts
+        document.head.removeChild(script);
+      };
+    }
+  }, []);
+
+  // Handle program selection event
   useEffect(() => {
     // Check localStorage for selected program
     const selectedProgram = localStorage.getItem('selectedProgram');
@@ -97,6 +117,19 @@ const ContactSection = () => {
       return;
     }
 
+    // Verify reCAPTCHA
+    const recaptchaValue = (window as any).grecaptcha?.getResponse();
+    if (!recaptchaValue) {
+      toast({
+        title: "Please complete the reCAPTCHA",
+        description: "Verify that you are not a robot.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setRecaptchaToken(recaptchaValue);
+
     setIsSubmitting(true);
 
     try {
@@ -111,11 +144,18 @@ const ContactSection = () => {
         })
         .join(', ');
 
-      // Send form data to Supabase
+      // Send form data to Supabase with reCAPTCHA token
       const { error } = await supabase
         .from('contact_submissions')
         .insert([
-          { name, email, phone, message, interests: selectedInterests }
+          {
+            name,
+            email,
+            phone,
+            message,
+            interests: selectedInterests,
+            recaptcha_token: recaptchaValue // Store token for verification
+          }
         ]);
 
       if (error) {
@@ -135,6 +175,11 @@ const ContactSection = () => {
       setEmail("");
       setPhone("");
       setMessage("");
+
+      // Reset reCAPTCHA
+      if ((window as any).grecaptcha) {
+        (window as any).grecaptcha.reset();
+      }
 
       // Reset submission status after 5 seconds
       setTimeout(() => {
@@ -200,7 +245,14 @@ const ContactSection = () => {
                   </div>
                 ) : null}
 
-                <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  id="contact-form"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  name="contact"
+                >
                   {/* Interest selection */}
                   <div>
                     <label className="block text-base font-medium text-foreground mb-3">
@@ -295,6 +347,21 @@ const ContactSection = () => {
                     />
                   </div>
 
+                  {/* reCAPTCHA */}
+                  <div className="flex justify-center mb-4">
+                    <div ref={recaptchaRef} className="g-recaptcha" data-sitekey="6LfWpRsrAAAAAGqIeDGZl10RELxMdkq0SRGDtncc"></div>
+                  </div>
+
+                  {/* Netlify Forms hidden fields */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" />
+
+                  {/* Honeypot field - hidden from users but bots might fill it */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="bot-field">Leave this field empty</label>
+                    <input type="text" id="bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
+                  </div>
+
                   <div>
                     <Button
                       type="submit"
@@ -362,9 +429,7 @@ const ContactSection = () => {
                     <div>
                       <h4 className="text-lg font-bold text-foreground mb-1">Opening Hours</h4>
                       <p className="text-foreground/80 font-medium">
-                        Monday to Friday: 6:00 AM - 9:00 AM, 6:00 PM - 8:00 PM<br/>
-                        Saturday: 7:00 AM - 10:00 AM<br/>
-                        Sunday: Closed
+                        Monday to Friday: 6:00 AM - 9:00 AM, 6:00 PM - 8:00 PM
                       </p>
                     </div>
                   </div>
@@ -375,7 +440,7 @@ const ContactSection = () => {
                   <h4 className="text-lg font-bold text-foreground mb-4">Follow Us</h4>
                   <div className="flex space-x-4">
                     <a
-                      href="https://instagram.com"
+                      href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors duration-300"
