@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import AdminLogin from '../components/admin/AdminLogin';
-import AdminDashboard from '../components/admin/AdminDashboard';
+import { useState, useEffect } from 'react';
+import SimpleAdminLogin from '../components/admin/SimpleAdminLogin';
+import AdminDashboardNew from '../components/admin/AdminDashboardNew';
 
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,9 +24,9 @@ const Admin = () => {
   return (
     <div className="min-h-screen bg-background">
       {isAuthenticated ? (
-        <AdminDashboard onLogout={handleLogout} />
+        <AdminDashboardNew onLogout={handleLogout} />
       ) : (
-        <AdminLogin onLogin={handleLogin} />
+        <SimpleAdminLogin onLogin={handleLogin} />
       )}
     </div>
   );

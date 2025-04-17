@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { toast } from '../../hooks/use-toast';
@@ -44,7 +44,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="flex min-h-[80vh] items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="w-full max-w-md p-8 space-y-8 bg-background rounded-lg shadow-lg border border-primary/20">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-foreground">Admin Login</h2>
@@ -52,7 +52,8 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
             Sign in to access the admin dashboard
           </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
@@ -70,6 +71,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
                 placeholder="admin@example.com"
               />
             </div>
+
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-foreground mb-1">
                 Password
@@ -88,19 +90,18 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
             </div>
           </div>
 
-          <div>
-            <Button
-              type="submit"
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              disabled={isLoading}
-            >
-              {isLoading ? 'Signing in...' : 'Sign in'}
-            </Button>
-            <div className="mt-4 text-center text-sm text-foreground/70">
-              <p>Demo credentials:</p>
-              <p className="font-mono bg-background/80 p-1 rounded mt-1">Email: admin@example.com</p>
-              <p className="font-mono bg-background/80 p-1 rounded mt-1">Password: password123</p>
-            </div>
+          <Button
+            type="submit"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Signing in...' : 'Sign in'}
+          </Button>
+
+          <div className="mt-4 text-center text-sm text-foreground/70">
+            <p>Demo credentials:</p>
+            <p className="font-mono bg-background/80 p-1 rounded mt-1">Email: admin@example.com</p>
+            <p className="font-mono bg-background/80 p-1 rounded mt-1">Password: password123</p>
           </div>
         </form>
       </div>
