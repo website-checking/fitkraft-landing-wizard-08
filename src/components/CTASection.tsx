@@ -39,7 +39,7 @@ const ProgramCard = ({
     >
       {/* Popular badge */}
       {isPopular && (
-        <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-bold py-1 px-3 rounded-full shadow-md z-20">
+        <div className="absolute top-0 right-4 bg-primary text-primary-foreground text-xs font-bold py-1 px-3 rounded-b-lg shadow-md z-20 transform translate-y-0">
           Popular
         </div>
       )}
@@ -47,11 +47,11 @@ const ProgramCard = ({
       {/* Program image - only shown when not expanded on mobile, always shown on desktop */}
       <div className={`${expanded ? 'hidden md:block' : ''} relative overflow-hidden`}>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
-        <div className="w-full h-[200px] flex items-center justify-center bg-primary/5">
+        <div className="w-full h-[200px] bg-primary/5 overflow-hidden">
           <img
             src={image}
             alt={title}
-            className="w-full h-auto max-h-[200px] object-contain transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
 
