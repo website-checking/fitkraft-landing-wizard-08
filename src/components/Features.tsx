@@ -1,6 +1,6 @@
 
-import React from "react";
-import { Dumbbell, FlameIcon, Users, Clock, Target, Shield } from "lucide-react";
+import { useState } from "react";
+import { FlameIcon, Clock, Target, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const FeatureCard = ({
@@ -18,16 +18,16 @@ const FeatureCard = ({
 }) => {
   return (
     <div
-      className="glass-card p-0 overflow-hidden opacity-0 animate-fade-in flex flex-col h-full group"
+      className="overflow-hidden opacity-0 animate-fade-in flex flex-col h-full group border-t border-gray-200 transition-all duration-300 hover:bg-gray-50/80 shadow-sm"
       style={{ animationDelay: `${index * 100 + 200}ms` }}
     >
       {image && (
-        <div className="w-full h-56 overflow-hidden relative bg-secondary/20">
+        <div className="w-full h-48 overflow-hidden relative">
           {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
 
-          {/* Decorative corner accent */}
-          <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-primary/30 border-r-transparent z-10"></div>
+          {/* Nike/Adidas-inspired accent */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 z-10"></div>
 
           <img
             src={image}
@@ -37,15 +37,15 @@ const FeatureCard = ({
         </div>
       )}
 
-      <div className="p-4 md:p-6 flex flex-col flex-grow">
-        <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary shadow-md group-hover:scale-110 transition-transform duration-300">
+      <div className="p-5 md:p-6 flex flex-col flex-grow">
+        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
-        <h3 className="mb-2 text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">{title}</h3>
-        <p className="text-foreground/80 text-sm font-medium">{description}</p>
+        <h3 className="mb-2 text-lg font-bold text-foreground uppercase tracking-wider group-hover:text-primary transition-colors duration-300">{title}</h3>
+        <p className="text-foreground/70 text-sm">{description}</p>
 
-        {/* Subtle indicator for interaction */}
-        <div className="mt-4 h-0.5 w-6 bg-primary/30 group-hover:w-12 transition-all duration-300"></div>
+        {/* Nike/Adidas-inspired indicator */}
+        <div className="mt-4 h-0.5 w-8 bg-primary group-hover:w-12 transition-all duration-300"></div>
       </div>
     </div>
   );
@@ -54,34 +54,22 @@ const FeatureCard = ({
 const Features = () => {
   const features = [
     {
-      icon: <Dumbbell className="h-6 w-6" />,
-      title: "Goal Training",
-      description: "Custom programs for your specific fitness targets",
-      image: "/images/goal_training.png"
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "Buddy Training",
-      description: "Train with friends for better motivation",
-      image: "/images/buddy_training.png"
-    },
-    {
       icon: <Target className="h-6 w-6" />,
       title: "Personal Training",
       description: "One-on-one sessions tailored to your needs",
       image: "/images/personal_training.png"
     },
     {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Health Focus",
-      description: "Programs for health concerns or rehabilitation",
-      image: "/images/health_focus.png"
-    },
-    {
       icon: <FlameIcon className="h-6 w-6" />,
       title: "Diverse Workouts",
       description: "Strength, cardio, yoga, HIIT, and more",
       image: "/images/diverse_workouts.png"
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Health Focus",
+      description: "Programs for health concerns or rehabilitation",
+      image: "/images/health_focus.png"
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -92,27 +80,29 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-6 md:py-16 bg-secondary/30 relative">
-      {/* Decorative background elements */}
+    <section id="features" className="py-16 md:py-28 bg-background relative">
+      {/* Nike/Adidas-inspired background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] rounded-full bg-primary/5"></div>
         <div className="absolute top-1/4 right-0 w-[150px] h-[500px] bg-primary/5 -rotate-45"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center mb-10">
-          <h2 className="font-display mb-3 text-3xl font-extrabold text-foreground md:text-4xl opacity-0 animate-fade-in animate-on-scroll">
-            Our <span className="text-primary drop-shadow-sm relative inline-block">
-              Key Features
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30"></span>
-            </span>
+        <div className="mx-auto max-w-3xl mb-12">
+          <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in animate-on-scroll">
+            <div className="w-12 h-[2px] bg-primary mr-3"></div>
+            <p className="text-primary font-bold uppercase tracking-widest text-sm">WHAT WE OFFER</p>
+          </div>
+          <h2 className="font-display mb-6 text-4xl md:text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in animate-on-scroll">
+            KEY FEATURES
+            <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
           </h2>
-          <p className="text-foreground/80 font-medium opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
+          <p className="text-foreground/80 font-bold uppercase tracking-wider text-sm text-center opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Transform your fitness journey with expert guidance
           </p>
         </div>
 
-        <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 animate-on-scroll stagger-children">
+        <div className="grid gap-8 md:gap-6 grid-cols-1 md:grid-cols-4 animate-on-scroll stagger-children max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
@@ -125,10 +115,10 @@ const Features = () => {
           ))}
         </div>
 
-        {/* Decorative divider */}
-        <div className="mt-16 max-w-md mx-auto flex items-center gap-4">
+        {/* Nike/Adidas-inspired divider */}
+        <div className="mt-20 max-w-md mx-auto flex items-center gap-4">
           <div className="h-0.5 flex-grow bg-primary/20"></div>
-          <div className="h-2 w-2 rounded-full bg-primary/40"></div>
+          <div className="h-2 w-2 bg-primary"></div>
           <div className="h-0.5 flex-grow bg-primary/20"></div>
         </div>
       </div>

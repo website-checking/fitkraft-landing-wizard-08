@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -18,19 +18,19 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Adapt navbar background based on theme
+  // Adapt navbar background based on theme - Nike/Adidas-inspired
   const getNavbarBackground = () => {
-    const scrolledClass = isScrolled ? "py-2 md:py-4 shadow-md border-b" : "py-3 md:py-6";
+    const scrolledClass = isScrolled ? "py-2 md:py-3 shadow-md border-b" : "py-3 md:py-5";
 
     if (theme === 'dark') {
-      return `${scrolledClass} bg-gray-900/95 backdrop-blur-md border-gray-800`;
+      return `${scrolledClass} bg-gray-900/98 backdrop-blur-md border-gray-800`;
     } else if (theme === 'light') {
-      return `${scrolledClass} bg-white/95 backdrop-blur-md border-gray-200`;
+      return `${scrolledClass} bg-white/98 backdrop-blur-md border-gray-200`;
     } else if (theme === 'gold') {
-      return `${scrolledClass} bg-amber-50/95 backdrop-blur-md border-amber-200`;
+      return `${scrolledClass} bg-background/98 backdrop-blur-md border-b-primary`;
     }
 
-    return `${scrolledClass} bg-gray-900/95 backdrop-blur-md border-gray-800`;
+    return `${scrolledClass} bg-gray-900/98 backdrop-blur-md border-gray-800`;
   };
 
   // Mobile menu background based on theme
@@ -52,39 +52,39 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-3 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-xl md:text-2xl font-display font-bold text-primary flex items-center">
+          <Link to="/" className="text-xl md:text-2xl font-display font-black text-foreground flex items-center">
             <img
               alt="FitKraft Logo"
               className="h-6 md:h-8 w-auto mr-2"
               src="/images/fitkraft-logo.png"
             />
-            FitKraft<span className="text-primary">.</span>studio
+            <span className="uppercase tracking-tight">FIT<span className="text-primary font-black">KRAFT</span></span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex items-center space-x-6">
-              <a href="#hero" className="nav-link">
+              <a href="#hero" className="nav-link uppercase text-xs font-bold tracking-wider">
                 Home
               </a>
-              <a href="#about" className="nav-link">
+              <a href="#about" className="nav-link uppercase text-xs font-bold tracking-wider">
                 About Us
               </a>
-              <a href="#features" className="nav-link">
+              <a href="#features" className="nav-link uppercase text-xs font-bold tracking-wider">
                 Key Features
               </a>
-              <a href="#testimonials" className="nav-link">
+              <a href="#testimonials" className="nav-link uppercase text-xs font-bold tracking-wider">
                 Testimonials
               </a>
-              <a href="#pricing" className="nav-link">
+              <a href="#pricing" className="nav-link uppercase text-xs font-bold tracking-wider">
                 Programs
               </a>
-              <a href="#contact" className="nav-link">
+              <a href="#contact" className="nav-link uppercase text-xs font-bold tracking-wider">
                 Contact
               </a>
             </nav>
             <div className="flex items-center space-x-4">
-              <a href="#contact" className="btn-primary">
-                Book a Free Class
+              <a href="#contact" className="btn-primary text-xs">
+                BOOK A FREE CLASS
               </a>
             </div>
           </div>
@@ -111,52 +111,52 @@ const Navbar = () => {
           <nav className="flex flex-col space-y-4 px-6 py-8">
             <a
               href="#hero"
-              className="text-foreground hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2 uppercase text-sm font-bold tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </a>
             <a
               href="#about"
-              className="text-foreground hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2 uppercase text-sm font-bold tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About Us
             </a>
             <a
               href="#features"
-              className="text-foreground hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2 uppercase text-sm font-bold tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Key Features
             </a>
             <a
               href="#testimonials"
-              className="text-foreground hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2 uppercase text-sm font-bold tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
             </a>
             <a
               href="#pricing"
-              className="text-foreground hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2 uppercase text-sm font-bold tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Programs
             </a>
             <a
               href="#contact"
-              className="text-foreground hover:text-primary py-2"
+              className="text-foreground hover:text-primary py-2 uppercase text-sm font-bold tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
             </a>
             <a
               href="#contact"
-              className="btn-primary w-full text-center mt-4"
+              className="btn-primary w-full text-center mt-4 text-xs"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Book a Free Class
+              BOOK A FREE CLASS
             </a>
           </nav>
         </div>

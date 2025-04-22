@@ -1,6 +1,6 @@
 
-import { useState, useEffect, useRef } from "react";
-import { Star, Quote, ChevronLeft, ChevronRight, ThumbsUp, ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Star, Quote, ThumbsUp } from "lucide-react";
 
 // Enhanced testimonials with more detailed information
 const testimonials = [
@@ -50,216 +50,39 @@ const testimonials = [
   }
 ];
 
-// Define interfaces for type safety
-interface Testimonial {
-  id: number;
-  content: string;
-  author: string;
-  role: string;
-  program: string;
-  achievement: string;
-  avatar: string;
-  rating: number;
-  featured: boolean;
-}
-
-// Testimonial Card Component
-const TestimonialCard = ({
-  testimonial,
-  onClick,
-  isExpanded = false
-}: {
-  testimonial: Testimonial;
-  onClick: () => void;
-  isExpanded?: boolean;
-}) => {
-  return (
-    <div
-      className={`glass-panel rounded-2xl overflow-hidden shadow-lg border-2 border-primary/20 relative flex flex-col group transition-all duration-500 cursor-pointer ${isExpanded ? 'md:col-span-2 md:row-span-2' : ''}`}
-      onClick={onClick}
-    >
-      {/* Card header with avatar and info */}
-      <div className="p-6 pb-4 flex items-center">
-        <div className="relative mr-4">
-          <img
-            src={testimonial.avatar}
-            alt={testimonial.author}
-            className="w-14 h-14 rounded-full object-cover border-2 border-primary shadow-md group-hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-sm">
-            <Quote className="h-3 w-3" />
-          </div>
-        </div>
-        <div>
-          <p className="font-bold text-foreground text-base group-hover:text-primary transition-colors duration-300">{testimonial.author}</p>
-          <p className="text-foreground/70 text-xs">{testimonial.role}</p>
-
-          {/* Program badge */}
-          <div className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary mt-1">
-            {testimonial.program}
-          </div>
-        </div>
-
-        {/* Rating stars */}
-        <div className="ml-auto flex">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <Star key={i} className="h-3 w-3 fill-primary text-primary" />
-          ))}
-        </div>
-      </div>
-
-      {/* Achievement badge - only shown on expanded cards or featured cards */}
-      {(isExpanded || testimonial.featured) && (
-        <div className="px-6 pb-3">
-          <div className="flex items-center gap-1.5 text-xs font-medium">
-            <ThumbsUp className="h-3.5 w-3.5 text-primary" />
-            <span className="text-foreground/90">{testimonial.achievement}</span>
-          </div>
-        </div>
-      )}
-
-      {/* Testimonial content */}
-      <div className="px-6 pb-6 flex-grow">
-        <blockquote className="text-sm text-foreground/90 leading-relaxed font-medium">
-          "{isExpanded ? testimonial.content : testimonial.content.length > 120 ? `${testimonial.content.substring(0, 120)}...` : testimonial.content}"
-        </blockquote>
-      </div>
-
-      {/* Read more indicator - only shown when not expanded and content is truncated */}
-      {!isExpanded && testimonial.content.length > 120 && (
-        <div className="px-6 pb-4">
-          <div className="text-xs text-primary font-medium flex items-center">
-            Read more <ArrowRight className="ml-1 h-3 w-3" />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-// Featured Testimonial Component
-const FeaturedTestimonial = ({
-  testimonial,
-  onClick
-}: {
-  testimonial: Testimonial;
-  onClick: () => void;
-}) => {
-  return (
-    <div
-      className="glass-panel rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20 relative flex flex-col md:flex-row group transition-all duration-500 cursor-pointer md:col-span-2 hover:shadow-primary/10"
-      onClick={onClick}
-    >
-      {/* Left side - Avatar and info */}
-      <div className="md:w-1/3 p-6 flex flex-col justify-between relative">
-        <div>
-          <div className="flex items-center mb-4">
-            <div className="relative mr-4">
-              <img
-                src={testimonial.avatar}
-                alt={testimonial.author}
-                className="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-md group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-sm">
-                <Quote className="h-3 w-3" />
-              </div>
-            </div>
-            <div>
-              <p className="font-bold text-foreground text-lg group-hover:text-primary transition-colors duration-300">{testimonial.author}</p>
-              <p className="text-foreground/70 text-sm">{testimonial.role}</p>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {/* Program badge */}
-            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-              {testimonial.program}
-            </div>
-
-            {/* Achievement badge */}
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <ThumbsUp className="h-4 w-4 text-primary" />
-              <span className="text-foreground/90">{testimonial.achievement}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Rating stars */}
-        <div className="flex mt-4">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-          ))}
-        </div>
-      </div>
-
-      {/* Right side - Testimonial content */}
-      <div className="md:w-2/3 p-6 md:p-8 bg-primary/5 flex items-center">
-        <blockquote className="text-base md:text-lg text-foreground/90 leading-relaxed font-medium italic">
-          "{testimonial.content}"
-        </blockquote>
-      </div>
-    </div>
-  );
-};
-
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
-  const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
-  const totalTestimonials = testimonials.length;
 
-  // Handle navigation
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalTestimonials);
-  };
-
-  const goToPrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalTestimonials) % totalTestimonials);
-  };
-
-  // Handle autoplay
+  // Intersection Observer for animations
   useEffect(() => {
-    if (autoplayEnabled) {
-      autoplayIntervalRef.current = setInterval(() => {
-        goToNext();
-      }, 5000); // Change slide every 5 seconds
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = sectionRef.current;
+    if (section) {
+      const animatedElements = section.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach((el) => observer.observe(el));
     }
 
     return () => {
-      if (autoplayIntervalRef.current) {
-        clearInterval(autoplayIntervalRef.current);
+      if (section) {
+        const animatedElements = section.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach((el) => observer.unobserve(el));
       }
     };
-  }, [autoplayEnabled]);
-
-  // Pause autoplay when user interacts with carousel
-  const handleManualNavigation = (callback: () => void) => {
-    if (autoplayIntervalRef.current) {
-      clearInterval(autoplayIntervalRef.current);
-      setAutoplayEnabled(false);
-
-      // Resume autoplay after 10 seconds of inactivity
-      setTimeout(() => {
-        setAutoplayEnabled(true);
-      }, 10000);
-    }
-    callback();
-  };
-
-  // Calculate indices for visible testimonials
-  const getVisibleIndices = () => {
-    const indices = [];
-    indices.push(currentIndex);
-    indices.push((currentIndex + 1) % totalTestimonials);
-    indices.push((currentIndex + 2) % totalTestimonials);
-    return indices;
-  };
-
-  const visibleIndices = getVisibleIndices();
+  }, []);
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-background relative" ref={sectionRef}>
+    <section id="testimonials" className="py-20 md:py-32 bg-background relative" ref={sectionRef}>
       {/* Enhanced background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[80px] animate-pulse-slow"></div>
@@ -273,14 +96,16 @@ const Testimonials = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="font-display mb-4 text-3xl font-extrabold text-foreground md:text-5xl opacity-0 animate-fade-in animate-on-scroll">
-            <span className="text-primary drop-shadow-md relative inline-block">
-              Testimonials
-              <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-primary/40 rounded-full"></span>
-            </span>
+        <div className="mx-auto max-w-3xl mb-16">
+          <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in animate-on-scroll">
+            <div className="w-12 h-[2px] bg-primary mr-3"></div>
+            <p className="text-primary font-bold uppercase tracking-widest text-sm">SUCCESS STORIES</p>
+          </div>
+          <h2 className="font-display mb-6 text-4xl md:text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in animate-on-scroll">
+            TESTIMONIALS
+            <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
           </h2>
-          <p className="text-foreground/80 font-medium text-lg opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
+          <p className="text-foreground/80 font-bold uppercase tracking-wider text-sm text-center opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Hear from our community members
           </p>
 
@@ -290,117 +115,52 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Testimonials carousel */}
-        <div className="relative mb-16 opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
-          {/* Main featured testimonial */}
-          <div className="glass-panel rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20 relative mb-8">
-            <div className="md:grid md:grid-cols-3 items-stretch">
-              {/* Left side - Avatar and info */}
-              <div className="p-8 md:p-10 flex flex-col justify-between relative">
-                <div>
-                  <div className="flex items-center mb-6">
-                    <div className="relative mr-4">
-                      <img
-                        src={testimonials[currentIndex].avatar}
-                        alt={testimonials[currentIndex].author}
-                        className="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-md"
-                      />
-                      <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-sm">
-                        <Quote className="h-3 w-3" />
-                      </div>
-                    </div>
-                    <div>
-                      <p className="font-bold text-foreground text-lg">{testimonials[currentIndex].author}</p>
-                      <p className="text-foreground/70 text-sm">{testimonials[currentIndex].role}</p>
+        {/* Static Testimonials Grid */}
+        <div className="opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
+          {/* Grid layout for testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="overflow-hidden shadow-md relative flex flex-col h-full border-t border-gray-200 hover:bg-gray-50/80">
+                {/* Card header with avatar and info */}
+                <div className="p-4 pb-3 flex items-center">
+                  <div className="relative mr-4">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.author}
+                      className="w-12 h-12 rounded-full object-cover border border-gray-200 shadow-md"
+                    />
+                    <div className="absolute -bottom-1 -right-1 h-5 w-5 bg-gray-800 flex items-center justify-center text-white">
+                      <Quote className="h-3 w-3" />
                     </div>
                   </div>
-
-                  <div className="space-y-3">
-                    {/* Program badge */}
-                    <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                      {testimonials[currentIndex].program}
-                    </div>
-
-                    {/* Achievement badge */}
-                    <div className="flex items-center gap-2 text-sm font-medium">
-                      <ThumbsUp className="h-4 w-4 text-primary" />
-                      <span className="text-foreground/90">{testimonials[currentIndex].achievement}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Rating stars */}
-                <div className="flex mt-6">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Right side - Testimonial content */}
-              <div className="md:col-span-2 p-8 md:p-10 bg-primary/5 flex items-center">
-                <blockquote className="text-base md:text-xl text-foreground/90 leading-relaxed font-medium italic">
-                  "{testimonials[currentIndex].content}"
-                </blockquote>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation controls */}
-          <div className="flex justify-between items-center mb-8">
-            <button
-              className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors duration-300"
-              onClick={() => handleManualNavigation(goToPrev)}
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-
-            {/* Pagination indicators */}
-            <div className="flex gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-primary w-6' : 'bg-primary/30'}`}
-                  onClick={() => handleManualNavigation(() => setCurrentIndex(index))}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <button
-              className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors duration-300"
-              onClick={() => handleManualNavigation(goToNext)}
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </div>
-
-          {/* Preview of next testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {visibleIndices.map((index, i) => (
-              <div
-                key={index}
-                className={`glass-panel rounded-xl overflow-hidden shadow-md border border-primary/20 p-6 cursor-pointer transition-all duration-300 ${index === currentIndex ? 'ring-2 ring-primary' : 'opacity-80 hover:opacity-100'}`}
-                onClick={() => handleManualNavigation(() => setCurrentIndex(index))}
-              >
-                <div className="flex items-center mb-3">
-                  <img
-                    src={testimonials[index].avatar}
-                    alt={testimonials[index].author}
-                    className="w-10 h-10 rounded-full object-cover border border-primary mr-3"
-                  />
                   <div>
-                    <p className="font-bold text-foreground text-sm">{testimonials[index].author}</p>
-                    <div className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary mt-1">
-                      {testimonials[index].program}
+                    <p className="font-bold text-foreground text-sm">{testimonial.author}</p>
+                    <p className="text-foreground/70 text-xs">{testimonial.role}</p>
+                    <div className="inline-flex items-center px-1 py-0.5 text-[10px] text-primary mt-1 uppercase tracking-wider font-bold">
+                      {testimonial.program}
                     </div>
                   </div>
                 </div>
-                <blockquote className="text-xs text-foreground/90 line-clamp-2">
-                  "{testimonials[index].content.substring(0, 80)}..."
-                </blockquote>
+
+                {/* Card body with testimonial content */}
+                <div className="px-4 pb-4 flex-grow">
+                  <blockquote className="text-foreground/80 text-xs md:text-sm leading-relaxed">
+                    "{testimonial.content}"
+                  </blockquote>
+                </div>
+
+                {/* Card footer with rating and achievement */}
+                <div className="px-4 pb-4 flex items-center justify-between">
+                  <div className="flex">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <div className="flex items-center text-[10px] md:text-xs text-foreground/70">
+                    <ThumbsUp className="h-3 w-3 text-primary mr-1" />
+                    {testimonial.achievement}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

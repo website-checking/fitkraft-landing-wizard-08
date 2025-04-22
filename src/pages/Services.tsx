@@ -1,8 +1,8 @@
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ChevronRight, Dumbbell, Users, Target, Shield, MapPin } from "lucide-react";
+import { ChevronRight, Dumbbell, Users, Target, Shield } from "lucide-react";
 
 const ServiceCard = ({
   title,
@@ -21,7 +21,7 @@ const ServiceCard = ({
 }) => {
   return (
     <div
-      className="glass-card overflow-hidden opacity-0 animate-fade-in flex flex-col h-full"
+      className="overflow-hidden opacity-0 animate-fade-in flex flex-col h-full border-t border-gray-200 transition-all duration-300 hover:bg-gray-50/80 shadow-sm"
       style={{ animationDelay: `${delay}ms` }}
     >
       {image && (
@@ -34,23 +34,24 @@ const ServiceCard = ({
         </div>
       )}
 
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+      <div className="p-6 md:p-8 flex flex-col flex-grow">
+        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm mb-4">{description}</p>
+        <h3 className="mb-3 text-xl font-bold text-foreground uppercase tracking-wider group-hover:text-primary transition-colors duration-300">{title}</h3>
+        <p className="text-foreground/70 text-sm mb-4">{description}</p>
 
         <div className="mt-auto">
-          <h4 className="text-md font-semibold text-foreground mb-2">Key Benefits:</h4>
-          <ul className="grid grid-cols-1 gap-y-2 text-sm">
+          <h4 className="text-md font-bold text-foreground uppercase tracking-wider mb-3">KEY BENEFITS:</h4>
+          <ul className="grid grid-cols-1 gap-y-3 text-sm">
             {benefits.slice(0, 3).map((benefit, index) => (
               <li key={index} className="flex items-start">
-                <ChevronRight className="h-4 w-4 text-primary mr-1 mt-0.5 flex-shrink-0" />
-                <span className="text-muted-foreground">{benefit}</span>
+                <ChevronRight className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-foreground/70">{benefit}</span>
               </li>
             ))}
           </ul>
+          <div className="mt-6 h-0.5 w-8 bg-primary group-hover:w-16 transition-all duration-300"></div>
         </div>
       </div>
     </div>
@@ -118,18 +119,23 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section className="pt-28 pb-16 md:pt-32 md:pb-20">
+        <section className="pt-28 pb-16 md:pt-40 md:pb-32">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center mb-12">
-              <h1 className="font-display mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl opacity-0 animate-fade-in">
-                Our <span className="text-primary">Services</span>
+            <div className="mx-auto max-w-3xl mb-16">
+              <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in">
+                <div className="w-12 h-[2px] bg-primary mr-3"></div>
+                <p className="text-primary font-bold uppercase tracking-widest text-sm">WHAT WE OFFER</p>
+              </div>
+              <h1 className="font-display mb-6 text-4xl md:text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in">
+                TRAINING PROGRAMS
+                <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
               </h1>
-              <p className="text-muted-foreground opacity-0 animate-fade-in animate-delay-100">
+              <p className="text-foreground/80 font-bold uppercase tracking-wider text-sm text-center opacity-0 animate-fade-in animate-delay-100">
                 Transform your fitness with expert guidance
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-20">
               {services.map((service, index) => (
                 <ServiceCard
                   key={index}
@@ -143,17 +149,18 @@ const Services = () => {
               ))}
             </div>
 
-            <div className="glass-card p-6 md:p-8 mb-16 overflow-hidden opacity-0 animate-fade-in animate-delay-600">
-              <div className="text-center mb-4">
-                <h2 className="text-xl font-bold text-foreground mb-2">
-                  <MapPin className="h-5 w-5 inline mr-2 text-primary" /> Our Location
+            <div className="p-6 md:p-8 mb-16 overflow-hidden opacity-0 animate-fade-in animate-delay-600 border-t border-gray-200 shadow-sm">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight mb-4">
+                  OUR LOCATION
                 </h2>
-                <p className="text-muted-foreground text-sm max-w-2xl mx-auto mb-4">
+                <div className="w-12 h-1 bg-primary mb-6 mx-auto"></div>
+                <p className="text-foreground/70 text-sm max-w-2xl mx-auto mb-6">
                   Plot no 41, no 4, gaurav, Alankar Society Rd, Karve Nagar, Pune, Maharashtra 411052
                 </p>
               </div>
 
-              <div className="w-full h-[300px] rounded-lg overflow-hidden">
+              <div className="w-full h-[300px] overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.7583363104007!2d73.81252807532395!3d18.49236408259097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb3a4119b77%3A0x16c006b37b1cca18!2sFITKRAFT!5e0!3m2!1sen!2sin!4v1719066642302!5m2!1sen!2sin"
                   width="100%"
@@ -168,12 +175,13 @@ const Services = () => {
             </div>
 
             <div className="text-center max-w-2xl mx-auto opacity-0 animate-fade-in animate-delay-600">
-              <h2 className="text-xl font-bold text-foreground mb-4">Ready to Transform Your Fitness?</h2>
-              <p className="text-muted-foreground text-sm mb-6">
+              <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight mb-4">READY TO TRANSFORM YOUR FITNESS?</h2>
+              <div className="w-12 h-1 bg-primary mb-6 mx-auto"></div>
+              <p className="text-foreground/70 text-sm mb-8 max-w-xl mx-auto">
                 Take the first step toward a healthier, stronger you.
               </p>
-              <a href="/contact" className="btn-primary">
-                Book a Free Trial Class
+              <a href="/contact" className="btn-primary uppercase tracking-wider font-bold">
+                BOOK A FREE TRIAL CLASS
               </a>
             </div>
           </div>

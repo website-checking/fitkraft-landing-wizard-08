@@ -4,21 +4,12 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="relative pt-16 pb-8 bg-gradient-to-b from-secondary/80 to-secondary/60 text-foreground">
-      {/* Enhanced background effects */}
+    <footer className="relative pt-20 pb-8 bg-background text-foreground border-t border-gray-200">
+      {/* Nike/Adidas-inspired background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[80px] animate-pulse-slow"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-primary/5 blur-[60px] animate-pulse-slow"></div>
       </div>
-
-      {/* Diagonal accent lines */}
-      <div className="absolute top-0 right-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-[10%] -right-20 w-[100px] h-[400px] bg-primary/10 rotate-[45deg] transform-gpu"></div>
-        <div className="absolute bottom-[20%] -left-20 w-[150px] h-[500px] bg-primary/10 rotate-[30deg] transform-gpu"></div>
-      </div>
-
-      {/* Top border accent */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         {/* Main footer content */}
@@ -27,12 +18,12 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <div className="flex items-center mb-6">
               <img src="/images/fitkraft-logo.png" alt="FitKraft Studio" className="h-12 mr-3" />
-              <div className="text-2xl font-display font-extrabold">
-                FitKraft<span className="text-primary drop-shadow-sm">.</span>studio
+              <div className="text-2xl font-display font-black uppercase tracking-tight">
+                FitKraft<span className="text-primary">.</span>studio
               </div>
             </div>
 
-            <p className="text-foreground/80 mb-6">
+            <p className="text-foreground/70 text-sm mb-6 max-w-md">
               Transforming fitness journeys in Karve Nagar, Pune through expert training, supportive community, and world-class facilities since 2018.
             </p>
 
@@ -41,7 +32,7 @@ const Footer = () => {
                 href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-primary"
+                className="h-10 w-10 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all duration-300 text-gray-700 border border-gray-200"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -50,7 +41,7 @@ const Footer = () => {
                 href="https://www.facebook.com/fitkraftstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-primary"
+                className="h-10 w-10 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all duration-300 text-gray-700 border border-gray-200"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -59,7 +50,7 @@ const Footer = () => {
                 href="https://www.youtube.com/fitkraftstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-primary"
+                className="h-10 w-10 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all duration-300 text-gray-700 border border-gray-200"
                 aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />
@@ -67,56 +58,56 @@ const Footer = () => {
             </div>
 
             <div className="flex items-start space-x-3 mt-6">
-              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+              <div className="h-10 w-10 flex items-center justify-center text-primary mt-1">
                 <Clock className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-lg font-bold">Opening Hours:</p>
-                <p className="text-base text-foreground/80">Mon-Fri: 6AM-9AM, 6PM-8PM</p>
+                <p className="text-lg font-bold uppercase tracking-wider">OPENING HOURS:</p>
+                <p className="text-sm text-foreground/70">Mon-Fri: 6AM-9AM, 6PM-8PM</p>
               </div>
             </div>
           </div>
 
           {/* Quick Links column */}
           <div className="lg:col-span-2">
-            <h3 className="text-lg font-bold mb-6 pb-2 border-b border-primary/20">
-              Quick Links
+            <h3 className="text-lg font-bold uppercase tracking-wider mb-6 pb-2 border-b border-primary/20">
+              QUICK LINKS
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#hero" className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center">
+                <a href="#hero" className="text-foreground/70 hover:text-primary transition-colors duration-300 flex items-center text-sm uppercase tracking-wider">
                   <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                  Home
+                  HOME
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center">
+                <a href="#about" className="text-foreground/70 hover:text-primary transition-colors duration-300 flex items-center text-sm uppercase tracking-wider">
                   <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                  About Us
+                  ABOUT US
                 </a>
               </li>
               <li>
-                <a href="#features" className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center">
+                <a href="#features" className="text-foreground/70 hover:text-primary transition-colors duration-300 flex items-center text-sm uppercase tracking-wider">
                   <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                  Key Features
+                  KEY FEATURES
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center">
+                <a href="#testimonials" className="text-foreground/70 hover:text-primary transition-colors duration-300 flex items-center text-sm uppercase tracking-wider">
                   <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                  Testimonials
+                  TESTIMONIALS
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center">
+                <a href="#pricing" className="text-foreground/70 hover:text-primary transition-colors duration-300 flex items-center text-sm uppercase tracking-wider">
                   <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                  Programs
+                  PROGRAMS
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center">
+                <a href="#contact" className="text-foreground/70 hover:text-primary transition-colors duration-300 flex items-center text-sm uppercase tracking-wider">
                   <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                  Contact
+                  CONTACT
                 </a>
               </li>
             </ul>
@@ -124,68 +115,68 @@ const Footer = () => {
 
           {/* Services column */}
           <div className="lg:col-span-2">
-            <h3 className="text-lg font-bold mb-6 pb-2 border-b border-primary/20">
-              Our Services
+            <h3 className="text-lg font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">
+              OUR SERVICES
             </h3>
             <ul className="space-y-3">
-              <li className="text-foreground/80 flex items-center">
+              <li className="text-foreground/70 flex items-center text-sm uppercase tracking-wider">
                 <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                Strength Training
+                STRENGTH TRAINING
               </li>
-              <li className="text-foreground/80 flex items-center">
+              <li className="text-foreground/70 flex items-center text-sm uppercase tracking-wider">
                 <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                Yoga Classes
+                YOGA CLASSES
               </li>
-              <li className="text-foreground/80 flex items-center">
+              <li className="text-foreground/70 flex items-center text-sm uppercase tracking-wider">
                 <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                Aerobics & Dance
+                AEROBICS & DANCE
               </li>
-              <li className="text-foreground/80 flex items-center">
+              <li className="text-foreground/70 flex items-center text-sm uppercase tracking-wider">
                 <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                Personal Training
+                PERSONAL TRAINING
               </li>
-              <li className="text-foreground/80 flex items-center">
+              <li className="text-foreground/70 flex items-center text-sm uppercase tracking-wider">
                 <ArrowRight className="h-3 w-3 mr-2 text-primary" />
-                Nutrition Guidance
+                NUTRITION GUIDANCE
               </li>
             </ul>
           </div>
 
           {/* Contact column */}
           <div className="lg:col-span-4">
-            <h3 className="text-lg font-bold mb-6 pb-2 border-b border-primary/20">
-              Contact Information
+            <h3 className="text-lg font-bold uppercase tracking-wider mb-6 pb-2 border-b border-gray-200">
+              CONTACT INFORMATION
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0">
+                <div className="h-8 w-8 flex items-center justify-center text-primary mr-3 flex-shrink-0">
                   <Mail className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="font-medium">Email Us:</p>
-                  <a href="mailto:info@fitkraft.studio" className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                  <p className="font-bold uppercase tracking-wider text-sm">EMAIL US:</p>
+                  <a href="mailto:info@fitkraft.studio" className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm">
                     info@fitkraft.studio
                   </a>
                 </div>
               </li>
               <li className="flex items-start">
-                <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0">
+                <div className="h-8 w-8 flex items-center justify-center text-primary mr-3 flex-shrink-0">
                   <Phone className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="font-medium">Call Us:</p>
-                  <a href="tel:+919699088367" className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                  <p className="font-bold uppercase tracking-wider text-sm">CALL US:</p>
+                  <a href="tel:+919699088367" className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm">
                     +91 9699088367
                   </a>
                 </div>
               </li>
               <li className="flex items-start">
-                <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0">
+                <div className="h-8 w-8 flex items-center justify-center text-primary mr-3 flex-shrink-0">
                   <MapPin className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="font-medium">Visit Us:</p>
-                  <address className="text-foreground/80 not-italic">
+                  <p className="font-bold uppercase tracking-wider text-sm">VISIT US:</p>
+                  <address className="text-foreground/70 not-italic text-sm">
                     Plot no 41, no 4, gaurav, Alankar Society Rd,<br />
                     opp. shailesh Sabhagruha, Alankar Society,<br />
                     Ganesh Nagar, Karvenagar, Pune, Maharashtra 411052
@@ -197,7 +188,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom section with copyright */}
-        <div className="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/70 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} FitKraft Studio. All rights reserved.
           </p>
