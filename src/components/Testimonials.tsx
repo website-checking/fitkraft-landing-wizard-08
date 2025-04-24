@@ -82,7 +82,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-background relative" ref={sectionRef}>
+    <section id="testimonials" className="py-12 md:py-20 bg-background relative" ref={sectionRef}>
       {/* Enhanced background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[80px] animate-pulse-slow"></div>
@@ -96,11 +96,8 @@ const Testimonials = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl mb-16">
-          <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in animate-on-scroll">
-            <div className="w-12 h-[2px] bg-primary mr-3"></div>
-            <p className="text-primary font-bold uppercase tracking-widest text-sm">SUCCESS STORIES</p>
-          </div>
+        <div className="mx-auto max-w-3xl mb-12">
+
           <h2 className="font-display mb-6 text-4xl md:text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in animate-on-scroll">
             TESTIMONIALS
             <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
@@ -118,7 +115,7 @@ const Testimonials = () => {
         {/* Static Testimonials Grid */}
         <div className="opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
           {/* Grid layout for testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="overflow-hidden shadow-md relative flex flex-col h-full border-t border-gray-200 hover:bg-gray-50/80">
                 {/* Card header with avatar and info */}

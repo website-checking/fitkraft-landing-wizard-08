@@ -119,9 +119,9 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section className="pt-28 pb-16 md:pt-40 md:pb-32">
+        <section className="pt-24 pb-12 md:pt-28 md:pb-20">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-3xl mb-16">
+            <div className="mx-auto max-w-3xl mb-12">
               <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in">
                 <div className="w-12 h-[2px] bg-primary mr-3"></div>
                 <p className="text-primary font-bold uppercase tracking-widest text-sm">WHAT WE OFFER</p>
@@ -135,7 +135,7 @@ const Services = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-20">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
               {services.map((service, index) => (
                 <ServiceCard
                   key={index}
@@ -149,7 +149,7 @@ const Services = () => {
               ))}
             </div>
 
-            <div className="p-6 md:p-8 mb-16 overflow-hidden opacity-0 animate-fade-in animate-delay-600 border-t border-gray-200 shadow-sm">
+            <div className="p-6 md:p-8 mb-12 overflow-hidden opacity-0 animate-fade-in animate-delay-600 border-t border-gray-200 shadow-sm">
               <div className="text-center mb-6">
                 <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight mb-4">
                   OUR LOCATION

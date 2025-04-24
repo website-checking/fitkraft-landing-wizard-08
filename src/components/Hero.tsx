@@ -27,7 +27,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-16 pb-6 md:pt-24 md:pb-12 min-h-[90vh] flex items-center">
+    <section id="hero" className="relative overflow-hidden pt-16 pb-6 md:pt-20 md:pb-8 min-h-[85vh] flex items-center">
       {/* Nike/Adidas-inspired background effects */}
       <div className="spotlight animate-spotlight" />
       <div ref={spotlightRef} className="absolute inset-0 z-0">
@@ -43,9 +43,9 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center">
           {/* Left Column - Text Content - Nike/Adidas-inspired */}
-          <div className="flex flex-col justify-center order-2 md:order-1 mt-4 md:mt-0 mb-4 md:mb-0 md:pr-8 md:ml-0 md:col-span-5">
+          <div className="flex flex-col justify-center order-2 md:order-1 mt-4 md:mt-0 mb-4 md:mb-0 md:ml-0 md:col-span-6">
             {/* Location badge - Nike/Adidas-inspired */}
             <div className="inline-flex items-center px-0 py-0 text-xs md:text-sm font-bold text-primary mb-3 md:mb-6 w-fit opacity-0 animate-fade-in tracking-widest">
               <div className="w-8 h-[2px] bg-primary mr-2"></div>
@@ -79,17 +79,17 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Nike/Adidas-inspired Image */}
-          <div ref={imageRef} className="order-1 md:order-2 opacity-0 animate-fade-in animate-delay-200 md:col-span-7">
+          <div ref={imageRef} className="order-1 md:order-2 opacity-0 animate-fade-in animate-delay-200 md:col-span-6 mt-6 md:mt-0">
             <div className="relative mx-auto max-w-md md:max-w-none">
               {/* Main image with Nike/Adidas-inspired styling */}
-              <div className="overflow-hidden shadow-xl relative h-[220px] md:h-[600px] transform transition-all duration-500">
+              <div className="overflow-hidden shadow-xl relative h-[180px] md:h-[500px] transform transition-all duration-500">
                 {/* Nike/Adidas-inspired overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent z-10 pointer-events-none"></div>
 
                 <img
                   src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2675&q=80"
                   alt="FitKraft Studio in Pune"
-                  className="w-full h-full object-cover transform hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center transform hover:scale-[1.03] transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
 
@@ -101,7 +101,7 @@ const Hero = () => {
         </div>
 
         {/* Nike/Adidas-inspired Stats Section */}
-        <div className="mt-12 md:mt-24 mb-4 opacity-0 animate-fade-in animate-delay-400">
+        <div className="mt-8 md:mt-16 mb-4 opacity-0 animate-fade-in animate-delay-400">
           <div className="p-3 md:p-8 border-t border-gray-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 stagger-children">
               <div className="flex flex-col items-center p-2 md:p-4 text-center relative group transition-all duration-300 hover:bg-primary/5">

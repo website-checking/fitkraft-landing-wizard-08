@@ -281,10 +281,10 @@ const CTASection = () => {
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="font-display mb-4 text-3xl font-extrabold text-foreground md:text-5xl opacity-0 animate-fade-in animate-on-scroll">
-            Training <span className="text-primary drop-shadow-md relative inline-block">
-              Programs
+            <span className="text-primary drop-shadow-md relative inline-block">
+              Training
               <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-primary/40 rounded-full"></span>
-            </span>
+            </span> Programs
           </h2>
           <p className="text-foreground/80 font-medium text-lg opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Choose the perfect program for your fitness journey

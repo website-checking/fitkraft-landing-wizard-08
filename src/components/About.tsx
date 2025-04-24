@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background relative">
+    <section id="about" className="py-12 md:py-20 bg-background relative">
       {/* Enhanced background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[80px] animate-pulse-slow"></div>
@@ -15,7 +15,7 @@ const About = () => {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         {/* Section header */}
-        <div className="mx-auto max-w-3xl mb-20">
+        <div className="mx-auto max-w-3xl mb-12">
           <div className="flex items-center mb-4 opacity-0 animate-fade-in animate-on-scroll">
             <div className="w-12 h-[2px] bg-primary mr-3"></div>
             <p className="text-primary font-bold uppercase tracking-widest text-sm">WHO WE ARE</p>
@@ -30,7 +30,7 @@ const About = () => {
         </div>
 
         {/* Main content - Our Story */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center mb-20 animate-on-scroll">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mb-12 animate-on-scroll">
           {/* Left column - Image with enhanced styling */}
           <div className="relative group md:col-span-7">
             <div className="overflow-hidden shadow-xl relative transform transition-all duration-500 z-10">

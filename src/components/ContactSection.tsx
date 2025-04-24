@@ -224,49 +224,43 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background relative">
-      {/* Enhanced background effects */}
+    <section id="contact" className="py-12 md:py-16 bg-background relative">
+      {/* Subtle background accent */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[80px] animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-primary/5 blur-[60px] animate-pulse-slow"></div>
-      </div>
-
-      {/* Diagonal accent lines */}
-      <div className="absolute top-0 right-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute top-[10%] -right-20 w-[100px] h-[400px] bg-primary/10 rotate-[45deg] transform-gpu"></div>
-        <div className="absolute bottom-[20%] -left-20 w-[150px] h-[500px] bg-primary/10 rotate-[30deg] transform-gpu"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 blur-[100px]"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center mb-16">
+        <div className="mx-auto max-w-3xl text-center mb-8">
           <h2 className="font-display mb-4 text-3xl font-extrabold text-foreground md:text-5xl opacity-0 animate-fade-in animate-on-scroll">
             <span className="text-primary drop-shadow-md relative inline-block">
               Contact
               <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-primary/40 rounded-full"></span>
             </span> Us
           </h2>
-          <p className="text-foreground/80 font-medium text-lg opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
+          <p className="text-foreground/80 font-medium text-base opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Get in touch with our team to start your fitness journey
           </p>
         </div>
 
-        <div className="mb-16 opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
-          {/* Main contact container */}
-          <div className="glass-panel rounded-2xl overflow-hidden shadow-xl border-2 border-primary/20 relative">
-            <div className="md:grid md:grid-cols-5 items-stretch">
+        <div className="opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
+          {/* Main contact container - more compact design */}
+          <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-800 relative">
+            <div className="md:grid md:grid-cols-3 items-stretch">
               {/* Left side - Contact form */}
-              <div className="md:col-span-3 p-8 md:p-10">
-                <h3 className="text-2xl font-extrabold text-foreground mb-8 flex items-center">
-                  <Send className="h-6 w-6 text-primary mr-3" />
+              <div className="md:col-span-2 p-6 md:p-8">
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
+                  <Send className="h-5 w-5 text-primary mr-2" />
                   Send Us a Message
                 </h3>
 
                 {submitted ? (
-                  <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-5 rounded-xl mb-8 flex items-start">
-                    <CheckCircle2 className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                  <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-md mb-6 flex items-start">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-bold text-lg">Message sent successfully!</p>
-                      <p className="text-green-700">We'll get back to you as soon as possible.</p>
+                      <p className="font-bold">Message sent successfully!</p>
+                      <p className="text-green-700 text-sm">We'll get back to you as soon as possible.</p>
                     </div>
                   </div>
                 ) : null}
@@ -274,14 +268,14 @@ const ContactSection = () => {
                 <form
                   id="contact-form"
                   onSubmit={handleSubmit}
-                  className="space-y-6"
+                  className="space-y-5"
                 >
-                  {/* Interest selection */}
+                  {/* Interest selection - more compact */}
                   <div>
-                    <label className="block text-base font-medium text-foreground mb-3">
+                    <label className="block text-sm font-medium text-foreground mb-2">
                       I'm Interested In: <span className="text-red-500">*</span>
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {Object.entries(interests).map(([key, value]) => {
                         // Convert camelCase to readable format
                         const label = key
@@ -291,7 +285,7 @@ const ContactSection = () => {
                         return (
                           <div
                             key={key}
-                            className={`flex items-center p-3 rounded-lg border-2 transition-all duration-300 cursor-pointer ${value ? 'border-primary bg-primary/5' : 'border-primary/20 hover:border-primary/40'}`}
+                            className={`flex items-center p-2 rounded-md border transition-all duration-200 cursor-pointer ${value ? 'border-primary bg-primary/5' : 'border-gray-200 dark:border-gray-700 hover:border-primary/30'}`}
                             onClick={() => handleInterestChange(key)}
                           >
                             <input
@@ -299,19 +293,19 @@ const ContactSection = () => {
                               id={key}
                               checked={value}
                               onChange={() => handleInterestChange(key)}
-                              className="mr-3 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                              className="mr-2 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
                             />
-                            <label htmlFor={key} className="text-foreground font-medium cursor-pointer">{label}</label>
+                            <label htmlFor={key} className="text-foreground text-sm cursor-pointer">{label}</label>
                           </div>
                         );
                       })}
                     </div>
                   </div>
 
-                  {/* Contact details */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Contact details - more compact */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                         Your Name <span className="text-red-500">*</span>
                       </label>
                       <Input
@@ -319,14 +313,14 @@ const ContactSection = () => {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full"
+                        className="w-full h-10"
                         placeholder="John Doe"
                         required
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
                         Email Address <span className="text-red-500">*</span>
                       </label>
                       <Input
@@ -334,7 +328,7 @@ const ContactSection = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full"
+                        className="w-full h-10"
                         placeholder="john@example.com"
                         required
                       />
@@ -342,7 +336,7 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <Input
@@ -350,14 +344,14 @@ const ContactSection = () => {
                       id="phone"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full"
+                      className="w-full h-10"
                       placeholder="+91 98765 43210"
                       required
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
                       Your Message
                     </label>
                     <Textarea
@@ -365,22 +359,20 @@ const ContactSection = () => {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       className="w-full"
-                      rows={4}
+                      rows={3}
                       placeholder="I'd like to inquire about..."
                     />
                   </div>
 
                   {/* reCAPTCHA */}
-                  <div className="flex justify-center mb-4">
+                  <div className="flex justify-center">
                     <div ref={recaptchaRef} className="g-recaptcha" data-sitekey="6LfWpRsrAAAAAGqIeDGZl10RELxMdkq0SRGDtncc"></div>
                   </div>
-
-
 
                   <div>
                     <Button
                       type="submit"
-                      className="w-full btn-primary py-6"
+                      className="w-full bg-primary text-white hover:bg-primary/90 py-2"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
@@ -390,86 +382,107 @@ const ContactSection = () => {
                 </form>
               </div>
 
-              {/* Right side - Contact info */}
-              <div className="md:col-span-2 bg-primary/5 p-8 md:p-10 flex flex-col">
-                <h3 className="text-2xl font-extrabold text-foreground mb-8 flex items-center">
-                  <Phone className="h-6 w-6 text-primary mr-3" />
+              {/* Right side - Contact info - more compact */}
+              <div className="md:col-span-1 bg-gray-50 dark:bg-gray-800 p-6 flex flex-col">
+                <h3 className="text-lg font-bold text-foreground mb-6 flex items-center">
+                  <Phone className="h-5 w-5 text-primary mr-2" />
                   Get in Touch
                 </h3>
 
-                <div className="space-y-8 flex-grow">
+                <div className="space-y-5 flex-grow text-sm">
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-12 w-12 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-primary" />
+                    <div className="mr-3 mt-0.5 h-8 w-8 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                      <MapPin className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">Visit Us</h4>
-                      <p className="text-foreground/80 font-medium">
-                        Plot no 41, no 4, gaurav, Alankar Society Rd,<br/>
-                        opp. shailesh Sabhagruha, Alankar Society,<br/>
-                        Ganesh Nagar, Karvenagar, Pune, Maharashtra 411052
+                      <h4 className="font-bold text-foreground mb-1">Visit Us</h4>
+                      <p className="text-foreground/80">
+                        Plot no 41, no 4, Alankar Society Rd,<br/>
+                        Karvenagar, Pune, Maharashtra 411052
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-12 w-12 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Mail className="h-6 w-6 text-primary" />
+                    <div className="mr-3 mt-0.5 h-8 w-8 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Mail className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">Email Us</h4>
-                      <p className="text-foreground/80 font-medium">
-                        info@fitkraft.studio<br/>
-                        support@fitkraft.studio
+                      <h4 className="font-bold text-foreground mb-1">Email Us</h4>
+                      <p className="text-foreground/80">
+                        info@fitkraft.studio
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-12 w-12 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Phone className="h-6 w-6 text-primary" />
+                    <div className="mr-3 mt-0.5 h-8 w-8 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Phone className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">Call Us</h4>
-                      <p className="text-foreground/80 font-medium">
+                      <h4 className="font-bold text-foreground mb-1">Call Us</h4>
+                      <p className="text-foreground/80">
                         +91 9699088367
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-12 w-12 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Calendar className="h-6 w-6 text-primary" />
+                    <div className="mr-3 mt-0.5 h-8 w-8 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Clock className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">Opening Hours</h4>
-                      <p className="text-foreground/80 font-medium">
-                        Monday to Friday: 6:00 AM - 9:00 AM, 6:00 PM - 8:00 PM
+                      <h4 className="font-bold text-foreground mb-1">Hours</h4>
+                      <p className="text-foreground/80">
+                        Mon-Fri: 6-9 AM, 6-8 PM
                       </p>
+                    </div>
+                  </div>
+
+                  {/* Social media links moved below hours */}
+                  <div className="flex items-center mt-2">
+                    <div className="mr-3 mt-0.5 h-8 w-8 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Instagram className="h-4 w-4 text-primary" />
+                    </div>
+                    <div className="flex space-x-3">
+                      <a
+                        href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-foreground hover:text-primary transition-colors"
+                        aria-label="Instagram"
+                      >
+                        Instagram
+                      </a>
+                      <span className="text-gray-300">|</span>
+                      <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-foreground hover:text-primary transition-colors"
+                        aria-label="Facebook"
+                      >
+                        Facebook
+                      </a>
                     </div>
                   </div>
                 </div>
 
-                {/* Social media links */}
-                <div className="mt-8 pt-8 border-t border-primary/20">
-                  <h4 className="text-lg font-bold text-foreground mb-4">Follow Us</h4>
-                  <div className="flex space-x-4">
-                    <a
-                      href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors duration-300"
-                    >
-                      <Instagram className="h-6 w-6" />
-                    </a>
-                    <a
-                      href="https://facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors duration-300"
-                    >
-                      <Facebook className="h-6 w-6" />
-                    </a>
+                {/* Map below Get in Touch with more space */}
+                <div className="mt-6">
+                  <div className="rounded-lg overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700">
+                    <div className="h-48">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8867780076636!2d73.81324907497906!3d18.48651168259752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8c1c7562f5%3A0x59f9b10f0b2a54e7!2sPlot%20No.%2041%2C%20Alankar%20Society%20Rd%2C%20Alankar%20Society%2C%20Ganesh%20Nagar%2C%20Karvenagar%2C%20Pune%2C%20Maharashtra%20411052!5e0!3m2!1sen!2sin!4v1718102066619!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="FitKraft Studio Location"
+                      ></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -477,23 +490,7 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Map Section */}
-        <div className="opacity-0 animate-fade-in animate-delay-300 animate-on-scroll">
-          <div className="glass-panel rounded-2xl overflow-hidden shadow-lg border-2 border-primary/20 relative">
-            <div className="h-64 md:h-96">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8867780076636!2d73.81324907497906!3d18.48651168259752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8c1c7562f5%3A0x59f9b10f0b2a54e7!2sPlot%20No.%2041%2C%20Alankar%20Society%20Rd%2C%20Alankar%20Society%2C%20Ganesh%20Nagar%2C%20Karvenagar%2C%20Pune%2C%20Maharashtra%20411052!5e0!3m2!1sen!2sin!4v1718102066619!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="FitKraft Studio Location"
-              ></iframe>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

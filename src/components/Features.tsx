@@ -80,7 +80,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-16 md:py-28 bg-background relative">
+    <section id="features" className="py-12 md:py-20 bg-background relative">
       {/* Nike/Adidas-inspired background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] rounded-full bg-primary/5"></div>
@@ -116,7 +116,7 @@ const Features = () => {
         </div>
 
         {/* Nike/Adidas-inspired divider */}
-        <div className="mt-20 max-w-md mx-auto flex items-center gap-4">
+        <div className="mt-12 max-w-md mx-auto flex items-center gap-4">
           <div className="h-0.5 flex-grow bg-primary/20"></div>
           <div className="h-2 w-2 bg-primary"></div>
           <div className="h-0.5 flex-grow bg-primary/20"></div>

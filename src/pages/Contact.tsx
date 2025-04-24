@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { MapPin, Mail, Phone, Send, Clock } from "lucide-react";
+import { MapPin, Phone, Send, Clock } from "lucide-react";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { supabase } from "../integrations/supabase/client";
@@ -89,14 +89,14 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section className="pt-32 pb-16 md:py-40">
+        <section className="pt-20 pb-12 md:pt-24 md:pb-16">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-3xl mb-20">
+            <div className="mx-auto max-w-3xl mb-8">
               <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in">
                 <div className="w-12 h-[2px] bg-primary mr-3"></div>
                 <p className="text-primary font-bold uppercase tracking-widest text-sm">REACH OUT</p>
               </div>
-              <h1 className="font-display mb-6 text-4xl md:text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in">
+              <h1 className="font-display mb-4 text-3xl md:text-5xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in">
                 CONTACT US
                 <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
               </h1>
@@ -105,66 +105,64 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-12 gap-12 items-start mb-20">
-              <div className="opacity-0 animate-fade-in animate-delay-200 md:col-span-5">
-                <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight mb-6">REACH OUT TO US</h2>
-                <div className="w-12 h-1 bg-primary mb-6"></div>
+            <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-start mb-8">
+              <div className="opacity-0 animate-fade-in animate-delay-200 md:col-span-4">
+                <h2 className="text-xl md:text-2xl font-black text-foreground uppercase tracking-tight mb-3">REACH OUT TO US</h2>
+                <div className="w-10 h-1 bg-primary mb-4"></div>
 
-                <div className="space-y-6 mb-8">
+                <div className="space-y-4 mb-6">
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-primary" />
+                    <div className="mr-3 mt-1 h-8 w-8 flex-shrink-0 flex items-center justify-center bg-gray-900 rounded-sm">
+                      <MapPin className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-foreground uppercase tracking-wider">VISIT US</h3>
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">VISIT US</h3>
                       <p className="text-foreground/70 text-sm">
-                        123 Fitness Street, Karve Nagar<br/>
-                        Pune, Maharashtra 411052<br/>
+                        Plot 41, Karvenagar<br/>
+                        Pune, Maharashtra<br/>
                         India
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 flex items-center justify-center">
-                      <Mail className="h-5 w-5 text-primary" />
+                    <div className="mr-3 mt-1 h-8 w-8 flex-shrink-0 flex items-center justify-center bg-gray-900 rounded-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-primary"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-foreground uppercase tracking-wider">EMAIL US</h3>
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">INSTAGRAM</h3>
                       <p className="text-foreground/70 text-sm">
-                        info@fitkraft.studio<br/>
-                        support@fitkraft.studio
+                        <a href="https://www.instagram.com/fitkraft.shubhangi/" className="hover:text-primary">@fitkraft.shubhangi</a>
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 flex items-center justify-center">
-                      <Phone className="h-5 w-5 text-primary" />
+                    <div className="mr-3 mt-1 h-8 w-8 flex-shrink-0 flex items-center justify-center bg-gray-900 rounded-sm">
+                      <Phone className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-foreground uppercase tracking-wider">CALL US</h3>
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">CALL US</h3>
                       <p className="text-foreground/70 text-sm">
-                        +91 98765 43210<br/>
-                        +91 12345 67890
+                        +91 9699088367
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="mr-4 mt-1 h-10 w-10 flex-shrink-0 flex items-center justify-center">
-                      <Clock className="h-5 w-5 text-primary" />
+                    <div className="mr-3 mt-1 h-8 w-8 flex-shrink-0 flex items-center justify-center bg-gray-900 rounded-sm">
+                      <Clock className="h-4 w-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-foreground uppercase tracking-wider">OPENING HOURS</h3>
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider">OPENING HOURS</h3>
                       <p className="text-foreground/70 text-sm">
-                        Monday to Friday: 6:00 AM - 9:00 AM, 6:00 PM - 8:00 PM
+                        Monday to Friday: 6:00 AM - 10:00 AM and 7:00 PM - 8:00 PM
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="overflow-hidden h-64 md:h-80">
+                <div className="overflow-hidden h-48 md:h-60 border border-gray-200">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.325732280321!2d73.80646694614!3d18.4911897406789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb0e756d06d%3A0xbea4ce1dba221512!2sKarve%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1649835284523!5m2!1sen!2sin"
                     width="100%"
@@ -178,9 +176,9 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="p-8 opacity-0 animate-fade-in animate-delay-300 border-t border-gray-200 shadow-sm md:col-span-7">
-                <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight mb-6">SEND US A MESSAGE</h2>
-                <div className="w-12 h-1 bg-primary mb-6"></div>
+              <div className="p-6 opacity-0 animate-fade-in animate-delay-300 border-t border-gray-200 shadow-sm md:col-span-4">
+                <h2 className="text-xl md:text-2xl font-black text-foreground uppercase tracking-tight mb-3">SEND US A MESSAGE</h2>
+                <div className="w-10 h-1 bg-primary mb-4"></div>
 
                 {submitted ? (
                   <div className="bg-gray-100 border-l-4 border-gray-300 text-foreground px-4 py-3 mb-6">
@@ -189,9 +187,9 @@ const Contact = () => {
                   </div>
                 ) : null}
 
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-bold uppercase tracking-wider text-foreground mb-2">
+                <form id="contact-form" onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1">
                       YOUR NAME *
                     </label>
                     <Input
@@ -205,8 +203,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wider text-foreground mb-2">
+                  <div className="mb-3">
+                    <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1">
                       EMAIL ADDRESS *
                     </label>
                     <Input
@@ -220,8 +218,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="mb-4">
-                    <label htmlFor="phone" className="block text-sm font-bold uppercase tracking-wider text-foreground mb-2">
+                  <div className="mb-3">
+                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1">
                       PHONE NUMBER *
                     </label>
                     <Input
@@ -234,8 +232,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-bold uppercase tracking-wider text-foreground mb-2">
+                  <div className="mb-4">
+                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1">
                       YOUR MESSAGE *
                     </label>
                     <Textarea
@@ -243,7 +241,7 @@ const Contact = () => {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       className="w-full"
-                      rows={5}
+                      rows={4}
                       placeholder="I'd like to inquire about..."
                       required
                     />
@@ -251,7 +249,7 @@ const Contact = () => {
 
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full bg-gray-900 text-white hover:bg-gray-800"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
@@ -259,18 +257,18 @@ const Contact = () => {
                   </Button>
                 </form>
               </div>
-            </div>
 
-            <div className="text-center max-w-3xl mx-auto opacity-0 animate-fade-in animate-delay-400">
-              <h2 className="text-2xl md:text-3xl font-black text-foreground uppercase tracking-tight mb-6">VISIT US TODAY</h2>
-              <div className="w-12 h-1 bg-primary mb-6 mx-auto"></div>
-              <p className="text-foreground/70 mb-8 max-w-xl mx-auto">
-                We invite you to come and experience our studio in person. Drop by for a visit, meet our trainers,
-                and see why FitKraft Studio is the preferred fitness destination in Karve Nagar, Pune.
-              </p>
-              <Button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="uppercase tracking-wider font-bold">
-                BOOK A FREE TRIAL CLASS
-              </Button>
+              <div className="opacity-0 animate-fade-in animate-delay-400 md:col-span-4 border-t border-gray-200 p-6 shadow-sm">
+                <h2 className="text-xl md:text-2xl font-black text-foreground uppercase tracking-tight mb-3">VISIT US TODAY</h2>
+                <div className="w-10 h-1 bg-primary mb-4"></div>
+                <p className="text-foreground/70 mb-6 text-sm">
+                  We invite you to come and experience our studio in person. Drop by for a visit, meet our trainers,
+                  and see why FitKraft Studio is the preferred fitness destination in Karve Nagar, Pune.
+                </p>
+                <Button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="uppercase tracking-wider font-bold bg-gray-900 text-white hover:bg-gray-800 w-full">
+                  BOOK A FREE TRIAL CLASS
+                </Button>
+              </div>
             </div>
           </div>
         </section>
