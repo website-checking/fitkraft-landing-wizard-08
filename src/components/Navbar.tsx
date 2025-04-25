@@ -20,7 +20,8 @@ const Navbar = () => {
 
   // Adapt navbar background based on theme - Nike/Adidas-inspired
   const getNavbarBackground = () => {
-    const scrolledClass = isScrolled ? "py-2 md:py-3 shadow-md border-b" : "py-3 md:py-5";
+    // Use consistent padding to avoid layout shifts when scrolling
+    const scrolledClass = isScrolled ? "py-2 shadow-md border-b" : "py-2";
 
     if (theme === 'dark') {
       return `${scrolledClass} bg-gray-900/98 backdrop-blur-md border-gray-800`;

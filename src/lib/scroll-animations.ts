@@ -54,8 +54,16 @@ export const initSmoothScrolling = () => {
     const navbar = document.querySelector('header');
     const navbarHeight = navbar ? navbar.offsetHeight : 80;
 
+    // Special handling for features section to ensure it's positioned correctly
+    const targetId = href.substring(1); // Remove the # from the href
+    let offset = navbarHeight + 5;
+
+    if (targetId === 'features') {
+      offset = 0; // No offset for features section
+    }
+
     window.scrollTo({
-      top: targetElement.offsetTop - navbarHeight - 20, // Additional 20px for spacing
+      top: targetElement.offsetTop - offset,
       behavior: 'smooth',
     });
   };
@@ -72,11 +80,10 @@ export const initSmoothScrolling = () => {
 
     sections.forEach(section => {
       const sectionTop = (section as HTMLElement).offsetTop;
-      const sectionHeight = (section as HTMLElement).offsetHeight;
       const navbar = document.querySelector('header');
       const navbarHeight = navbar ? navbar.offsetHeight : 80;
 
-      if (window.scrollY >= sectionTop - navbarHeight - 100) {
+      if (window.scrollY >= sectionTop - navbarHeight - 10) {
         currentSection = section.getAttribute('id') || '';
       }
     });

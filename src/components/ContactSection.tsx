@@ -224,7 +224,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-16 bg-background relative">
+    <section id="contact" className="py-12 md:py-16 bg-background relative" style={{ scrollMarginTop: '100px' }}>
       {/* Subtle background accent */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 blur-[100px]"></div>
@@ -232,8 +232,9 @@ const ContactSection = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center mb-8">
-          <h2 className="font-display mb-4 text-3xl font-extrabold text-foreground md:text-5xl opacity-0 animate-fade-in animate-on-scroll">
+        {/* Desktop header */}
+        <div className="hidden md:block mx-auto max-w-3xl text-center mb-8">
+          <h2 className="font-display mb-4 text-5xl font-extrabold text-foreground opacity-0 animate-fade-in animate-on-scroll">
             <span className="text-primary drop-shadow-md relative inline-block">
               Contact
               <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-primary/40 rounded-full"></span>
@@ -242,6 +243,27 @@ const ContactSection = () => {
           <p className="text-foreground/80 font-medium text-base opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Get in touch with our team to start your fitness journey
           </p>
+        </div>
+
+        {/* Mobile Nike/Adidas style header */}
+        <div className="md:hidden mb-10">
+          <div className="relative">
+            {/* Nike/Adidas-style large title */}
+            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+              Contact Us
+            </h2>
+
+            {/* Nike/Adidas-style accent line */}
+            <div className="w-16 h-1 bg-primary mt-3 mb-4"></div>
+
+            {/* Nike/Adidas-style subtitle */}
+            <p className="text-foreground/90 font-bold uppercase tracking-wider text-sm opacity-0 animate-fade-in animate-delay-100 animate-on-scroll max-w-xs">
+              Get in touch with our team to start your fitness journey
+            </p>
+
+            {/* Nike/Adidas-style decorative element */}
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-primary/30 opacity-50"></div>
+          </div>
         </div>
 
         <div className="opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
@@ -389,7 +411,7 @@ const ContactSection = () => {
                   Get in Touch
                 </h3>
 
-                <div className="space-y-5 flex-grow text-sm">
+                <div className="space-y-3 flex-grow text-sm">
                   <div className="flex items-start">
                     <div className="mr-3 mt-0.5 h-8 w-8 flex-shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
                       <MapPin className="h-4 w-4 text-primary" />
@@ -469,9 +491,9 @@ const ContactSection = () => {
                 </div>
 
                 {/* Map below Get in Touch with more space */}
-                <div className="mt-6">
+                <div className="mt-4">
                   <div className="rounded-lg overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700">
-                    <div className="h-48">
+                    <div className="h-72">
                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.8867780076636!2d73.81324907497906!3d18.48651168259752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8c1c7562f5%3A0x59f9b10f0b2a54e7!2sPlot%20No.%2041%2C%20Alankar%20Society%20Rd%2C%20Alankar%20Society%2C%20Ganesh%20Nagar%2C%20Karvenagar%2C%20Pune%2C%20Maharashtra%20411052!5e0!3m2!1sen!2sin!4v1718102066619!5m2!1sen!2sin"
                         width="100%"

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Inbox, Calendar, Award, Search, BarChart2, PieChart, TrendingUp, Download } from 'lucide-react';
 import * as XLSX from 'xlsx';
+import { toast } from '../../hooks/use-toast';
 
 interface AdminDashboardNewProps {
   onLogout: () => void;
@@ -146,10 +147,14 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
     }
   };
 
-  const exportToExcel = () => {
+  const exportToCSV = () => {
     try {
       if (submissions.length === 0) {
-        alert('No data to export');
+        toast({
+          title: 'NO DATA TO EXPORT',
+          description: 'There are no submissions to export.',
+          variant: 'destructive',
+        });
         return;
       }
 
@@ -166,17 +171,31 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
       // Create worksheet
       const worksheet = XLSX.utils.json_to_sheet(exportData);
 
-      // Create workbook
-      const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, 'Submissions');
+      // Convert to CSV
+      const csv = XLSX.utils.sheet_to_csv(worksheet);
 
-      // Generate Excel file
-      XLSX.writeFile(workbook, 'fitkraft_submissions.xlsx');
+      // Create a blob and download link
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'fitkraft_submissions.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
-      alert('Data has been exported to Excel');
+      toast({
+        title: 'EXPORT SUCCESSFUL',
+        description: 'Data has been exported to CSV',
+        variant: 'success',
+      });
     } catch (err) {
-      console.error('Error exporting to Excel:', err);
-      alert(`Failed to export data: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      console.error('Error exporting to CSV:', err);
+      toast({
+        title: 'EXPORT FAILED',
+        description: `Failed to export data: ${err instanceof Error ? err.message : 'Unknown error'}`,
+        variant: 'destructive',
+      });
     }
   };
 
@@ -187,89 +206,106 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
 
   // Render the component
   return (
-    <div className="min-h-screen bg-background p-8 bg-gradient-to-br from-background to-background/80">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6 border border-border/50 transition-all duration-300 hover:shadow-xl">
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">Admin Dashboard</h1>
-            <div className="flex gap-2">
+    <div className="min-h-screen bg-background">
+      {/* Nike/Adidas-inspired subtle background pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-background to-background/90"></div>
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-primary/5 blur-[100px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full bg-primary/5 blur-[80px]"></div>
+      </div>
+
+      {/* Header - Nike/Adidas-inspired clean header */}
+      <header className="bg-white shadow-sm border-b border-gray-100 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <img
+                alt="FitKraft Logo"
+                className="h-8 w-auto mr-3"
+                src="/images/fitkraft-logo.png"
+              />
+              <h1 className="text-xl font-bold uppercase tracking-wider text-foreground">Admin Dashboard</h1>
+            </div>
+            <div className="flex gap-3">
               <button
-                onClick={exportToExcel}
-                className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-400 text-primary-foreground rounded-lg hover:from-amber-400 hover:to-amber-500 flex items-center transition-all duration-300 shadow-md hover:shadow-lg"
+                onClick={exportToCSV}
+                className="px-4 py-2 bg-primary text-primary-foreground text-xs uppercase tracking-wider font-bold flex items-center hover:bg-primary/90 transition-all duration-300"
                 disabled={submissions.length === 0}
               >
                 <Download className="h-4 w-4 mr-2" />
-                Export
+                Export CSV
               </button>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-primary-foreground rounded-lg hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="px-4 py-2 bg-gray-800 text-white text-xs uppercase tracking-wider font-bold hover:bg-gray-700 transition-all duration-300"
               >
                 Logout
               </button>
             </div>
           </div>
         </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
 
         {isLoading ? (
-          <div className="bg-card rounded-lg shadow p-6 text-center border border-border">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-            <p>Loading data...</p>
+          <div className="bg-white shadow-sm p-8 text-center">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary mb-4"></div>
+            <p className="text-sm uppercase tracking-wider font-medium">Loading data...</p>
           </div>
         ) : error ? (
-          <div className="bg-card rounded-lg shadow p-6 text-red-700 border border-border">
-            <p className="font-bold">Error</p>
-            <p>{error}</p>
+          <div className="bg-white shadow-sm p-8 text-red-700">
+            <p className="font-bold uppercase tracking-wider text-sm mb-2">Error</p>
+            <p className="text-sm">{error}</p>
           </div>
         ) : (
           <>
-            {/* Stats cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-md p-4 flex items-center border border-border/50 transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]">
-                <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
-                  <Inbox className="h-5 w-5 text-primary" />
+            {/* Nike/Adidas-inspired stats cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white shadow-sm p-6 flex items-start border-t-2 border-primary transition-all duration-300 hover:shadow-md">
+                <div className="mr-4">
+                  <Inbox className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Total Submissions</p>
-                  <p className="text-xl font-bold text-foreground">{stats.totalSubmissions}</p>
+                  <p className="text-xs uppercase tracking-wider font-bold text-gray-500 mb-1">Total Submissions</p>
+                  <p className="text-3xl font-bold text-foreground">{stats.totalSubmissions}</p>
                 </div>
               </div>
 
-              <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-md p-4 flex items-center border border-border/50 transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]">
-                <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
-                  <Calendar className="h-5 w-5 text-primary" />
+              <div className="bg-white shadow-sm p-6 flex items-start border-t-2 border-primary transition-all duration-300 hover:shadow-md">
+                <div className="mr-4">
+                  <Calendar className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Last 7 Days</p>
-                  <p className="text-xl font-bold text-foreground">{stats.recentSubmissions}</p>
+                  <p className="text-xs uppercase tracking-wider font-bold text-gray-500 mb-1">Last 7 Days</p>
+                  <p className="text-3xl font-bold text-foreground">{stats.recentSubmissions}</p>
                 </div>
               </div>
 
-              <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-md p-4 flex items-center border border-border/50 transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]">
-                <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
-                  <Award className="h-5 w-5 text-primary" />
+              <div className="bg-white shadow-sm p-6 flex items-start border-t-2 border-primary transition-all duration-300 hover:shadow-md">
+                <div className="mr-4">
+                  <Award className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Top Program</p>
-                  <p className="text-xl font-bold text-foreground">{stats.topProgram.count}</p>
-                  <p className="text-xs text-muted-foreground">{stats.topProgram.name}</p>
+                  <p className="text-xs uppercase tracking-wider font-bold text-gray-500 mb-1">Top Program</p>
+                  <p className="text-3xl font-bold text-foreground">{stats.topProgram.count}</p>
+                  <p className="text-xs uppercase tracking-wider font-medium text-gray-500 mt-1">{stats.topProgram.name}</p>
                 </div>
               </div>
             </div>
 
-            {/* Tabs */}
-            <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-lg mb-6 overflow-hidden border border-border/50 transition-all duration-300 hover:shadow-xl">
-              <div className="flex border-b border-border">
+            {/* Nike/Adidas-inspired tabs */}
+            <div className="mb-8">
+              <div className="flex border-b border-gray-200">
                 <button
-                  className={`px-6 py-3 font-medium ${activeTab === 'submissions' ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`px-8 py-3 text-xs uppercase tracking-wider font-bold ${activeTab === 'submissions' ? 'text-primary border-b-2 border-primary' : 'text-gray-500 hover:text-gray-800'}`}
                   onClick={() => setActiveTab('submissions')}
                 >
                   <Inbox className="h-4 w-4 inline-block mr-2" />
                   Submissions
                 </button>
                 <button
-                  className={`px-6 py-3 font-medium ${activeTab === 'analysis' ? 'text-primary border-b-2 border-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`px-8 py-3 text-xs uppercase tracking-wider font-bold ${activeTab === 'analysis' ? 'text-primary border-b-2 border-primary' : 'text-gray-500 hover:text-gray-800'}`}
                   onClick={() => setActiveTab('analysis')}
                 >
                   <BarChart2 className="h-4 w-4 inline-block mr-2" />
@@ -280,69 +316,67 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
 
             {activeTab === 'submissions' ? (
               <>
-                {/* Search and table header */}
-                <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-lg p-4 mb-6 border border-border/50 transition-all duration-300 hover:shadow-xl">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                    <h2 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">Contact Submissions</h2>
+                {/* Nike/Adidas-inspired search and table header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                  <h2 className="text-xl font-bold uppercase tracking-wider">Contact Submissions</h2>
 
-                    <div className="relative w-full md:w-64">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Search className="h-4 w-4 text-primary/60" />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Search submissions..."
-                        className="pl-10 pr-4 py-2 w-full border border-input/50 rounded-lg bg-background/80 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-sm transition-all duration-200 hover:border-primary/30 focus:border-primary/50"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                      />
+                  <div className="relative w-full md:w-64">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Search className="h-4 w-4 text-gray-400" />
                     </div>
+                    <input
+                      type="text"
+                      placeholder="Search submissions..."
+                      className="pl-10 pr-4 py-2 w-full border-b-2 border-gray-200 bg-transparent text-foreground focus:outline-none focus:border-primary transition-all duration-200"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                   </div>
                 </div>
 
-                {/* Data table */}
-                <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-border/50 transition-all duration-300 hover:shadow-xl">
-                  <div>
+                {/* Nike/Adidas-inspired data table */}
+                <div className="bg-white shadow-sm overflow-hidden">
+                  <div className="overflow-x-auto">
                     <table className="w-full table-fixed">
-                      <thead className="bg-muted/50 backdrop-blur-sm">
+                      <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-6 py-4 text-left text-xs font-medium text-primary/80 uppercase tracking-wider w-[120px] border-b border-border/30">Name</th>
-                          <th className="px-6 py-4 text-left text-xs font-medium text-primary/80 uppercase tracking-wider w-[150px] border-b border-border/30">Email</th>
-                          <th className="px-6 py-4 text-left text-xs font-medium text-primary/80 uppercase tracking-wider w-[120px] border-b border-border/30">Phone</th>
-                          <th className="px-6 py-4 text-left text-xs font-medium text-primary/80 uppercase tracking-wider w-[150px] border-b border-border/30">Interests</th>
-                          <th className="px-6 py-4 text-left text-xs font-medium text-primary/80 uppercase tracking-wider w-[200px] border-b border-border/30">Message</th>
-                          <th className="px-6 py-4 text-left text-xs font-medium text-primary/80 uppercase tracking-wider w-[120px] border-b border-border/30">Submitted On</th>
+                          <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-[120px] border-b border-gray-200">Name</th>
+                          <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-[150px] border-b border-gray-200">Email</th>
+                          <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-[120px] border-b border-gray-200">Phone</th>
+                          <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-[150px] border-b border-gray-200">Interests</th>
+                          <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-[200px] border-b border-gray-200">Message</th>
+                          <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider w-[120px] border-b border-gray-200">Submitted On</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-border/30">
+                      <tbody className="divide-y divide-gray-200">
                         {filteredSubmissions.length === 0 ? (
                           <tr>
-                            <td colSpan={6} className="px-6 py-4 text-center text-muted-foreground">
+                            <td colSpan={6} className="px-6 py-8 text-center">
                               {searchTerm ? (
                                 <>
-                                  <p>No matching submissions found</p>
-                                  <p className="text-sm mt-1">Try adjusting your search terms</p>
+                                  <p className="text-gray-500 font-medium">No matching submissions found</p>
+                                  <p className="text-sm text-gray-400 mt-1">Try adjusting your search terms</p>
                                   <button
-                                    className="mt-2 px-3 py-1 bg-amber-100 text-amber-700 rounded-lg text-sm hover:bg-amber-200 transition-colors duration-200"
+                                    className="mt-4 px-4 py-2 bg-primary text-primary-foreground text-xs uppercase tracking-wider font-bold hover:bg-primary/90 transition-all duration-300"
                                     onClick={() => setSearchTerm('')}
                                   >
                                     Clear Search
                                   </button>
                                 </>
                               ) : (
-                                <p>No submissions found</p>
+                                <p className="text-gray-500 font-medium">No submissions found</p>
                               )}
                             </td>
                           </tr>
                         ) : (
                           filteredSubmissions.map((submission, index) => (
-                            <tr key={submission.id || `submission-${index}`} className="hover:bg-muted/30 backdrop-blur-sm transition-colors duration-150">
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground overflow-hidden text-ellipsis">{submission.name || 'N/A'}</td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground overflow-hidden text-ellipsis">{submission.email || 'N/A'}</td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground overflow-hidden text-ellipsis">{submission.phone || 'N/A'}</td>
-                              <td className="px-6 py-4 text-sm text-foreground overflow-x-auto whitespace-nowrap">{submission.interests || 'N/A'}</td>
-                              <td className="px-6 py-4 text-sm text-foreground overflow-hidden text-ellipsis">{submission.message || 'N/A'}</td>
-                              <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground overflow-hidden text-ellipsis">
+                            <tr key={submission.id || `submission-${index}`} className="hover:bg-gray-50 transition-colors duration-150">
+                              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 overflow-hidden text-ellipsis">{submission.name || 'N/A'}</td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 overflow-hidden text-ellipsis">{submission.email || 'N/A'}</td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 overflow-hidden text-ellipsis">{submission.phone || 'N/A'}</td>
+                              <td className="px-6 py-4 text-sm text-gray-700 overflow-x-auto whitespace-nowrap">{submission.interests || 'N/A'}</td>
+                              <td className="px-6 py-4 text-sm text-gray-700 overflow-hidden text-ellipsis">{submission.message || 'N/A'}</td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 overflow-hidden text-ellipsis">
                                 {submission.created_at ? formatDate(submission.created_at) : 'N/A'}
                               </td>
                             </tr>
@@ -352,11 +386,11 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
                     </table>
                   </div>
 
-                  {/* Pagination placeholder */}
+                  {/* Nike/Adidas-inspired pagination */}
                   {filteredSubmissions.length > 0 && (
-                    <div className="px-6 py-4 flex items-center justify-between border-t border-border bg-muted">
-                      <div className="text-sm text-muted-foreground">
-                        Showing <span className="font-medium">{filteredSubmissions.length}</span> of <span className="font-medium">{submissions.length}</span> submissions
+                    <div className="px-6 py-3 flex items-center justify-between border-t border-gray-200 bg-gray-50">
+                      <div className="text-xs uppercase tracking-wider font-bold text-gray-500">
+                        Showing <span className="text-gray-900">{filteredSubmissions.length}</span> of <span className="text-gray-900">{submissions.length}</span> submissions
                       </div>
                     </div>
                   )}
@@ -364,17 +398,17 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
               </>
             ) : (
               <>
-                {/* Analysis Section */}
+                {/* Nike/Adidas-inspired Analysis Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   {/* Service Interest Breakdown */}
-                  <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-border/50 transition-all duration-300 hover:shadow-xl">
-                    <div className="p-6 border-b border-border">
-                      <h3 className="text-lg font-semibold flex items-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-                        <PieChart className="h-5 w-5 text-primary mr-2" />
+                  <div className="bg-white shadow-sm overflow-hidden">
+                    <div className="p-6 border-b border-gray-200">
+                      <h3 className="text-lg font-bold uppercase tracking-wider flex items-center">
+                        <PieChart className="h-5 w-5 text-primary mr-3" />
                         Service Interest Breakdown
                       </h3>
                     </div>
-                    <div className="p-6">
+                    <div className="p-8">
                       <div>
                         {/* Visual representation of service interests */}
                         {(() => {
@@ -479,14 +513,14 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
                   </div>
 
                   {/* Time-Based Analysis */}
-                  <div className="bg-card/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-border/50 transition-all duration-300 hover:shadow-xl">
-                    <div className="p-6 border-b border-border">
-                      <h3 className="text-lg font-semibold flex items-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-                        <TrendingUp className="h-5 w-5 text-blue-500 mr-2" />
+                  <div className="bg-white shadow-sm overflow-hidden">
+                    <div className="p-6 border-b border-gray-200">
+                      <h3 className="text-lg font-bold uppercase tracking-wider flex items-center">
+                        <TrendingUp className="h-5 w-5 text-primary mr-3" />
                         Time-Based Analysis
                       </h3>
                     </div>
-                    <div className="p-6">
+                    <div className="p-8">
                       <div>
                         {/* Visual representation of submission trends */}
                         {(() => {
@@ -571,6 +605,15 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
           </>
         )}
       </div>
+
+      {/* Nike/Adidas-inspired footer */}
+      <footer className="bg-white border-t border-gray-200 py-4 mt-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-xs text-gray-500 uppercase tracking-wider">
+            FitKraft Admin Dashboard © {new Date().getFullYear()}
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

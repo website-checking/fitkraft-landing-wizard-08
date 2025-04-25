@@ -4,67 +4,57 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="relative pt-20 pb-8 bg-background text-foreground border-t border-gray-200">
-      {/* Nike/Adidas-inspired background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <footer className="relative pt-16 md:pt-20 pb-8 bg-background text-foreground border-t border-gray-200">
+      {/* Nike/Adidas-inspired background effects - Desktop only */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[80px] animate-pulse-slow"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-primary/5 blur-[60px] animate-pulse-slow"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+        {/* Desktop footer content */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand column */}
           <div className="lg:col-span-4">
             <div className="flex items-center mb-6">
-              <img src="/images/fitkraft-logo.png" alt="FitKraft Studio" className="h-12 mr-3" />
-              <div className="text-2xl font-display font-black uppercase tracking-tight">
+              <img src="/images/fitkraft-logo.png" alt="FitKraft Studio" className="h-16 mr-4" />
+              <div className="text-3xl font-display font-black uppercase tracking-tight">
                 FitKraft<span className="text-primary">.</span>studio
               </div>
             </div>
 
-            <p className="text-foreground/70 text-sm mb-6 max-w-md">
+            <p className="text-foreground/80 text-base mb-6 max-w-md leading-relaxed">
               Transforming fitness journeys in Karve Nagar, Pune through expert training, supportive community, and world-class facilities since 2018.
             </p>
 
-            <div className="flex space-x-3 mb-8">
+            <div className="flex space-x-4 mb-8">
               <a
                 href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all duration-300 text-gray-700 border border-gray-200"
+                className="h-12 w-12 flex items-center justify-center text-white bg-gradient-to-tr from-purple-600 via-pink-500 to-orange-400 rounded-full shadow-md transition-transform duration-300 hover:scale-110"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-6 w-6" />
               </a>
               <a
                 href="https://www.facebook.com/fitkraftstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all duration-300 text-gray-700 border border-gray-200"
+                className="h-12 w-12 flex items-center justify-center text-white bg-blue-600 rounded-full shadow-md transition-transform duration-300 hover:scale-110"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-6 w-6" />
               </a>
               <a
                 href="https://www.youtube.com/fitkraftstudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all duration-300 text-gray-700 border border-gray-200"
+                className="h-12 w-12 flex items-center justify-center text-white bg-red-600 rounded-full shadow-md transition-transform duration-300 hover:scale-110"
                 aria-label="YouTube"
               >
-                <Youtube className="h-5 w-5" />
+                <Youtube className="h-6 w-6" />
               </a>
-            </div>
-
-            <div className="flex items-start space-x-3 mt-6">
-              <div className="h-10 w-10 flex items-center justify-center text-primary mt-1">
-                <Clock className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-lg font-bold uppercase tracking-wider">OPENING HOURS:</p>
-                <p className="text-sm text-foreground/70">Mon-Fri: 6AM-9AM, 6PM-8PM</p>
-              </div>
             </div>
           </div>
 
@@ -149,57 +139,110 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <div className="h-8 w-8 flex items-center justify-center text-primary mr-3 flex-shrink-0">
-                  <Mail className="h-4 w-4" />
+                <div className="h-10 w-10 flex items-center justify-center text-primary mr-3 flex-shrink-0 bg-primary/10 rounded-full">
+                  <MapPin className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-bold uppercase tracking-wider text-sm">EMAIL US:</p>
-                  <a href="mailto:info@fitkraft.studio" className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm">
-                    info@fitkraft.studio
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="h-8 w-8 flex items-center justify-center text-primary mr-3 flex-shrink-0">
-                  <Phone className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-wider text-sm">CALL US:</p>
-                  <a href="tel:+919699088367" className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm">
-                    +91 9699088367
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="h-8 w-8 flex items-center justify-center text-primary mr-3 flex-shrink-0">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="font-bold uppercase tracking-wider text-sm">VISIT US:</p>
-                  <address className="text-foreground/70 not-italic text-sm">
+                  <p className="font-bold uppercase tracking-wider text-sm mb-1">VISIT US:</p>
+                  <address className="text-foreground/80 not-italic text-base">
                     Plot no 41, no 4, gaurav, Alankar Society Rd,<br />
                     opp. shailesh Sabhagruha, Alankar Society,<br />
                     Ganesh Nagar, Karvenagar, Pune, Maharashtra 411052
                   </address>
                 </div>
               </li>
+              <li className="flex items-start">
+                <div className="h-10 w-10 flex items-center justify-center text-primary mr-3 flex-shrink-0 bg-primary/10 rounded-full">
+                  <Clock className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-bold uppercase tracking-wider text-sm mb-1">OPENING HOURS:</p>
+                  <p className="text-foreground/80 text-base">
+                    Monday to Friday: 6:00 AM - 10:00 AM and 7:00 PM - 8:00 PM
+                  </p>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <div className="h-10 w-10 flex items-center justify-center text-primary mr-3 flex-shrink-0 bg-primary/10 rounded-full">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-bold uppercase tracking-wider text-sm mb-1">CALL US:</p>
+                  <a href="tel:+919699088367" className="text-foreground/80 hover:text-primary transition-colors duration-300 text-base font-medium">
+                    +91 9699088367
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <div className="h-10 w-10 flex items-center justify-center text-primary mr-3 flex-shrink-0 bg-primary/10 rounded-full">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-bold uppercase tracking-wider text-sm mb-1">EMAIL US:</p>
+                  <a href="mailto:info@fitkraft.studio" className="text-foreground/80 hover:text-primary transition-colors duration-300 text-base font-medium">
+                    info@fitkraft.studio
+                  </a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
 
+        {/* Mobile footer - Minimal Nike/Adidas style with only logo and social media */}
+        <div className="md:hidden">
+          {/* Logo and social media only */}
+          <div className="flex flex-col items-center">
+            <img src="/images/fitkraft-logo.png" alt="FitKraft Studio" className="h-20 mb-4" />
+            <div className="text-2xl font-display font-black uppercase tracking-tight mb-6">
+              FitKraft<span className="text-primary">.</span>studio
+            </div>
+
+            {/* Social media icons with brand colors */}
+            <div className="flex space-x-5 mb-4">
+              <a
+                href="https://www.instagram.com/fitkraft.shubhangi/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 w-14 flex items-center justify-center bg-gradient-to-tr from-purple-600 via-pink-500 to-orange-400 text-white rounded-full shadow-md"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-7 w-7" />
+              </a>
+              <a
+                href="https://www.facebook.com/fitkraftstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 w-14 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-md"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-7 w-7" />
+              </a>
+              <a
+                href="https://www.youtube.com/fitkraftstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 w-14 flex items-center justify-center bg-red-600 text-white rounded-full shadow-md"
+                aria-label="YouTube"
+              >
+                <Youtube className="h-7 w-7" />
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom section with copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-foreground/70 text-sm mb-4 md:mb-0">
+        <div className="mt-8 md:mt-16 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-foreground/70 text-xs md:text-sm mb-4 md:mb-0 text-center md:text-left">
             &copy; {new Date().getFullYear()} FitKraft Studio. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <a href="/privacy-policy" className="text-foreground/70 text-sm hover:text-primary transition-colors duration-300">
+          <div className="flex space-x-4 md:space-x-6">
+            <a href="/privacy-policy" className="text-foreground/70 text-xs md:text-sm hover:text-primary transition-colors duration-300">
               Privacy Policy
             </a>
-            <a href="/terms-of-service" className="text-foreground/70 text-sm hover:text-primary transition-colors duration-300">
+            <a href="/terms-of-service" className="text-foreground/70 text-xs md:text-sm hover:text-primary transition-colors duration-300">
               Terms of Service
             </a>
-            <a href="/sitemap" className="text-foreground/70 text-sm hover:text-primary transition-colors duration-300">
+            <a href="/sitemap" className="text-foreground/70 text-xs md:text-sm hover:text-primary transition-colors duration-300">
               Sitemap
             </a>
           </div>

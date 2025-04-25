@@ -110,7 +110,20 @@ const Contact = () => {
                 <h2 className="text-xl md:text-2xl font-black text-foreground uppercase tracking-tight mb-3">REACH OUT TO US</h2>
                 <div className="w-10 h-1 bg-primary mb-4"></div>
 
-                <div className="space-y-4 mb-6">
+                <div className="overflow-hidden h-64 md:h-[300px] border border-gray-200 mb-4">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.325732280321!2d73.80646694614!3d18.4911897406789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb0e756d06d%3A0xbea4ce1dba221512!2sKarve%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1649835284523!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="FitKraft Studio Location"
+                  ></iframe>
+                </div>
+
+                <div className="space-y-3">
                   <div className="flex items-start">
                     <div className="mr-3 mt-1 h-8 w-8 flex-shrink-0 flex items-center justify-center bg-gray-900 rounded-sm">
                       <MapPin className="h-4 w-4 text-primary" />
@@ -160,19 +173,6 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="overflow-hidden h-48 md:h-60 border border-gray-200">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15134.325732280321!2d73.80646694614!3d18.4911897406789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfb0e756d06d%3A0xbea4ce1dba221512!2sKarve%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1649835284523!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="FitKraft Studio Location"
-                  ></iframe>
                 </div>
               </div>
 

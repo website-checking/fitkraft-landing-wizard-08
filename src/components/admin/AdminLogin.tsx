@@ -31,6 +31,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
         toast({
           title: 'Login successful',
           description: 'Welcome to the admin dashboard',
+          variant: 'success',
         });
       }, 1000);
     } else {

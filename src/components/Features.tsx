@@ -1,9 +1,8 @@
 
-import { useState } from "react";
 import { FlameIcon, Clock, Target, Shield } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
-const FeatureCard = ({
+// Desktop Feature Card
+const DesktopFeatureCard = ({
   icon,
   title,
   description,
@@ -51,6 +50,57 @@ const FeatureCard = ({
   );
 };
 
+// Mobile Feature Card (Nike/Adidas style)
+const MobileFeatureCard = ({
+  icon,
+  title,
+  description,
+  image,
+  index
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  image?: string;
+  index: number;
+}) => {
+  return (
+    <div
+      className="opacity-0 animate-fade-in relative h-full bg-background shadow-md rounded-sm overflow-hidden"
+      style={{ animationDelay: `${index * 100 + 200}ms` }}
+    >
+      {image && (
+        <div className="w-full overflow-hidden relative">
+          {/* Nike/Adidas-style gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent z-10"></div>
+
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-36 object-cover"
+          />
+
+          {/* Nike/Adidas-style title overlay on image */}
+          <div className="absolute bottom-0 left-0 right-0 p-3 z-20">
+            <h3 className="text-white text-base font-black uppercase tracking-tight drop-shadow-md">{title}</h3>
+          </div>
+        </div>
+      )}
+
+      {/* Content section - Nike/Adidas style */}
+      <div className="p-3 pt-5 bg-background relative">
+        {/* Nike/Adidas-style icon badge in original position */}
+        <div className="absolute left-3 -top-4 h-8 w-8 rounded-full bg-background flex items-center justify-center text-primary border border-gray-100 shadow-md">
+          {icon}
+        </div>
+
+        <div className="w-10 h-0.5 bg-primary mb-2"></div>
+        <p className="text-foreground/90 text-xs leading-tight">{description}</p>
+      </div>
+    </div>
+  );
+};
+
 const Features = () => {
   const features = [
     {
@@ -80,20 +130,17 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-12 md:py-20 bg-background relative">
-      {/* Nike/Adidas-inspired background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <section id="features" className="py-12 md:py-20 bg-background relative" style={{ scrollMarginTop: '0px' }}>
+      {/* Nike/Adidas-inspired background elements - Desktop only */}
+      <div className="hidden md:block absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] rounded-full bg-primary/5"></div>
         <div className="absolute top-1/4 right-0 w-[150px] h-[500px] bg-primary/5 -rotate-45"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl mb-12">
-          <div className="flex items-center justify-center mb-4 opacity-0 animate-fade-in animate-on-scroll">
-            <div className="w-12 h-[2px] bg-primary mr-3"></div>
-            <p className="text-primary font-bold uppercase tracking-widest text-sm">WHAT WE OFFER</p>
-          </div>
-          <h2 className="font-display mb-6 text-4xl md:text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in animate-on-scroll">
+        {/* Desktop Header */}
+        <div className="hidden md:block mx-auto max-w-3xl mb-12">
+          <h2 className="font-display mb-6 text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in animate-on-scroll">
             KEY FEATURES
             <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
           </h2>
@@ -102,9 +149,31 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid gap-8 md:gap-6 grid-cols-1 md:grid-cols-4 animate-on-scroll stagger-children max-w-6xl mx-auto">
+        {/* Mobile Header - Nike/Adidas style */}
+        <div className="md:hidden mb-10">
+          <div className="relative">
+            {/* Nike/Adidas-style large title */}
+            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+              KEY FEATURES
+            </h2>
+
+            {/* Nike/Adidas-style accent line */}
+            <div className="w-16 h-1 bg-primary mt-3 mb-4"></div>
+
+            {/* Nike/Adidas-style subtitle */}
+            <p className="text-foreground/90 font-bold uppercase tracking-wider text-sm opacity-0 animate-fade-in animate-delay-100 animate-on-scroll max-w-xs">
+              Transform your fitness journey with expert guidance
+            </p>
+
+            {/* Nike/Adidas-style decorative element */}
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-primary/30 opacity-50"></div>
+          </div>
+        </div>
+
+        {/* Desktop Grid Layout */}
+        <div className="hidden md:grid gap-6 grid-cols-4 animate-on-scroll stagger-children max-w-6xl mx-auto">
           {features.map((feature, index) => (
-            <FeatureCard
+            <DesktopFeatureCard
               key={index}
               icon={feature.icon}
               title={feature.title}
@@ -115,8 +184,24 @@ const Features = () => {
           ))}
         </div>
 
-        {/* Nike/Adidas-inspired divider */}
-        <div className="mt-12 max-w-md mx-auto flex items-center gap-4">
+        {/* Mobile Nike/Adidas Style Layout - 2x2 Grid */}
+        <div className="md:hidden">
+          <div className="grid grid-cols-2 gap-4">
+            {features.map((feature, index) => (
+              <MobileFeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Nike/Adidas-inspired divider - Desktop only */}
+        <div className="hidden md:flex mt-12 max-w-md mx-auto items-center gap-4">
           <div className="h-0.5 flex-grow bg-primary/20"></div>
           <div className="h-2 w-2 bg-primary"></div>
           <div className="h-0.5 flex-grow bg-primary/20"></div>

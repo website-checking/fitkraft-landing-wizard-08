@@ -18,10 +18,9 @@ export const highlightActiveSection = () => {
 
   sections.forEach(section => {
     const sectionTop = (section as HTMLElement).offsetTop;
-    const sectionHeight = (section as HTMLElement).offsetHeight;
 
-    // If the scroll position is within the section (with some offset)
-    if (window.scrollY >= sectionTop - navbarHeight - 100) {
+    // If the scroll position is within the section (with minimal offset)
+    if (window.scrollY >= sectionTop - navbarHeight - 10) {
       currentSection = section.getAttribute('id') || '';
     }
   });
@@ -54,12 +53,9 @@ export const handleSmoothScroll = (e: Event) => {
   const navbar = document.querySelector('header');
   const navbarHeight = navbar ? navbar.offsetHeight : 80;
 
-  // Calculate offset based on screen size (smaller offset for mobile)
-  const isMobile = window.innerWidth < 768;
-  const offset = isMobile ? 10 : 20;
-
+  // Scroll to the section with exact positioning
   window.scrollTo({
-    top: (targetElement as HTMLElement).offsetTop - navbarHeight - offset,
+    top: (targetElement as HTMLElement).offsetTop - navbarHeight - 5, // Slight adjustment for perfect positioning
     behavior: 'smooth',
   });
 };

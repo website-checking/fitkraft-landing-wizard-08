@@ -63,6 +63,7 @@ const AdminStandalone: React.FC = () => {
         toast({
           title: 'Login successful',
           description: 'Welcome to the admin dashboard',
+          variant: 'success',
         });
       }, 1000);
     } else {
@@ -132,12 +133,12 @@ const AdminStandalone: React.FC = () => {
     }
   };
 
-  // Export to Excel
-  const exportToExcel = () => {
+  // Export to CSV
+  const exportToCSV = () => {
     try {
       if (submissions.length === 0) {
         toast({
-          title: 'No data to export',
+          title: 'NO DATA TO EXPORT',
           description: 'There are no submissions to export.',
           variant: 'destructive',
         });
@@ -154,23 +155,30 @@ const AdminStandalone: React.FC = () => {
         'Submitted On': item.created_at ? formatDate(item.created_at) : 'N/A'
       }));
 
-      // Create worksheet
+      // Create worksheet (same as before)
       const worksheet = XLSX.utils.json_to_sheet(exportData);
 
-      // Create workbook
-      const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, 'Submissions');
+      // Instead of creating an Excel file, convert to CSV
+      const csv = XLSX.utils.sheet_to_csv(worksheet);
 
-      // Generate Excel file
-      XLSX.writeFile(workbook, 'fitkraft_submissions.xlsx');
+      // Create a blob and download link
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'fitkraft_submissions.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
       toast({
-        title: 'Export successful',
-        description: 'Data has been exported to Excel',
+        title: 'EXPORT SUCCESSFUL',
+        description: 'Data has been exported to CSV',
+        variant: 'success',
       });
     } catch (err) {
       toast({
-        title: 'Export failed',
+        title: 'EXPORT FAILED',
         description: `Failed to export data: ${err instanceof Error ? err.message : 'Unknown error'}`,
         variant: 'destructive',
       });
@@ -285,11 +293,11 @@ const AdminStandalone: React.FC = () => {
             Refresh Data
           </button>
           <button
-            onClick={exportToExcel}
+            onClick={exportToCSV}
             className="py-2 px-3 md:px-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center"
           >
             <Download className="mr-2 h-4 w-4" />
-            Export to Excel
+            Export to CSV
           </button>
           <button
             onClick={handleLogout}

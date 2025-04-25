@@ -119,6 +119,10 @@
     font-size: 16px;
   }
 
+  section[id] {
+    scroll-margin-top: 100px; /* Increased scroll margin to ensure sections are properly positioned */
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', 'Roboto Condensed', sans-serif;
@@ -249,10 +253,20 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-none bg-primary px-6 py-3 text-sm font-extrabold uppercase tracking-widest text-primary-foreground shadow-md transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 border-0;
+    @apply inline-flex items-center justify-center rounded-none bg-primary px-4 py-3 text-sm font-extrabold uppercase tracking-widest text-primary-foreground shadow-md transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 border-0;
     position: relative;
     overflow: hidden;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary {
+      width: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      letter-spacing: 0.1em;
+    }
   }
 
   .btn-primary::after {
@@ -274,8 +288,21 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-none bg-transparent px-6 py-3 text-sm font-extrabold uppercase tracking-widest text-foreground shadow-none transition-all duration-300 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 border border-gray-200;
-    letter-spacing: 0.1em;
+    @apply inline-flex items-center justify-center rounded-none bg-transparent px-1 py-3 text-sm font-extrabold uppercase text-foreground shadow-none transition-all duration-300 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 border border-gray-200;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  @media (min-width: 640px) {
+    .btn-secondary {
+      width: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      letter-spacing: 0.05em;
+    }
   }
 
   .spotlight {
