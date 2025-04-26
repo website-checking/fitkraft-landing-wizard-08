@@ -1,5 +1,6 @@
 
 import { FlameIcon, Clock, Target, Shield } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 // Desktop Feature Card
 const DesktopFeatureCard = ({
@@ -16,10 +17,7 @@ const DesktopFeatureCard = ({
   index: number;
 }) => {
   return (
-    <div
-      className="overflow-hidden opacity-0 animate-fade-in flex flex-col h-full group border-t border-gray-200 transition-all duration-300 hover:bg-gray-50/80 shadow-sm"
-      style={{ animationDelay: `${index * 100 + 200}ms` }}
-    >
+    <div className="overflow-hidden shadow-md relative flex flex-col h-full border-t border-gray-200 hover:bg-gray-50/80">
       {image && (
         <div className="w-full h-48 overflow-hidden relative">
           {/* Overlay on hover */}
@@ -36,11 +34,20 @@ const DesktopFeatureCard = ({
         </div>
       )}
 
-      <div className="p-5 md:p-6 flex flex-col flex-grow">
-        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
-          {icon}
+      {/* Card header with icon and title */}
+      <div className="p-4 pb-3 flex items-center">
+        <div className="relative mr-4">
+          <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center border border-gray-200 shadow-sm">
+            <div className="text-primary">{icon}</div>
+          </div>
         </div>
-        <h3 className="mb-2 text-lg font-bold text-foreground uppercase tracking-wider group-hover:text-primary transition-colors duration-300">{title}</h3>
+        <div>
+          <h3 className="font-bold text-foreground text-base uppercase tracking-wider">{title}</h3>
+        </div>
+      </div>
+
+      {/* Card body with description */}
+      <div className="px-4 pb-4">
         <p className="text-foreground/70 text-sm">{description}</p>
 
         {/* Nike/Adidas-inspired indicator */}
@@ -102,6 +109,34 @@ const MobileFeatureCard = ({
 };
 
 const Features = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = sectionRef.current;
+    if (section) {
+      const animatedElements = section.querySelectorAll('.animate-on-scroll');
+      animatedElements.forEach((el) => observer.observe(el));
+    }
+
+    return () => {
+      if (section) {
+        const animatedElements = section.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach((el) => observer.unobserve(el));
+      }
+    };
+  }, []);
   const features = [
     {
       icon: <Target className="h-6 w-6" />,
@@ -130,7 +165,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-12 md:py-20 bg-background relative" style={{ scrollMarginTop: '0px' }}>
+    <section id="features" className="py-12 md:py-20 bg-background relative" ref={sectionRef} style={{ scrollMarginTop: '100px' }}>
       {/* Nike/Adidas-inspired background elements - Desktop only */}
       <div className="hidden md:block absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] rounded-full bg-primary/5"></div>
@@ -170,22 +205,24 @@ const Features = () => {
           </div>
         </div>
 
-        {/* Desktop Grid Layout */}
-        <div className="hidden md:grid gap-6 grid-cols-4 animate-on-scroll stagger-children max-w-6xl mx-auto">
-          {features.map((feature, index) => (
-            <DesktopFeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              image={feature.image}
-              index={index}
-            />
-          ))}
+        {/* Desktop Grid Layout - Matching Testimonials grid */}
+        <div className="hidden md:block opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
+          <div className="grid grid-cols-4 gap-6 mb-8">
+            {features.map((feature, index) => (
+              <DesktopFeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Mobile Nike/Adidas Style Layout - 2x2 Grid */}
-        <div className="md:hidden">
+        <div className="md:hidden opacity-0 animate-fade-in animate-delay-200 animate-on-scroll">
           <div className="grid grid-cols-2 gap-4">
             {features.map((feature, index) => (
               <MobileFeatureCard

@@ -54,8 +54,8 @@ const Hero = () => {
 
             {/* Desktop heading - unchanged */}
             <h1 className="hidden sm:block font-display mb-3 md:mb-6 text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter text-foreground opacity-0 animate-fade-in animate-delay-100 uppercase leading-none">
-              <span className="text-primary relative inline-block">
-                FIT<span className="text-foreground">KRAFT</span>
+              <span className="relative inline-block">
+                <span className="text-primary font-black">FIT</span>KRAFT
               </span>
               <span className="block text-2xl md:text-3xl lg:text-4xl font-bold tracking-normal mt-2">STUDIO</span>
               <div className="w-20 h-1 bg-primary mt-4"></div>
@@ -77,7 +77,7 @@ const Hero = () => {
               {/* Mobile heading - even larger size */}
               <h1 className="font-display mb-4 text-6xl font-black tracking-tighter text-foreground opacity-0 animate-fade-in animate-delay-100 uppercase leading-none">
                 <div className="flex items-baseline">
-                  <span className="text-primary">FIT</span>
+                  <span className="text-primary font-black">FIT</span>
                   <span>KRAFT</span>
                 </div>
                 <span className="block text-3xl font-bold tracking-normal mt-2">STUDIO</span>
@@ -103,7 +103,7 @@ const Hero = () => {
 
               {/* Mobile version - Nike/Adidas style with larger buttons */}
               <div className="sm:hidden w-full grid grid-cols-2 gap-3 mt-2">
-                <a href="#contact" className="bg-primary text-primary-foreground py-3 flex items-center justify-center font-bold text-sm uppercase tracking-wider relative overflow-hidden group">
+                <a href="#contact" className="bg-primary text-primary-foreground py-3 flex items-center justify-center font-bold text-sm uppercase tracking-wider relative overflow-hidden group shadow-md">
                   <span className="relative z-10 flex items-center">
                     Book a Class
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -150,34 +150,34 @@ const Hero = () => {
           <div className="p-3 md:p-8 border-t border-gray-200">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 stagger-children">
               <div className="flex flex-col items-center p-2 md:p-4 text-center relative group transition-all duration-300 hover:bg-primary/5">
-                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                 <Clock className="h-6 w-6 md:h-8 md:w-8 text-primary mb-1 md:mb-3 group-hover:scale-110 transition-transform" />
-                <div className="text-3xl md:text-5xl font-black text-primary mb-0 md:mb-1">5+</div>
+                <div className="text-3xl md:text-5xl font-black text-accent mb-0 md:mb-1">5+</div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-foreground/70">Years Experience</div>
               </div>
 
               <div className="flex flex-col items-center p-2 md:p-4 text-center relative group transition-all duration-300 hover:bg-primary/5">
-                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                 <Users className="h-6 w-6 md:h-8 md:w-8 text-primary mb-1 md:mb-3 group-hover:scale-110 transition-transform" />
-                <div className="text-3xl md:text-5xl font-black text-primary mb-0 md:mb-1">500+</div>
+                <div className="text-3xl md:text-5xl font-black text-accent mb-0 md:mb-1">500+</div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-foreground/70">Happy Clients</div>
               </div>
 
               <div className="flex flex-col items-center p-2 md:p-4 text-center relative group transition-all duration-300 hover:bg-primary/5">
-                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                 <svg className="h-6 w-6 md:h-8 md:w-8 text-primary mb-1 md:mb-3 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6.5 15.5C6.5 15.5 7 13.5 12 13.5C17 13.5 17.5 15.5 17.5 15.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   <path d="M16.5 6.5C16.5 8.15685 14.6569 9.5 12.5 9.5C10.3431 9.5 8.5 8.15685 8.5 6.5C8.5 4.84315 10.3431 3.5 12.5 3.5C14.6569 3.5 16.5 4.84315 16.5 6.5Z" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M20 17.5C20 19.9853 16.4183 22 12 22C7.58172 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
-                <div className="text-3xl md:text-5xl font-black text-primary mb-0 md:mb-1">6</div>
+                <div className="text-3xl md:text-5xl font-black text-accent mb-0 md:mb-1">6</div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-foreground/70">Training Programs</div>
               </div>
 
               <div className="flex flex-col items-center p-2 md:p-4 text-center relative group transition-all duration-300 hover:bg-primary/5">
-                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
+                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-primary/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></div>
                 <Star className="h-6 w-6 md:h-8 md:w-8 text-primary mb-1 md:mb-3 group-hover:scale-110 transition-transform" />
-                <div className="text-3xl md:text-5xl font-black text-primary mb-0 md:mb-1">4.9</div>
+                <div className="text-3xl md:text-5xl font-black text-accent mb-0 md:mb-1">4.9</div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-foreground/70">Client Rating</div>
               </div>
             </div>
@@ -191,14 +191,14 @@ const Hero = () => {
               {/* Years Experience */}
               <div className="flex flex-col items-center text-center">
                 <Clock className="h-6 w-6 text-primary mb-2" />
-                <div className="text-4xl font-black text-primary">5+</div>
+                <div className="text-4xl font-black text-accent">5+</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-foreground/70 mt-1">Years Experience</div>
               </div>
 
               {/* Happy Clients */}
               <div className="flex flex-col items-center text-center">
                 <Users className="h-6 w-6 text-primary mb-2" />
-                <div className="text-4xl font-black text-primary">500+</div>
+                <div className="text-4xl font-black text-accent">500+</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-foreground/70 mt-1">Happy Clients</div>
               </div>
 
@@ -209,14 +209,14 @@ const Hero = () => {
                   <path d="M16.5 6.5C16.5 8.15685 14.6569 9.5 12.5 9.5C10.3431 9.5 8.5 8.15685 8.5 6.5C8.5 4.84315 10.3431 3.5 12.5 3.5C14.6569 3.5 16.5 4.84315 16.5 6.5Z" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M20 17.5C20 19.9853 16.4183 22 12 22C7.58172 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
-                <div className="text-4xl font-black text-primary">6</div>
+                <div className="text-4xl font-black text-accent">6</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-foreground/70 mt-1">Training Programs</div>
               </div>
 
               {/* Client Rating */}
               <div className="flex flex-col items-center text-center">
                 <Star className="h-6 w-6 text-primary mb-2" />
-                <div className="text-4xl font-black text-primary">4.9</div>
+                <div className="text-4xl font-black text-accent">4.9</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-foreground/70 mt-1">Client Rating</div>
               </div>
             </div>

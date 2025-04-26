@@ -1,15 +1,13 @@
 
-import { useState } from "react";
-import { Check, ArrowRight, Dumbbell, Users, Target, Calendar } from "lucide-react";
 
-// Program Card Component with expanded view functionality
+import { Check, ArrowRight, Dumbbell, Users, Target } from "lucide-react";
+
+// Program Card Component - simplified without expand/collapse functionality
 const ProgramCard = ({
   title,
   price,
   description,
   features,
-  benefits,
-  schedule,
   image,
   isPopular = false,
   delay = 0,
@@ -28,11 +26,9 @@ const ProgramCard = ({
   showPrice?: boolean;
   onSelect: (title: string) => void;
 }) => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <div
-      className={`bg-white shadow-sm overflow-hidden relative opacity-0 animate-fade-in h-full flex flex-col group transition-all duration-500 ${expanded ? 'md:col-span-3 md:grid md:grid-cols-3 md:gap-6' : ''}`}
+      className="bg-white shadow-sm overflow-hidden relative opacity-0 animate-fade-in h-full flex flex-col group transition-all duration-500"
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Nike/Adidas-inspired popular badge */}
@@ -42,8 +38,8 @@ const ProgramCard = ({
         </div>
       )}
 
-      {/* Program image - only shown when not expanded on mobile, always shown on desktop */}
-      <div className={`${expanded ? 'hidden md:block' : ''} relative overflow-hidden`}>
+      {/* Program image */}
+      <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 pointer-events-none"></div>
         <div className="w-full h-[250px] overflow-hidden">
           <img
@@ -72,21 +68,13 @@ const ProgramCard = ({
 
       {/* Nike/Adidas-inspired content section */}
       <div className="p-6 flex flex-col flex-grow">
-        {/* Only show this title on expanded mobile view */}
-        {expanded && (
-          <div className="md:hidden mb-4">
-            <h3 className="text-xl font-black uppercase tracking-tight text-foreground">{title}</h3>
-            <div className="w-12 h-1 bg-primary mt-2 mb-4"></div>
-          </div>
-        )}
-
-        <p className="text-gray-700 font-medium mb-6">{description}</p>
+        <p className="text-gray-700 font-medium mb-6 h-[80px]">{description}</p>
 
         <div className="mb-6">
           <h4 className="text-xs uppercase tracking-wider font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">
             Key Features
           </h4>
-          <ul className="space-y-3">
+          <ul className="space-y-3 h-[160px]">
             {features.map((feature, index) => (
               <li key={index} className="flex items-start">
                 <Check className="h-4 w-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
@@ -96,51 +84,12 @@ const ProgramCard = ({
           </ul>
         </div>
 
-        {expanded && (
-          <>
-            <div className="mb-6">
-              <h4 className="text-xs uppercase tracking-wider font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">
-                Benefits
-              </h4>
-              <ul className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="h-4 w-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-xs uppercase tracking-wider font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">
-                Schedule Options
-              </h4>
-              <ul className="space-y-3">
-                {schedule.map((time, index) => (
-                  <li key={index} className="flex items-start">
-                    <Calendar className="h-4 w-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{time}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
-
-        <div className="mt-auto flex flex-col sm:flex-row gap-3">
+        <div className="mt-auto">
           <button
-            className={`py-3 px-5 text-xs uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center ${expanded ? 'bg-gray-100 text-gray-800 hover:bg-gray-200' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
-            onClick={() => setExpanded(!expanded)}
-          >
-            {expanded ? 'Show Less' : 'Learn More'}
-          </button>
-
-          <button
-            className="bg-primary text-primary-foreground py-3 px-5 text-xs uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center group"
+            className="w-full bg-primary text-primary-foreground py-3 px-5 text-xs uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center group"
             onClick={() => onSelect(title)}
           >
-            <span>Start Your Journey</span>
+            <span>Get Started</span>
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -371,14 +320,14 @@ const CTASection = () => {
 
                 {/* Key features */}
                 <div className="mb-4">
-                  <h4 className="text-xs uppercase tracking-wider font-bold text-foreground mb-2">
+                  <h4 className="text-xs uppercase tracking-wider font-bold text-foreground mb-4 border-b border-gray-200 pb-2">
                     Key Features
                   </h4>
-                  <ul className="space-y-2">
-                    {program.features.slice(0, 2).map((feature, idx) => (
+                  <ul className="space-y-3">
+                    {program.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start">
-                        <Check className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground/80 text-xs">{feature}</span>
+                        <Check className="h-4 w-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -386,11 +335,11 @@ const CTASection = () => {
 
                 {/* Get Started button */}
                 <button
-                  className="w-full bg-primary text-white py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center"
+                  className="w-full bg-primary text-primary-foreground py-3 px-5 text-xs uppercase tracking-wider font-bold transition-all duration-300 flex items-center justify-center group"
                   onClick={() => handleProgramSelect(program.title)}
                 >
                   <span>Get Started</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>

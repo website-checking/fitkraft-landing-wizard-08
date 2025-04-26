@@ -229,7 +229,7 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
             <div className="flex gap-3">
               <button
                 onClick={exportToCSV}
-                className="px-4 py-2 bg-primary text-primary-foreground text-xs uppercase tracking-wider font-bold flex items-center hover:bg-primary/90 transition-all duration-300"
+                className="px-4 py-2 bg-white text-accent text-xs uppercase tracking-wider font-bold flex items-center hover:bg-gray-50 transition-all duration-300 border-l-2 border-primary"
                 disabled={submissions.length === 0}
               >
                 <Download className="h-4 w-4 mr-2" />
@@ -237,7 +237,7 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
               </button>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 bg-gray-800 text-white text-xs uppercase tracking-wider font-bold hover:bg-gray-700 transition-all duration-300"
+                className="px-4 py-2 border border-red-300 text-red-600 text-xs uppercase tracking-wider font-bold hover:bg-red-50 transition-all duration-300"
               >
                 Logout
               </button>
@@ -357,7 +357,7 @@ const AdminDashboardNew = ({ onLogout }: AdminDashboardNewProps) => {
                                   <p className="text-gray-500 font-medium">No matching submissions found</p>
                                   <p className="text-sm text-gray-400 mt-1">Try adjusting your search terms</p>
                                   <button
-                                    className="mt-4 px-4 py-2 bg-primary text-primary-foreground text-xs uppercase tracking-wider font-bold hover:bg-primary/90 transition-all duration-300"
+                                    className="mt-4 px-4 py-2 bg-white text-accent text-xs uppercase tracking-wider font-bold hover:bg-gray-50 transition-all duration-300 border-l-2 border-primary"
                                     onClick={() => setSearchTerm('')}
                                   >
                                     Clear Search

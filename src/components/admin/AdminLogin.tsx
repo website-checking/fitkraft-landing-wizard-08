@@ -46,7 +46,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md p-8 space-y-8 bg-background rounded-lg shadow-lg border border-primary/20">
+      <div className="w-full max-w-md p-8 space-y-8 bg-background rounded-lg shadow-lg border-l-2 border-primary">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-foreground">Admin Login</h2>
           <p className="mt-2 text-sm text-foreground/70">
@@ -93,7 +93,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
 
           <Button
             type="submit"
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+            className="w-full bg-white text-accent hover:bg-gray-50 border-l-2 border-primary"
             disabled={isLoading}
           >
             {isLoading ? 'Signing in...' : 'Sign in'}

@@ -62,7 +62,7 @@ const SimpleAdminLogin = ({ onLogin }: SimpleAdminLoginProps) => {
         </div>
 
         {/* Nike/Adidas-inspired minimalist form */}
-        <div className="bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-lg border-t-2 border-primary">
+        <div className="bg-white/90 backdrop-blur-sm p-8 rounded-lg shadow-lg border-l-2 border-primary">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>
@@ -102,7 +102,7 @@ const SimpleAdminLogin = ({ onLogin }: SimpleAdminLoginProps) => {
 
             <button
               type="submit"
-              className="w-full py-3 px-4 mt-8 bg-primary text-primary-foreground uppercase tracking-wider text-sm font-bold hover:bg-primary/90 transition-all duration-300"
+              className="w-full py-3 px-4 mt-8 bg-white text-accent uppercase tracking-wider text-sm font-bold hover:bg-gray-50 transition-all duration-300 border-l-2 border-primary"
               disabled={isLoading}
             >
               {isLoading ? 'Signing in...' : 'Sign in'}

@@ -235,7 +235,7 @@ const AdminStandalone: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-colors"
+                className="w-full py-2 px-4 rounded-md shadow-sm text-sm font-medium text-accent bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50 transition-colors border-l-2 border-primary"
                 disabled={isLoading}
               >
                 {isLoading ? 'Signing in...' : 'Sign in'}
@@ -287,21 +287,21 @@ const AdminStandalone: React.FC = () => {
         <div className="flex flex-wrap gap-2 md:gap-4 w-full md:w-auto">
           <button
             onClick={fetchData}
-            className="py-2 px-3 md:px-4 border border-yellow-500 text-yellow-500 rounded-md hover:bg-yellow-50 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center"
+            className="py-2 px-3 md:px-4 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center"
           >
             <RefreshCw className="mr-2 h-4 w-4" />
             Refresh Data
           </button>
           <button
             onClick={exportToCSV}
-            className="py-2 px-3 md:px-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center"
+            className="py-2 px-3 md:px-4 bg-white text-accent rounded-md hover:bg-gray-50 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center border-l-2 border-primary"
           >
             <Download className="mr-2 h-4 w-4" />
             Export to CSV
           </button>
           <button
             onClick={handleLogout}
-            className="py-2 px-3 md:px-4 border border-yellow-500 text-yellow-500 rounded-md hover:bg-yellow-50 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center"
+            className="py-2 px-3 md:px-4 border border-red-300 text-red-600 rounded-md hover:bg-red-50 flex items-center text-sm md:text-base flex-1 md:flex-initial justify-center"
           >
             <LogOut className="mr-2 h-4 w-4" />
             Logout

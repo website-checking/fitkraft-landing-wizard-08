@@ -59,32 +59,32 @@ const Navbar = () => {
               className="h-6 md:h-8 w-auto mr-2"
               src="/images/fitkraft-logo.png"
             />
-            <span className="uppercase tracking-tight">FIT<span className="text-primary font-black">KRAFT</span></span>
+            <span className="uppercase tracking-tight"><span className="text-primary font-black">FIT</span>KRAFT</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6">
-              <a href="#hero" className="nav-link uppercase text-xs font-bold tracking-wider">
+            <nav className="flex items-center space-x-8">
+              <a href="#hero" className="nav-link uppercase text-sm font-bold tracking-wider">
                 Home
               </a>
-              <a href="#about" className="nav-link uppercase text-xs font-bold tracking-wider">
+              <a href="#about" className="nav-link uppercase text-sm font-bold tracking-wider">
                 About Us
               </a>
-              <a href="#features" className="nav-link uppercase text-xs font-bold tracking-wider">
+              <a href="#features" className="nav-link uppercase text-sm font-bold tracking-wider">
                 Key Features
               </a>
-              <a href="#testimonials" className="nav-link uppercase text-xs font-bold tracking-wider">
+              <a href="#testimonials" className="nav-link uppercase text-sm font-bold tracking-wider">
                 Testimonials
               </a>
-              <a href="#pricing" className="nav-link uppercase text-xs font-bold tracking-wider">
+              <a href="#pricing" className="nav-link uppercase text-sm font-bold tracking-wider">
                 Programs
               </a>
-              <a href="#contact" className="nav-link uppercase text-xs font-bold tracking-wider">
+              <a href="#contact" className="nav-link uppercase text-sm font-bold tracking-wider">
                 Contact
               </a>
             </nav>
             <div className="flex items-center space-x-4">
-              <a href="#contact" className="btn-primary text-xs">
+              <a href="#contact" className="btn-primary text-sm">
                 BOOK A FREE CLASS
               </a>
             </div>
@@ -154,7 +154,7 @@ const Navbar = () => {
             </a>
             <a
               href="#contact"
-              className="btn-primary w-full text-center mt-4 text-xs"
+              className="btn-primary w-full text-center mt-4 text-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               BOOK A FREE CLASS

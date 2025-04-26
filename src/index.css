@@ -9,29 +9,30 @@
 @layer base {
   :root,
   .theme-light {
-    --background: 39 70% 97%; /* Cream background (#FDF7ED) - maintaining client requirement */
+    --background: 0 0% 100%; /* Pure white background (#FFFFFF) for a cleaner look */
     --foreground: 0 0% 0%; /* Black text for stronger contrast */
 
-    --card: 39 60% 95%;
+    --card: 0 0% 98%;
     --card-foreground: 0 0% 0%;
 
-    --popover: 39 60% 95%;
+    --popover: 0 0% 98%;
     --popover-foreground: 0 0% 0%;
 
-    /* Yellow accent colors - creating a palette while maintaining the primary yellow */
-    --primary: 45 100% 50%; /* Main yellow #FFCC00 - maintaining client requirement */
-    --primary-light: 45 100% 65%; /* Lighter yellow for hover states */
-    --primary-dark: 45 100% 45%; /* Darker yellow for borders and accents */
-    --primary-foreground: 0 0% 0%;
+    /* Balanced color scheme with a softer yellow accent */
+    --primary: 42 87% 55%; /* Softer yellow #E6C35A for buttons and accents */
+    --primary-light: 42 87% 65%; /* Lighter yellow for hover states */
+    --primary-dark: 42 87% 45%; /* Darker yellow for borders and accents */
+    --primary-foreground: 0 0% 0%; /* Black text on yellow background */
 
-    --secondary: 39 60% 90%;
+    /* Dark gray as secondary color */
+    --accent: 0 0% 20%; /* Dark gray #333333 for text and some UI elements */
+    --accent-foreground: 0 0% 100%; /* White text on dark background */
+
+    --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 0%;
 
-    --muted: 39 60% 90%;
-    --muted-foreground: 0 0% 30%; /* Darker muted text */
-
-    --accent: 45 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%; /* Darker muted text */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -76,32 +77,34 @@
   }
 
   .theme-gold {
-    --background: 39 70% 97%; /* Same as light theme */
+    --background: 0 0% 100%; /* Pure white background (#FFFFFF) */
     --foreground: 0 0% 0%;
 
-    --card: 39 60% 95%;
+    --card: 0 0% 98%;
     --card-foreground: 0 0% 0%;
 
-    --popover: 39 60% 95%;
+    --popover: 0 0% 98%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 45 100% 50%; /* More vibrant yellow #FFCC00 */
-    --primary-foreground: 0 0% 0%;
+    /* Balanced color scheme with a softer yellow accent */
+    --primary: 42 87% 55%; /* Softer yellow #E6C35A for buttons and accents */
+    --primary-foreground: 0 0% 0%; /* Black text on yellow background */
 
-    --secondary: 39 60% 90%;
+    /* Dark gray as secondary color */
+    --accent: 0 0% 20%; /* Dark gray #333333 for text and some UI elements */
+    --accent-foreground: 0 0% 100%; /* White text on dark background */
+
+    --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 0%;
 
-    --muted: 39 60% 90%;
-    --muted-foreground: 0 0% 30%;
-
-    --accent: 45 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 39 60% 75%;
-    --input: 39 60% 75%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
     --ring: 45 100% 50%;
 
     --radius: 0.75rem;
@@ -161,7 +164,7 @@
   }
 
   ::selection {
-    @apply bg-primary/20 text-primary;
+    @apply bg-primary/20 text-accent;
   }
 }
 
@@ -244,12 +247,12 @@
   }
 
   .nav-link {
-    @apply relative px-3 py-2 text-foreground hover:text-primary transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full uppercase tracking-widest text-xs font-bold;
+    @apply relative px-3 py-2 text-foreground hover:text-accent transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full uppercase tracking-widest text-xs font-bold;
     letter-spacing: 0.15em;
   }
 
   .nav-link.active {
-    @apply text-primary after:w-full;
+    @apply text-accent after:w-full after:bg-primary;
   }
 
   .btn-primary {
@@ -276,7 +279,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
     opacity: 0;
     transform: scale(0.5);
     transition: opacity 0.3s, transform 0.3s;
@@ -288,7 +291,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-none bg-transparent px-1 py-3 text-sm font-extrabold uppercase text-foreground shadow-none transition-all duration-300 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 border border-gray-200;
+    @apply inline-flex items-center justify-center rounded-none bg-transparent px-1 py-3 text-sm font-extrabold uppercase text-foreground shadow-none transition-all duration-300 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2 border border-gray-200 hover:border-primary;
     letter-spacing: -0.02em;
     white-space: nowrap;
     width: 100%;
