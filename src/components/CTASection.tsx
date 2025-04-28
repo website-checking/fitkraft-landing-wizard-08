@@ -216,12 +216,12 @@ const CTASection = () => {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         {/* Desktop header */}
-        <div className="hidden md:block mx-auto max-w-3xl text-center mb-16">
-          <h2 className="font-display mb-4 text-5xl font-black uppercase tracking-tight text-foreground opacity-0 animate-fade-in animate-on-scroll">
+        <div className="hidden md:block mx-auto max-w-3xl text-center mb-12">
+          <h2 className="font-display mb-6 text-6xl font-black uppercase tracking-tight leading-none text-center text-foreground opacity-0 animate-fade-in animate-on-scroll">
             Training Programs
+            <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-foreground/80 font-medium text-lg opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
+          <p className="text-foreground/80 font-bold uppercase tracking-wider text-sm text-center opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             Choose the perfect program for your fitness journey
           </p>
         </div>
@@ -230,7 +230,7 @@ const CTASection = () => {
         <div className="md:hidden mb-10">
           <div className="relative">
             {/* Nike/Adidas-style large title */}
-            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+            <h2 className="font-display text-4xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
               Training Programs
             </h2>
 

@@ -7,14 +7,12 @@ const DesktopFeatureCard = ({
   icon,
   title,
   description,
-  image,
-  index
+  image
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
   image?: string;
-  index: number;
 }) => {
   return (
     <div className="overflow-hidden shadow-md relative flex flex-col h-full border-t border-gray-200 hover:bg-gray-50/80">
@@ -188,7 +186,7 @@ const Features = () => {
         <div className="md:hidden mb-10">
           <div className="relative">
             {/* Nike/Adidas-style large title */}
-            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+            <h2 className="font-display text-4xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
               KEY FEATURES
             </h2>
 
@@ -215,7 +213,6 @@ const Features = () => {
                 title={feature.title}
                 description={feature.description}
                 image={feature.image}
-                index={index}
               />
             ))}
           </div>

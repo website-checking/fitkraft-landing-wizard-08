@@ -15,12 +15,12 @@ const About = () => {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         {/* Section header - Desktop version */}
-        <div className="hidden md:block mx-auto max-w-3xl mb-6">
-          <h2 className="font-display mb-4 text-4xl md:text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+        <div className="hidden md:block mx-auto max-w-3xl mb-12">
+          <h2 className="font-display mb-6 text-6xl font-black text-foreground uppercase tracking-tight leading-none text-center opacity-0 animate-fade-in animate-on-scroll">
             ABOUT US
-            <div className="w-20 h-1 bg-primary mt-4"></div>
+            <div className="w-20 h-1 bg-primary mt-4 mx-auto"></div>
           </h2>
-          <p className="text-foreground/80 font-bold uppercase tracking-wider text-sm opacity-0 animate-fade-in animate-delay-100 animate-on-scroll max-w-xl">
+          <p className="text-foreground/80 font-bold uppercase tracking-wider text-sm text-center opacity-0 animate-fade-in animate-delay-100 animate-on-scroll">
             YOUR FITNESS JOURNEY STARTS WITH A TEAM THAT CARES
           </p>
         </div>
@@ -29,7 +29,7 @@ const About = () => {
         <div className="md:hidden mb-10">
           <div className="relative">
             {/* Nike/Adidas-style large title */}
-            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+            <h2 className="font-display text-4xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
               ABOUT US
             </h2>
 

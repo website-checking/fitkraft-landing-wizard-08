@@ -296,7 +296,7 @@ const Testimonials = () => {
         <div className="md:hidden mb-10">
           <div className="relative">
             {/* Nike/Adidas-style large title */}
-            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+            <h2 className="font-display text-4xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
               TESTIMONIALS
             </h2>
 

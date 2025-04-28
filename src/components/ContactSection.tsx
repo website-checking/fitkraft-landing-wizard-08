@@ -1,20 +1,37 @@
 import { useState, useEffect, useRef } from "react";
-import { MapPin, Mail, Phone, Send, Clock, Calendar, Instagram, Facebook, CheckCircle2 } from "lucide-react";
+import { MapPin, Mail, Phone, Send, Clock, Calendar, Instagram, Facebook, CheckCircle2, ChevronDown } from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 // Direct Supabase API is used instead of the client
 import { toast } from "../hooks/use-toast";
 import { Button } from "./ui/button";
 
+// Country codes for phone input
+const countryCodes = [
+  { code: "+91", country: "India" },
+  { code: "+1", country: "USA" },
+  { code: "+44", country: "UK" },
+  { code: "+61", country: "Australia" },
+  { code: "+971", country: "UAE" },
+  { code: "+65", country: "Singapore" },
+  { code: "+49", country: "Germany" },
+  { code: "+33", country: "France" },
+  { code: "+81", country: "Japan" },
+  { code: "+86", country: "China" },
+];
+
 const ContactSection = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("+91");
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<HTMLDivElement>(null);
+  const countryDropdownRef = useRef<HTMLDivElement>(null);
   const [interests, setInterests] = useState({
     buddyTraining: false,
     personalTraining: false,
@@ -94,6 +111,20 @@ const ContactSection = () => {
     return () => {
       document.removeEventListener('programSelected', handleEvent as EventListener);
     };
+  }, [handleProgramSelection]);
+
+  // Handle click outside for country dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(event.target as Node)) {
+        setShowCountryDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const handleInterestChange = (interest: string) => {
@@ -159,7 +190,7 @@ const ContactSection = () => {
         body: JSON.stringify({
           name,
           email,
-          phone,
+          phone: `${countryCode} ${phone}`,
           message,
           interests: selectedInterests
         })
@@ -249,7 +280,7 @@ const ContactSection = () => {
         <div className="md:hidden mb-10">
           <div className="relative">
             {/* Nike/Adidas-style large title */}
-            <h2 className="font-display text-5xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
+            <h2 className="font-display text-4xl font-black text-foreground uppercase tracking-tight leading-none opacity-0 animate-fade-in animate-on-scroll">
               Contact Us
             </h2>
 
@@ -361,15 +392,43 @@ const ContactSection = () => {
                     <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
-                    <Input
-                      type="tel"
-                      id="phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="w-full h-10"
-                      placeholder="+91 98765 43210"
-                      required
-                    />
+                    <div className="flex">
+                      <div className="relative" ref={countryDropdownRef}>
+                        <div
+                          className="flex items-center h-10 px-3 border border-r-0 border-input rounded-l-md cursor-pointer bg-background hover:bg-gray-50"
+                          onClick={() => setShowCountryDropdown(!showCountryDropdown)}
+                        >
+                          <span className="text-sm font-medium">{countryCode}</span>
+                          <ChevronDown className="h-4 w-4 ml-1 text-gray-500" />
+                        </div>
+
+                        {showCountryDropdown && (
+                          <div className="absolute z-10 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto">
+                            {countryCodes.map((country) => (
+                              <div
+                                key={country.code}
+                                className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                                onClick={() => {
+                                  setCountryCode(country.code);
+                                  setShowCountryDropdown(false);
+                                }}
+                              >
+                                <span className="font-medium">{country.code}</span> {country.country}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <Input
+                        type="tel"
+                        id="phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="flex-1 h-10 rounded-l-none"
+                        placeholder="98765 43210"
+                        required
+                      />
+                    </div>
                   </div>
 
                   <div>
